@@ -86,7 +86,7 @@ export default function Index() {
                   ) : (
                     <div className="flex items-center justify-center gap-1 text-sm font-bold text-muted-foreground">
                       <Lock size={14} />
-                      Need {cat.unlockXP.toLocaleString()} XP to unlock
+                      Complete previous category to unlock
                     </div>
                   )}
                 </Link>
