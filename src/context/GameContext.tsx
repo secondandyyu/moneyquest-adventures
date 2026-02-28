@@ -90,18 +90,26 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const isLevelUnlocked = (levelId: string) => {
     for (const cat of categories) {
-      const level = cat.levels.find((l) => l.id === levelId);
-      if (level) {
+      const levelIdx = cat.levels.findIndex((l) => l.id === levelId);
+      if (levelIdx !== -1) {
         if (!isCategoryUnlocked(cat.id)) return false;
-        return state.xp >= level.unlockXP;
+        if (levelIdx === 0) return true; // First level always unlocked
+        // Previous level must be completed
+        const prevLevel = cat.levels[levelIdx - 1];
+        return prevLevel.scenarios.every((s) => !!state.completedScenarios[s.id]);
       }
     }
     return false;
   };
 
   const isCategoryUnlocked = (categoryId: string) => {
-    const cat = categories.find((c) => c.id === categoryId);
-    return cat ? state.xp >= cat.unlockXP : false;
+    const catIdx = categories.findIndex((c) => c.id === categoryId);
+    if (catIdx <= 0) return true; // First category always unlocked
+    // Previous category must have all levels completed
+    const prevCat = categories[catIdx - 1];
+    return prevCat.levels.every((level) =>
+      level.scenarios.every((s) => !!state.completedScenarios[s.id])
+    );
   };
 
   const isLevelCompleted = (levelId: string) => {

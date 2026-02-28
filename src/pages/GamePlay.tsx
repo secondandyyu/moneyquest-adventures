@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/context/GameContext";
 import { getLevelById } from "@/data/gameData";
 import type { Scenario, Choice, ChoiceQuality } from "@/data/gameData";
+import { scenarioIllustrations } from "@/data/scenarioIllustrations";
 import swanImg from "@/assets/swan-guide.png";
 import beaverImg from "@/assets/beaver-guide.png";
 import dogImg from "@/assets/dog-guide.png";
@@ -178,6 +179,17 @@ export default function GamePlay() {
                 <p className="font-extrabold text-sm">{level.topic}</p>
               </div>
             </div>
+
+            {/* Scenario illustration */}
+            {scenarioIllustrations[scenario.id] && (
+              <div className="rounded-2xl overflow-hidden border-2 border-border mb-4">
+                <img
+                  src={scenarioIllustrations[scenario.id]}
+                  alt="Scenario illustration"
+                  className="w-full h-48 md:h-64 object-cover"
+                />
+              </div>
+            )}
 
             {/* Context story */}
             <div className="bg-card border-2 border-border rounded-2xl p-5 mb-4">

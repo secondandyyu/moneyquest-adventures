@@ -60,7 +60,7 @@ export default function Levels() {
         <div className="text-center py-12 bg-muted/50 rounded-2xl border-2 border-dashed border-border">
           <Lock size={40} className="mx-auto mb-3 text-muted-foreground" />
           <p className="font-bold text-lg">Locked</p>
-          <p className="text-muted-foreground">Need {cat.unlockXP.toLocaleString()} XP to unlock</p>
+          <p className="text-muted-foreground">Complete all levels in the previous category to unlock</p>
         </div>
       ) : (
         <div className="space-y-4">
@@ -112,7 +112,7 @@ export default function Levels() {
                           Level {i + 1}: {level.title}
                         </h3>
                         <p className="text-sm text-muted-foreground">
-                          Need {level.unlockXP.toLocaleString()} XP to unlock
+                          Complete the previous level to unlock
                         </p>
                       </div>
                     </div>

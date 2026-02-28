@@ -14,6 +14,7 @@ export interface Scenario {
   choices: Choice[];
   justification: string;
   isQuiz?: boolean;
+  illustration?: string;
 }
 
 export interface Level {
