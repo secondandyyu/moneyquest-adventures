@@ -1,6 +1,6 @@
 import { useGame } from "@/context/GameContext";
 import { motion } from "framer-motion";
-import { Star, Palette, Type, Sparkles, Check } from "lucide-react";
+import { Star, Palette, Type, Sparkles, Check, Zap } from "lucide-react";
 import { toast } from "sonner";
 
 interface ShopItem {
@@ -27,11 +27,27 @@ const shopItems: ShopItem[] = [
 ];
 
 export default function Shop() {
-  const { state, purchaseItem, isItemPurchased } = useGame();
+  const { state, purchaseItem, isItemPurchased, equipItem } = useGame();
 
-  const handlePurchase = (item: ShopItem) => {
-    if (isItemPurchased(item.id)) {
-      toast.info("You already own this item!");
+  const isEquipped = (item: ShopItem) => {
+    if (item.type === "theme") return state.activeTheme === item.value;
+    if (item.type === "font") return state.activeFont === item.value;
+    return false;
+  };
+
+  const handleClick = (item: ShopItem) => {
+    const owned = isItemPurchased(item.id);
+    if (owned) {
+      if (item.type === "cosmetic") {
+        toast.info("Cosmetic equipped!");
+        return;
+      }
+      if (isEquipped(item)) {
+        toast.info("Already equipped!");
+        return;
+      }
+      equipItem(item);
+      toast.success(`Equipped ${item.name}! ✨`);
       return;
     }
     if (state.xp < item.price) {
@@ -68,6 +84,7 @@ export default function Shop() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {items.map((item, i) => {
               const owned = isItemPurchased(item.id);
+              const equipped = isEquipped(item);
               const canAfford = state.xp >= item.price;
 
               return (
@@ -76,17 +93,24 @@ export default function Shop() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.03 * i }}
-                  onClick={() => handlePurchase(item)}
-                  disabled={owned}
+                  onClick={() => handleClick(item)}
                   className={`relative text-left p-4 rounded-2xl border-2 transition-all ${
-                    owned
-                      ? "border-success bg-success/5"
+                    equipped
+                      ? "border-primary bg-primary/10 ring-2 ring-primary/30"
+                      : owned
+                      ? "border-success bg-success/5 hover:border-primary hover:bg-primary/5"
                       : canAfford
                       ? "border-border bg-card hover:border-primary hover:shadow-md"
                       : "border-border bg-muted/50 opacity-60"
                   }`}
                 >
-                  {owned && (
+                  {equipped && (
+                    <div className="absolute top-2 right-2 flex items-center gap-1 bg-primary text-primary-foreground px-2 py-0.5 rounded-full">
+                      <Zap size={10} />
+                      <span className="text-[10px] font-bold">Active</span>
+                    </div>
+                  )}
+                  {owned && !equipped && (
                     <div className="absolute top-2 right-2">
                       <Check size={16} className="text-success" />
                     </div>
@@ -94,8 +118,16 @@ export default function Shop() {
                   <div className="text-3xl mb-2">{item.preview}</div>
                   <p className="font-extrabold text-sm">{item.name}</p>
                   <div className="flex items-center gap-1 mt-1">
-                    <Star size={12} className="text-xp fill-xp" />
-                    <span className="text-xs font-bold">{item.price.toLocaleString()} XP</span>
+                    {owned ? (
+                      <span className="text-xs font-bold text-success">
+                        {equipped ? "Equipped" : "Tap to equip"}
+                      </span>
+                    ) : (
+                      <>
+                        <Star size={12} className="text-xp fill-xp" />
+                        <span className="text-xs font-bold">{item.price.toLocaleString()} XP</span>
+                      </>
+                    )}
                   </div>
                 </motion.button>
               );

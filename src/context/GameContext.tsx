@@ -35,6 +35,7 @@ interface GameContextType {
   getCategoryProgress: (categoryId: string) => { completed: number; total: number };
   purchaseItem: (item: ShopItem) => boolean;
   isItemPurchased: (itemId: string) => boolean;
+  equipItem: (item: ShopItem) => void;
   resetProgress: () => void;
 }
 
@@ -147,6 +148,15 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const isItemPurchased = (itemId: string) => state.purchasedItems.includes(itemId);
 
+  const equipItem = (item: ShopItem) => {
+    if (!state.purchasedItems.includes(item.id)) return;
+    setState((s) => ({
+      ...s,
+      ...(item.type === "theme" ? { activeTheme: item.value } : {}),
+      ...(item.type === "font" ? { activeFont: item.value } : {}),
+    }));
+  };
+
   const resetProgress = () => {
     setState(defaultState);
   };
@@ -165,6 +175,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
         getCategoryProgress,
         purchaseItem,
         isItemPurchased,
+        equipItem,
         resetProgress,
       }}
     >
