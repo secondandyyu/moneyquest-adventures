@@ -27,27 +27,19 @@ const qualityLabels: Record<ChoiceQuality, string> = {
 export default function GamePlay() {
   const { levelId } = useParams<{ levelId: string }>();
   const navigate = useNavigate();
-  const location = useLocation();
-  const { completeScenario, isScenarioCompleted, getScenarioResult, state, resetLevel } = useGame();
+  const { completeScenario, isScenarioCompleted, getScenarioResult, state, isLevelCompleted } = useGame();
 
   const result = useMemo(() => getLevelById(levelId || ""), [levelId]);
+
+  // Determine if this is a replay (level was already completed when we entered)
+  const [isReplay] = useState(() => !!levelId && isLevelCompleted(levelId));
 
   const [currentScenarioIdx, setCurrentScenarioIdx] = useState(0);
   const [selectedChoice, setSelectedChoice] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
-  const locationKey = location.state?.ts || location.key;
-
-  useEffect(() => {
-    if (levelId) {
-      resetLevel(levelId);
-      setCurrentScenarioIdx(0);
-      setSelectedChoice(null);
-      setShowResult(false);
-      setShowSummary(false);
-      
-    }
-  }, [levelId, locationKey]);
+  // Track which scenarios the user has answered during THIS session
+  const [sessionAnswers, setSessionAnswers] = useState<Record<string, { choiceIndex: number; xpEarned: number }>>({});
 
   if (!result) {
     return (
@@ -63,16 +55,21 @@ export default function GamePlay() {
   const { category, level } = result;
   const scenario = level.scenarios[currentScenarioIdx];
   const totalScenarios = level.scenarios.length;
-  const completedCount = level.scenarios.filter((s) => isScenarioCompleted(s.id)).length;
 
-  const alreadyCompleted = isScenarioCompleted(scenario.id);
-  const prevResult = getScenarioResult(scenario.id);
+  // In replay mode, use session answers; in first-play mode, use global state
+  const isScenarioAnsweredThisSession = (sId: string) => !!sessionAnswers[sId];
+  const currentScenarioAnswered = isReplay ? isScenarioAnsweredThisSession(scenario.id) : isScenarioCompleted(scenario.id);
 
   const handleChoice = (index: number, choice: Choice) => {
-    if (alreadyCompleted || showResult) return;
+    if (currentScenarioAnswered || showResult) return;
     setSelectedChoice(index);
     setShowResult(true);
-    completeScenario(scenario.id, index, choice.xp);
+    if (isReplay) {
+      // Don't award XP on replay, just track the answer locally
+      setSessionAnswers((prev) => ({ ...prev, [scenario.id]: { choiceIndex: index, xpEarned: 0 } }));
+    } else {
+      completeScenario(scenario.id, index, choice.xp);
+    }
   };
 
   const nextScenario = () => {
