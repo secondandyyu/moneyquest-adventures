@@ -45,7 +45,7 @@ export default function GamePlay() {
       setSelectedChoice(null);
       setShowResult(false);
       setShowSummary(false);
-      setResetKey((k) => k + 1);
+      
     }
   }, [levelId, locationKey]);
 
