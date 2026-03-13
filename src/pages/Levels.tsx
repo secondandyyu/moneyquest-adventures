@@ -79,7 +79,7 @@ export default function Levels() {
                 {unlocked ? (
                   <Link
                     to={`/play/${level.id}`}
-                    state={{ ts: Date.now() }}
+                    
                     className={`block rounded-2xl border-2 p-5 transition-all hover:shadow-lg hover:scale-[1.01] ${
                       completed ? "border-success bg-success/5" : "border-primary bg-card"
                     }`}
