@@ -91,27 +91,38 @@ export default function GamePlay() {
   };
 
   if (showSummary) {
-    const totalXP = level.scenarios.reduce((sum, s) => {
-      const r = getScenarioResult(s.id);
-      return sum + (r?.xpEarned || 0);
-    }, 0);
+    const sessionCompletedCount = Object.keys(sessionAnswers).length;
+    const totalSessionXP = isReplay
+      ? 0
+      : level.scenarios.reduce((sum, s) => {
+          const r = getScenarioResult(s.id);
+          return sum + (r?.xpEarned || 0);
+        }, 0);
 
     return (
       <div className="container py-12 px-4 max-w-lg mx-auto text-center">
         <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
           <Trophy size={64} className="mx-auto text-xp mb-4" />
-          <h1 className="text-3xl font-black mb-2">Level Complete!</h1>
+          <h1 className="text-3xl font-black mb-2">{isReplay ? "Review Complete!" : "Level Complete!"}</h1>
           <h2 className="text-xl font-bold text-muted-foreground mb-6">{level.title}</h2>
 
           <div className="bg-card border-2 border-border rounded-2xl p-6 mb-6">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <Star className="text-xp fill-xp" size={24} />
-              <span className="text-2xl font-black">{totalXP}</span>
-              <span className="font-bold text-muted-foreground">XP earned</span>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              {completedCount}/{totalScenarios} scenarios completed
-            </p>
+            {isReplay ? (
+              <p className="text-sm text-muted-foreground">
+                You reviewed all {totalScenarios} scenarios. No XP awarded on replay.
+              </p>
+            ) : (
+              <>
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <Star className="text-xp fill-xp" size={24} />
+                  <span className="text-2xl font-black">{totalSessionXP}</span>
+                  <span className="font-bold text-muted-foreground">XP earned</span>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  {sessionCompletedCount}/{totalScenarios} scenarios completed
+                </p>
+              </>
+            )}
           </div>
 
           <div className="flex gap-3 justify-center">
@@ -133,8 +144,10 @@ export default function GamePlay() {
     );
   }
 
-  const activeChoice = alreadyCompleted ? prevResult?.choiceIndex ?? null : selectedChoice;
-  const isRevealed = alreadyCompleted || showResult;
+  const activeChoice = currentScenarioAnswered
+    ? (isReplay ? sessionAnswers[scenario.id]?.choiceIndex ?? null : getScenarioResult(scenario.id)?.choiceIndex ?? null)
+    : selectedChoice;
+  const isRevealed = currentScenarioAnswered || showResult;
 
   return (
     <div className="min-h-screen">
