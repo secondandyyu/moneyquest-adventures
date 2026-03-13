@@ -37,6 +37,7 @@ interface GameContextType {
   isItemPurchased: (itemId: string) => boolean;
   equipItem: (item: ShopItem) => void;
   resetProgress: () => void;
+  resetLevel: (levelId: string) => void;
 }
 
 const defaultState: GameState = {
