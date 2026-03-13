@@ -36,7 +36,7 @@ export default function GamePlay() {
   const [selectedChoice, setSelectedChoice] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
-  const [resetKey, setResetKey] = useState(0);
+  const locationKey = location.state?.ts || location.key;
 
   useEffect(() => {
     if (levelId) {
@@ -47,7 +47,7 @@ export default function GamePlay() {
       setShowSummary(false);
       setResetKey((k) => k + 1);
     }
-  }, [levelId]);
+  }, [levelId, locationKey]);
 
   if (!result) {
     return (
