@@ -35,9 +35,17 @@ export default function GamePlay() {
   const [selectedChoice, setSelectedChoice] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
+  const [resetKey, setResetKey] = useState(0);
 
   useEffect(() => {
-    if (levelId) resetLevel(levelId);
+    if (levelId) {
+      resetLevel(levelId);
+      setCurrentScenarioIdx(0);
+      setSelectedChoice(null);
+      setShowResult(false);
+      setShowSummary(false);
+      setResetKey((k) => k + 1);
+    }
   }, [levelId]);
 
   if (!result) {
