@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/context/GameContext";
 import { getLevelById } from "@/data/gameData";
@@ -27,6 +27,7 @@ const qualityLabels: Record<ChoiceQuality, string> = {
 export default function GamePlay() {
   const { levelId } = useParams<{ levelId: string }>();
   const navigate = useNavigate();
+  const location = useLocation();
   const { completeScenario, isScenarioCompleted, getScenarioResult, state, resetLevel } = useGame();
 
   const result = useMemo(() => getLevelById(levelId || ""), [levelId]);
@@ -35,10 +36,18 @@ export default function GamePlay() {
   const [selectedChoice, setSelectedChoice] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
+  const locationKey = location.state?.ts || location.key;
 
   useEffect(() => {
-    if (levelId) resetLevel(levelId);
-  }, [levelId]);
+    if (levelId) {
+      resetLevel(levelId);
+      setCurrentScenarioIdx(0);
+      setSelectedChoice(null);
+      setShowResult(false);
+      setShowSummary(false);
+      
+    }
+  }, [levelId, locationKey]);
 
   if (!result) {
     return (
