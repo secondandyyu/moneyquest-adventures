@@ -198,6 +198,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
         isItemPurchased,
         equipItem,
         resetProgress,
+        resetLevel,
       }}
     >
       {children}

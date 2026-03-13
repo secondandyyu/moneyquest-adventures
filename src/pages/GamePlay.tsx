@@ -36,6 +36,10 @@ export default function GamePlay() {
   const [showResult, setShowResult] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
 
+  useEffect(() => {
+    if (levelId) resetLevel(levelId);
+  }, [levelId]);
+
   if (!result) {
     return (
       <div className="container py-12 text-center">
