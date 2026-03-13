@@ -37,6 +37,7 @@ interface GameContextType {
   isItemPurchased: (itemId: string) => boolean;
   equipItem: (item: ShopItem) => void;
   resetProgress: () => void;
+  resetLevel: (levelId: string) => void;
 }
 
 const defaultState: GameState = {
@@ -157,6 +158,26 @@ export function GameProvider({ children }: { children: ReactNode }) {
     }));
   };
 
+  const resetLevel = (levelId: string) => {
+    for (const cat of categories) {
+      const level = cat.levels.find((l) => l.id === levelId);
+      if (level) {
+        setState((s) => {
+          const newCompleted = { ...s.completedScenarios };
+          let xpToRemove = 0;
+          for (const scenario of level.scenarios) {
+            if (newCompleted[scenario.id]) {
+              xpToRemove += newCompleted[scenario.id].xpEarned;
+              delete newCompleted[scenario.id];
+            }
+          }
+          return { ...s, xp: s.xp - xpToRemove, completedScenarios: newCompleted };
+        });
+        break;
+      }
+    }
+  };
+
   const resetProgress = () => {
     setState(defaultState);
   };
@@ -177,6 +198,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
         isItemPurchased,
         equipItem,
         resetProgress,
+        resetLevel,
       }}
     >
       {children}
