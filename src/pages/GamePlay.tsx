@@ -91,7 +91,9 @@ export default function GamePlay() {
   };
 
   if (showSummary) {
-    const sessionCompletedCount = Object.keys(sessionAnswers).length;
+    const sessionCompletedCount = isReplay
+      ? Object.keys(sessionAnswers).length
+      : level.scenarios.filter((s) => isScenarioCompleted(s.id)).length;
     const totalSessionXP = isReplay
       ? 0
       : level.scenarios.reduce((sum, s) => {
