@@ -18,8 +18,14 @@ const shopItems: ShopItem[] = [
   { id: "theme-sunset", name: "Sunset Theme", price: 800, type: "theme", value: "sunset", icon: Palette, preview: "🌅" },
   { id: "theme-forest", name: "Forest Theme", price: 800, type: "theme", value: "forest", icon: Palette, preview: "🌲" },
   { id: "theme-candy", name: "Candy Theme", price: 1000, type: "theme", value: "candy", icon: Palette, preview: "🍬" },
+  { id: "theme-galaxy", name: "Galaxy Theme", price: 1200, type: "theme", value: "galaxy", icon: Palette, preview: "🌌" },
+  { id: "theme-arctic", name: "Arctic Theme", price: 900, type: "theme", value: "arctic", icon: Palette, preview: "❄️" },
+  { id: "theme-lavender", name: "Lavender Theme", price: 900, type: "theme", value: "lavender", icon: Palette, preview: "💜" },
   { id: "font-comic", name: "Comic Font", price: 500, type: "font", value: "comic", icon: Type, preview: "Aa" },
   { id: "font-pixel", name: "Pixel Font", price: 500, type: "font", value: "pixel", icon: Type, preview: "Aa" },
+  { id: "font-cursive", name: "Cursive Font", price: 600, type: "font", value: "cursive", icon: Type, preview: "𝒜𝒶" },
+  { id: "font-rounded", name: "Rounded Font", price: 600, type: "font", value: "rounded", icon: Type, preview: "Aa" },
+  { id: "font-mono", name: "Mono Font", price: 500, type: "font", value: "mono", icon: Type, preview: "Aa" },
   { id: "cosmetic-crown", name: "Golden Crown", price: 1500, type: "cosmetic", value: "crown", icon: Sparkles, preview: "👑" },
   { id: "cosmetic-glasses", name: "Cool Glasses", price: 1000, type: "cosmetic", value: "glasses", icon: Sparkles, preview: "🕶️" },
   { id: "cosmetic-cape", name: "Hero Cape", price: 1200, type: "cosmetic", value: "cape", icon: Sparkles, preview: "🦸" },
@@ -27,11 +33,12 @@ const shopItems: ShopItem[] = [
 ];
 
 export default function Shop() {
-  const { state, purchaseItem, isItemPurchased, equipItem } = useGame();
+  const { state, purchaseItem, isItemPurchased, equipItem, toggleCosmetic } = useGame();
 
   const isEquipped = (item: ShopItem) => {
     if (item.type === "theme") return state.activeTheme === item.value;
     if (item.type === "font") return state.activeFont === item.value;
+    if (item.type === "cosmetic") return state.activeCosmetics.includes(item.value);
     return false;
   };
 
@@ -39,7 +46,9 @@ export default function Shop() {
     const owned = isItemPurchased(item.id);
     if (owned) {
       if (item.type === "cosmetic") {
-        toast.info("Cosmetic equipped!");
+        toggleCosmetic(item.value);
+        const equipped = state.activeCosmetics.includes(item.value);
+        toast.success(equipped ? `Unequipped ${item.name}` : `Equipped ${item.name}! ✨`);
         return;
       }
       if (isEquipped(item)) {
@@ -120,7 +129,7 @@ export default function Shop() {
                   <div className="flex items-center gap-1 mt-1">
                     {owned ? (
                       <span className="text-xs font-bold text-success">
-                        {equipped ? "Equipped" : "Tap to equip"}
+                        {equipped ? (item.type === "cosmetic" ? "Tap to unequip" : "Equipped") : "Tap to equip"}
                       </span>
                     ) : (
                       <>

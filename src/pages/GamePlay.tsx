@@ -207,11 +207,12 @@ export default function GamePlay() {
 
             {/* Scenario illustration */}
             {scenarioIllustrations[scenario.id] && (
-              <div className="rounded-2xl overflow-hidden border-2 border-border mb-4">
+            <div className="rounded-2xl overflow-hidden border-2 border-border mb-4 bg-card shadow-sm">
                 <img
                   src={scenarioIllustrations[scenario.id]}
                   alt="Scenario illustration"
                   className="w-full h-48 md:h-64 object-cover"
+                  style={{ filter: "saturate(0.85) contrast(0.95) brightness(1.02)" }}
                 />
               </div>
             )}

@@ -233,4 +233,13 @@
   .font-pixel {
     font-family: "Courier New", Courier, monospace;
   }
+  .font-cursive {
+    font-family: "Segoe Script", "Brush Script MT", cursive, sans-serif;
+  }
+  .font-rounded {
+    font-family: "Varela Round", "Arial Rounded MT Bold", sans-serif;
+  }
+  .font-mono {
+    font-family: "Fira Code", "SF Mono", "Consolas", monospace;
+  }
 }
