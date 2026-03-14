@@ -5,6 +5,7 @@ import { useGame } from "@/context/GameContext";
 import { getLevelById } from "@/data/gameData";
 import type { Scenario, Choice, ChoiceQuality } from "@/data/gameData";
 import { scenarioIllustrations } from "@/data/scenarioIllustrations";
+import GuideAvatar from "@/components/GuideAvatar";
 import swanImg from "@/assets/swan-guide.png";
 import beaverImg from "@/assets/beaver-guide.png";
 import dogImg from "@/assets/dog-guide.png";
@@ -91,7 +92,9 @@ export default function GamePlay() {
   };
 
   if (showSummary) {
-    const sessionCompletedCount = Object.keys(sessionAnswers).length;
+    const sessionCompletedCount = isReplay
+      ? Object.keys(sessionAnswers).length
+      : level.scenarios.filter((s) => isScenarioCompleted(s.id)).length;
     const totalSessionXP = isReplay
       ? 0
       : level.scenarios.reduce((sum, s) => {
@@ -194,7 +197,7 @@ export default function GamePlay() {
           >
             {/* Guide + Level info */}
             <div className="flex items-center gap-3 mb-4">
-              <img src={guideImages[category.guide]} alt="" className="w-12 h-12 object-contain" />
+              <GuideAvatar src={guideImages[category.guide]} size="sm" />
               <div>
                 <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide">
                   {level.title} — Scenario {currentScenarioIdx + 1}
@@ -205,11 +208,12 @@ export default function GamePlay() {
 
             {/* Scenario illustration */}
             {scenarioIllustrations[scenario.id] && (
-              <div className="rounded-2xl overflow-hidden border-2 border-border mb-4">
+            <div className="rounded-2xl overflow-hidden border-2 border-border mb-4 bg-card shadow-sm">
                 <img
                   src={scenarioIllustrations[scenario.id]}
                   alt="Scenario illustration"
                   className="w-full h-48 md:h-64 object-cover"
+                  style={{ filter: "saturate(0.85) contrast(0.95) brightness(1.02)" }}
                 />
               </div>
             )}

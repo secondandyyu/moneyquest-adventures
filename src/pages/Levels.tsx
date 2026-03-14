@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useGame } from "@/context/GameContext";
 import { categories } from "@/data/gameData";
+import GuideAvatar from "@/components/GuideAvatar";
 import swanImg from "@/assets/swan-guide.png";
 import beaverImg from "@/assets/beaver-guide.png";
 import dogImg from "@/assets/dog-guide.png";
@@ -39,7 +40,7 @@ export default function Levels() {
                   : "border-border bg-muted/50 opacity-50 cursor-not-allowed"
               }`}
             >
-              <img src={guideImages[c.guide]} alt="" className="w-6 h-6 object-contain" />
+              <GuideAvatar src={guideImages[c.guide]} size="sm" />
               {c.name.split("'")[0]}
               {!unlocked && <Lock size={12} />}
             </button>
@@ -49,7 +50,7 @@ export default function Levels() {
 
       {/* Category header */}
       <div className="flex items-center gap-4 mb-6">
-        <img src={guideImages[cat.guide]} alt={cat.name} className="w-16 h-16 object-contain" />
+        <GuideAvatar src={guideImages[cat.guide]} size="md" />
         <div>
           <h2 className="text-xl font-extrabold">{cat.name}</h2>
           <p className="text-sm text-muted-foreground">{cat.description}</p>

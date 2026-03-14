@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useGame } from "@/context/GameContext";
 import { categories } from "@/data/gameData";
+import GuideAvatar from "@/components/GuideAvatar";
 import swanImg from "@/assets/swan-guide.png";
 import beaverImg from "@/assets/beaver-guide.png";
 import dogImg from "@/assets/dog-guide.png";
@@ -70,13 +71,13 @@ export default function Index() {
                   }`}
                   onClick={(e) => !unlocked && e.preventDefault()}
                 >
-                  <motion.img
-                    src={guideImages[cat.guide]}
-                    alt={cat.name}
-                    className="w-28 h-28 mx-auto mb-4 object-contain"
+                  <motion.div
                     animate={unlocked ? { y: [0, -8, 0] } : {}}
                     transition={{ duration: 3, repeat: Infinity }}
-                  />
+                    className="mx-auto mb-4"
+                  >
+                    <GuideAvatar src={guideImages[cat.guide]} size="lg" />
+                  </motion.div>
                   <h3 className="text-xl font-extrabold mb-1">{cat.name}</h3>
                   <p className="text-sm text-muted-foreground mb-3">{cat.description}</p>
                   {unlocked ? (

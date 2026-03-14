@@ -21,6 +21,7 @@ interface GameState {
   purchasedItems: string[];
   activeTheme: string;
   activeFont: string;
+  activeCosmetics: string[];
 }
 
 interface GameContextType {
@@ -36,6 +37,7 @@ interface GameContextType {
   purchaseItem: (item: ShopItem) => boolean;
   isItemPurchased: (itemId: string) => boolean;
   equipItem: (item: ShopItem) => void;
+  toggleCosmetic: (value: string) => void;
   resetProgress: () => void;
   resetLevel: (levelId: string) => void;
 }
@@ -46,6 +48,7 @@ const defaultState: GameState = {
   purchasedItems: [],
   activeTheme: "default",
   activeFont: "nunito",
+  activeCosmetics: [],
 };
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
@@ -53,7 +56,10 @@ const GameContext = createContext<GameContextType | undefined>(undefined);
 function loadState(): GameState {
   try {
     const saved = localStorage.getItem("moneyquest-progress");
-    if (saved) return JSON.parse(saved);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      return { ...defaultState, ...parsed };
+    }
   } catch {}
   return defaultState;
 }
@@ -95,8 +101,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
       const levelIdx = cat.levels.findIndex((l) => l.id === levelId);
       if (levelIdx !== -1) {
         if (!isCategoryUnlocked(cat.id)) return false;
-        if (levelIdx === 0) return true; // First level always unlocked
-        // Previous level must be completed
+        if (levelIdx === 0) return true;
         const prevLevel = cat.levels[levelIdx - 1];
         return prevLevel.scenarios.every((s) => !!state.completedScenarios[s.id]);
       }
@@ -106,8 +111,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const isCategoryUnlocked = (categoryId: string) => {
     const catIdx = categories.findIndex((c) => c.id === categoryId);
-    if (catIdx <= 0) return true; // First category always unlocked
-    // Previous category must have all levels completed
+    if (catIdx <= 0) return true;
     const prevCat = categories[catIdx - 1];
     return prevCat.levels.every((level) =>
       level.scenarios.every((s) => !!state.completedScenarios[s.id])
@@ -143,6 +147,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
       purchasedItems: [...s.purchasedItems, item.id],
       ...(item.type === "theme" ? { activeTheme: item.value } : {}),
       ...(item.type === "font" ? { activeFont: item.value } : {}),
+      ...(item.type === "cosmetic" ? { activeCosmetics: [...s.activeCosmetics, item.value] } : {}),
     }));
     return true;
   };
@@ -155,6 +160,15 @@ export function GameProvider({ children }: { children: ReactNode }) {
       ...s,
       ...(item.type === "theme" ? { activeTheme: item.value } : {}),
       ...(item.type === "font" ? { activeFont: item.value } : {}),
+    }));
+  };
+
+  const toggleCosmetic = (value: string) => {
+    setState((s) => ({
+      ...s,
+      activeCosmetics: s.activeCosmetics.includes(value)
+        ? s.activeCosmetics.filter((c) => c !== value)
+        : [...s.activeCosmetics, value],
     }));
   };
 
@@ -197,6 +211,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
         purchaseItem,
         isItemPurchased,
         equipItem,
+        toggleCosmetic,
         resetProgress,
         resetLevel,
       }}
