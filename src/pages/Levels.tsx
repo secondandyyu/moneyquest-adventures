@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useGame } from "@/context/GameContext";
 import { categories } from "@/data/gameData";
+import GuideAvatar from "@/components/GuideAvatar";
 import swanImg from "@/assets/swan-guide.png";
 import beaverImg from "@/assets/beaver-guide.png";
 import dogImg from "@/assets/dog-guide.png";
