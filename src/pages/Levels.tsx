@@ -40,7 +40,7 @@ export default function Levels() {
                   : "border-border bg-muted/50 opacity-50 cursor-not-allowed"
               }`}
             >
-              <img src={guideImages[c.guide]} alt="" className="w-6 h-6 object-contain" />
+              <GuideAvatar src={guideImages[c.guide]} size="sm" />
               {c.name.split("'")[0]}
               {!unlocked && <Lock size={12} />}
             </button>
