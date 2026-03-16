@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useGame } from "@/context/GameContext";
 import { Star, BookOpen, ShoppingBag, Info, Gamepad2, RotateCcw } from "lucide-react";
 import { motion } from "framer-motion";
+import logoImg from "@/assets/moneyquest-logo.png";
 
 const navItems = [
   { path: "/", label: "Home", icon: Gamepad2 },
