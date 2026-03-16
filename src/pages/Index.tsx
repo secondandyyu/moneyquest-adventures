@@ -7,6 +7,7 @@ import swanImg from "@/assets/swan-guide.png";
 import beaverImg from "@/assets/beaver-guide.png";
 import dogImg from "@/assets/dog-guide.png";
 import { Lock, ChevronRight, Star } from "lucide-react";
+import logoImg from "@/assets/moneyquest-logo.png";
 
 const guideImages: Record<string, string> = { swan: swanImg, beaver: beaverImg, dog: dogImg };
 
