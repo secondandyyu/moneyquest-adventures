@@ -7,6 +7,7 @@ import swanImg from "@/assets/swan-guide.png";
 import beaverImg from "@/assets/beaver-guide.png";
 import dogImg from "@/assets/dog-guide.png";
 import { Lock, ChevronRight, Star } from "lucide-react";
+import logoImg from "@/assets/moneyquest-logo.png";
 
 const guideImages: Record<string, string> = { swan: swanImg, beaver: beaverImg, dog: dogImg };
 
@@ -18,13 +19,13 @@ export default function Index() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-secondary/30 to-accent/20 py-16 px-4">
         <div className="container text-center max-w-2xl mx-auto">
-          <motion.h1
+          <motion.img
+            src={logoImg}
+            alt="MoneyQuest"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="text-5xl md:text-6xl font-black text-foreground mb-4"
-          >
-            💰 MoneyQuest
-          </motion.h1>
+            className="h-20 md:h-28 mx-auto mb-4"
+          />
           <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

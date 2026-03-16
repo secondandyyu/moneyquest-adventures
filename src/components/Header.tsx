@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useGame } from "@/context/GameContext";
 import { Star, BookOpen, ShoppingBag, Info, Gamepad2, RotateCcw } from "lucide-react";
 import { motion } from "framer-motion";
+import logoImg from "@/assets/moneyquest-logo.png";
 
 const navItems = [
   { path: "/", label: "Home", icon: Gamepad2 },
@@ -19,7 +20,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-card/90 backdrop-blur-md">
       <div className="container flex items-center justify-between py-3">
         <Link to="/" className="flex items-center gap-2">
-          <span className="text-2xl font-black text-primary">💰 MoneyQuest</span>
+          <img src={logoImg} alt="MoneyQuest" className="h-10" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
