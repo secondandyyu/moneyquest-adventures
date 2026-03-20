@@ -143,7 +143,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
     if (state.xp < item.price || state.purchasedItems.includes(item.id)) return false;
     setState((s) => ({
       ...s,
-      xp: s.xp - item.price,
+      xp: Math.max(0, s.xp - item.price),
       purchasedItems: [...s.purchasedItems, item.id],
       ...(item.type === "theme" ? { activeTheme: item.value } : {}),
       ...(item.type === "font" ? { activeFont: item.value } : {}),
