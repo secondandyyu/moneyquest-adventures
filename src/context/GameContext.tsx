@@ -76,7 +76,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
   }, [state]);
 
   const addXP = (amount: number) => {
-    setState((s) => ({ ...s, xp: s.xp + amount }));
+    setState((s) => ({ ...s, xp: Math.max(0, s.xp + amount) }));
   };
 
   const completeScenario = (scenarioId: string, choiceIndex: number, xpEarned: number) => {
