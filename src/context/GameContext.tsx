@@ -76,7 +76,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
   }, [state]);
 
   const addXP = (amount: number) => {
-    setState((s) => ({ ...s, xp: s.xp + amount }));
+    setState((s) => ({ ...s, xp: Math.max(0, s.xp + amount) }));
   };
 
   const completeScenario = (scenarioId: string, choiceIndex: number, xpEarned: number) => {
@@ -143,7 +143,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
     if (state.xp < item.price || state.purchasedItems.includes(item.id)) return false;
     setState((s) => ({
       ...s,
-      xp: s.xp - item.price,
+      xp: Math.max(0, s.xp - item.price),
       purchasedItems: [...s.purchasedItems, item.id],
       ...(item.type === "theme" ? { activeTheme: item.value } : {}),
       ...(item.type === "font" ? { activeFont: item.value } : {}),
@@ -185,7 +185,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
               delete newCompleted[scenario.id];
             }
           }
-          return { ...s, xp: s.xp - xpToRemove, completedScenarios: newCompleted };
+          return { ...s, xp: Math.max(0, s.xp - xpToRemove), completedScenarios: newCompleted };
         });
         break;
       }
