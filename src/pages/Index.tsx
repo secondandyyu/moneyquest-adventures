@@ -19,18 +19,11 @@ export default function Index() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-secondary/30 to-accent/20 py-16 px-4">
         <div className="container text-center max-w-2xl mx-auto">
-          <motion.img
-            src={logoImg}
-            alt="MoneyQuest"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            className="h-24 md:h-32 mx-auto mb-4 object-contain"
-          />
           <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1 }}
-            className="text-lg text-muted-foreground font-semibold mb-8"
+            className="text-2xl md:text-3xl text-muted-foreground font-semibold mb-8"
           >
             Learn money skills through epic adventures with your animal guides!
           </motion.p>
