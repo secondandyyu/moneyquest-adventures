@@ -20,7 +20,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-card/90 backdrop-blur-md">
       <div className="container flex items-center justify-between py-3">
         <Link to="/" className="flex items-center gap-2">
-          <img src={logoImg} alt="MoneyQuest" className="h-10" />
+          <img src={logoImg} alt="MoneyQuest" className="h-14" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
