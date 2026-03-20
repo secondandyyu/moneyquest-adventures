@@ -24,7 +24,7 @@ export default function Index() {
             alt="MoneyQuest"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="h-28 md:h-40 mx-auto mb-4"
+            className="h-40 md:h-56 mx-auto mb-4"
           />
           <motion.p
             initial={{ y: 20, opacity: 0 }}
