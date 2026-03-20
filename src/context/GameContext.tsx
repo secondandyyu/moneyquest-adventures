@@ -185,7 +185,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
               delete newCompleted[scenario.id];
             }
           }
-          return { ...s, xp: s.xp - xpToRemove, completedScenarios: newCompleted };
+          return { ...s, xp: Math.max(0, s.xp - xpToRemove), completedScenarios: newCompleted };
         });
         break;
       }
