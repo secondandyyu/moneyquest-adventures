@@ -29,7 +29,7 @@ interface GameState {
 interface GameContextType {
   state: GameState;
   addXP: (amount: number) => void;
-  completeScenario: (scenarioId: string, choiceIndex: number, xpEarned: number) => void;
+  completeScenario: (scenarioId: string, choiceIndex: number, xpEarned: number, quality: string) => void;
   isScenarioCompleted: (scenarioId: string) => boolean;
   getScenarioResult: (scenarioId: string) => ScenarioResult | undefined;
   isLevelUnlocked: (levelId: string) => boolean;
@@ -39,7 +39,8 @@ interface GameContextType {
   purchaseItem: (item: ShopItem) => boolean;
   isItemPurchased: (itemId: string) => boolean;
   equipItem: (item: ShopItem) => void;
-  toggleCosmetic: (value: string) => void;
+  togglePowerUp: (value: string) => void;
+  hasPowerUp: (value: string) => boolean;
   resetProgress: () => void;
   resetLevel: (levelId: string) => void;
 }
