@@ -227,7 +227,8 @@ export function GameProvider({ children }: { children: ReactNode }) {
         purchaseItem,
         isItemPurchased,
         equipItem,
-        toggleCosmetic,
+        togglePowerUp,
+        hasPowerUp,
         resetProgress,
         resetLevel,
       }}
