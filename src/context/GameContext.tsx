@@ -84,15 +84,23 @@ export function GameProvider({ children }: { children: ReactNode }) {
     setState((s) => ({ ...s, xp: Math.max(0, s.xp + amount) }));
   };
 
-  const completeScenario = (scenarioId: string, choiceIndex: number, xpEarned: number) => {
+  const hasPowerUp = (value: string) => state.activePowerUps.includes(value);
+
+  const completeScenario = (scenarioId: string, choiceIndex: number, xpEarned: number, quality: string) => {
     setState((s) => {
       if (s.completedScenarios[scenarioId]) return s;
+      const xpMultiplier = s.activePowerUps.includes("xp-booster") ? 1.5 : 1;
+      const finalXP = Math.round(xpEarned * xpMultiplier);
+      const newStreak = quality === "best" ? s.streak + 1 : 0;
+      const newBestStreak = Math.max(s.bestStreak, newStreak);
       return {
         ...s,
-        xp: s.xp + xpEarned,
+        xp: s.xp + finalXP,
+        streak: newStreak,
+        bestStreak: newBestStreak,
         completedScenarios: {
           ...s.completedScenarios,
-          [scenarioId]: { scenarioId, choiceIndex, xpEarned },
+          [scenarioId]: { scenarioId, choiceIndex, xpEarned: finalXP },
         },
       };
     });
