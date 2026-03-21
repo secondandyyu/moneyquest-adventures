@@ -21,7 +21,9 @@ interface GameState {
   purchasedItems: string[];
   activeTheme: string;
   activeFont: string;
-  activeCosmetics: string[];
+  activePowerUps: string[];
+  streak: number;
+  bestStreak: number;
 }
 
 interface GameContextType {
