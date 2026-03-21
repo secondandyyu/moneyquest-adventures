@@ -97,6 +97,7 @@ export default function GamePlay() {
       setCurrentScenarioIdx((i) => i - 1);
       setSelectedChoice(null);
       setShowResult(false);
+      setShowHint(false);
     }
   };
 
