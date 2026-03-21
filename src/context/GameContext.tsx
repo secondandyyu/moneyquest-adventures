@@ -11,7 +11,7 @@ interface ShopItem {
   id: string;
   name: string;
   price: number;
-  type: "theme" | "font" | "cosmetic";
+  type: "theme" | "font" | "powerup";
   value: string;
 }
 
