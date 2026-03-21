@@ -66,12 +66,19 @@ export default function GamePlay() {
     if (currentScenarioAnswered || showResult) return;
     setSelectedChoice(index);
     setShowResult(true);
+    setShowHint(false);
     if (isReplay) {
-      // Don't award XP on replay, just track the answer locally
       setSessionAnswers((prev) => ({ ...prev, [scenario.id]: { choiceIndex: index, xpEarned: 0 } }));
     } else {
-      completeScenario(scenario.id, index, choice.xp);
+      completeScenario(scenario.id, index, choice.xp, choice.quality);
     }
+  };
+
+  const handleSecondChance = () => {
+    if (usedSecondChance[scenario.id]) return;
+    setUsedSecondChance((prev) => ({ ...prev, [scenario.id]: true }));
+    setSelectedChoice(null);
+    setShowResult(false);
   };
 
   const nextScenario = () => {
