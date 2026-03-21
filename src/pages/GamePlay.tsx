@@ -253,6 +253,37 @@ export default function GamePlay() {
               </div>
             )}
 
+            {/* Hint & Power-up buttons */}
+            {!isRevealed && (
+              <div className="flex gap-2 mb-3">
+                {hasPowerUp("hint") && !showHint && (
+                  <button
+                    onClick={() => setShowHint(true)}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-secondary/50 border border-secondary text-secondary-foreground hover:bg-secondary/70 transition-colors"
+                  >
+                    🔍 Use Hint
+                  </button>
+                )}
+              </div>
+            )}
+
+            {showHint && !isRevealed && (
+              <motion.div
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-secondary/30 border border-secondary/50 rounded-xl p-3 mb-3"
+              >
+                <p className="text-xs font-bold text-secondary-foreground">
+                  🔍 Hint: Look for the choice that shows the most responsible financial thinking.
+                  {(() => {
+                    const bestIdx = scenario.choices.findIndex(c => c.quality === "best");
+                    const badIdx = scenario.choices.findIndex(c => c.quality === "bad");
+                    return badIdx >= 0 ? ` Option ${String.fromCharCode(65 + badIdx)} might not be the best idea.` : "";
+                  })()}
+                </p>
+              </motion.div>
+            )}
+
             {/* Choices */}
             <div className="space-y-3 mb-4">
               <p className="font-extrabold text-sm text-muted-foreground">
@@ -285,7 +316,7 @@ export default function GamePlay() {
                           <div className="flex items-center gap-2 mt-2">
                             <span className="text-xs font-extrabold">{qualityLabels[choice.quality]}</span>
                             <span className="text-xs font-bold text-xp-foreground bg-xp/20 px-2 py-0.5 rounded-full">
-                              +{choice.xp} XP
+                              +{choice.xp} XP{hasPowerUp("xp-booster") && !isReplay ? " (1.5×)" : ""}
                             </span>
                           </div>
                         )}
@@ -295,6 +326,18 @@ export default function GamePlay() {
                 );
               })}
             </div>
+
+            {/* Second Chance button */}
+            {isRevealed && !isReplay && hasPowerUp("second-chance") && !usedSecondChance[scenario.id] && selectedChoice !== null && scenario.choices[selectedChoice]?.quality !== "best" && (
+              <motion.button
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                onClick={handleSecondChance}
+                className="w-full mb-3 px-4 py-3 rounded-xl border-2 border-secondary bg-secondary/20 text-sm font-bold hover:bg-secondary/40 transition-colors"
+              >
+                🔄 Use Second Chance — Try again!
+              </motion.button>
+            )}
 
             {/* Justification */}
             {isRevealed && (
