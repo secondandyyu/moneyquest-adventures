@@ -28,7 +28,7 @@ const qualityLabels: Record<ChoiceQuality, string> = {
 export default function GamePlay() {
   const { levelId } = useParams<{ levelId: string }>();
   const navigate = useNavigate();
-  const { completeScenario, isScenarioCompleted, getScenarioResult, state, isLevelCompleted } = useGame();
+  const { completeScenario, isScenarioCompleted, getScenarioResult, state, isLevelCompleted, hasPowerUp } = useGame();
 
   const result = useMemo(() => getLevelById(levelId || ""), [levelId]);
 
