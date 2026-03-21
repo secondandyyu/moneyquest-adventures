@@ -153,14 +153,17 @@ export function GameProvider({ children }: { children: ReactNode }) {
   };
 
   const purchaseItem = (item: ShopItem) => {
-    if (state.xp < item.price || state.purchasedItems.includes(item.id)) return false;
+    if (state.purchasedItems.includes(item.id)) return false;
+    const discount = state.activePowerUps.includes("shop-discount") ? 0.75 : 1;
+    const finalPrice = Math.round(item.price * discount);
+    if (state.xp < finalPrice) return false;
     setState((s) => ({
       ...s,
-      xp: Math.max(0, s.xp - item.price),
+      xp: Math.max(0, s.xp - finalPrice),
       purchasedItems: [...s.purchasedItems, item.id],
       ...(item.type === "theme" ? { activeTheme: item.value } : {}),
       ...(item.type === "font" ? { activeFont: item.value } : {}),
-      ...(item.type === "cosmetic" ? { activeCosmetics: [...s.activeCosmetics, item.value] } : {}),
+      ...(item.type === "powerup" ? { activePowerUps: [...s.activePowerUps, item.value] } : {}),
     }));
     return true;
   };
@@ -176,12 +179,12 @@ export function GameProvider({ children }: { children: ReactNode }) {
     }));
   };
 
-  const toggleCosmetic = (value: string) => {
+  const togglePowerUp = (value: string) => {
     setState((s) => ({
       ...s,
-      activeCosmetics: s.activeCosmetics.includes(value)
-        ? s.activeCosmetics.filter((c) => c !== value)
-        : [...s.activeCosmetics, value],
+      activePowerUps: s.activePowerUps.includes(value)
+        ? s.activePowerUps.filter((c) => c !== value)
+        : [...s.activePowerUps, value],
     }));
   };
 
