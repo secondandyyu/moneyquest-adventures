@@ -62,6 +62,14 @@ export default function Shop() {
       toast.success(`Equipped ${item.name}! ✨`);
       return;
     }
+    // Check if trying to buy a power-up when one is already owned
+    if (item.type === "powerup") {
+      const ownedPowerUp = shopItems.find((si) => si.type === "powerup" && isItemPurchased(si.id));
+      if (ownedPowerUp) {
+        toast.error(`You already own "${ownedPowerUp.name}". You can only have one power-up!`);
+        return;
+      }
+    }
     const discount = hasDiscount ? 0.75 : 1;
     const finalPrice = Math.round(item.price * discount);
     if (state.xp < finalPrice) {
@@ -102,14 +110,18 @@ export default function Shop() {
         { key: "font" as const, title: "✏️ Font Styles", items: grouped.font },
       ].map(({ key, title, items }) => (
         <section key={key} className="mb-8">
-          <h2 className="text-xl font-extrabold mb-4">{title}</h2>
+          <h2 className="text-xl font-extrabold mb-1">{title}</h2>
+          {key === "powerup" && (
+            <p className="text-xs text-muted-foreground mb-3">You can only own one power-up. Choose wisely!</p>
+          )}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {items.map((item, i) => {
               const owned = isItemPurchased(item.id);
               const equipped = isEquipped(item);
               const discount = hasDiscount ? 0.75 : 1;
               const finalPrice = Math.round(item.price * discount);
-              const canAfford = state.xp >= finalPrice;
+              const hasOtherPowerUp = item.type === "powerup" && !owned && shopItems.some((si) => si.type === "powerup" && si.id !== item.id && isItemPurchased(si.id));
+              const canAfford = state.xp >= finalPrice && !hasOtherPowerUp;
 
               return (
                 <motion.button
