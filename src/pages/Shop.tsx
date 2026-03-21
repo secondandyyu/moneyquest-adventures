@@ -62,6 +62,14 @@ export default function Shop() {
       toast.success(`Equipped ${item.name}! ✨`);
       return;
     }
+    // Check if trying to buy a power-up when one is already owned
+    if (item.type === "powerup") {
+      const ownedPowerUp = shopItems.find((si) => si.type === "powerup" && isItemPurchased(si.id));
+      if (ownedPowerUp) {
+        toast.error(`You already own "${ownedPowerUp.name}". You can only have one power-up!`);
+        return;
+      }
+    }
     const discount = hasDiscount ? 0.75 : 1;
     const finalPrice = Math.round(item.price * discount);
     if (state.xp < finalPrice) {
