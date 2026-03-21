@@ -27,10 +27,10 @@ const shopItems: ShopItem[] = [
   { id: "font-cursive", name: "Cursive Font", price: 600, type: "font", value: "cursive", icon: Type, preview: "𝒜𝒶" },
   { id: "font-rounded", name: "Rounded Font", price: 600, type: "font", value: "rounded", icon: Type, preview: "Aa" },
   { id: "font-mono", name: "Mono Font", price: 500, type: "font", value: "mono", icon: Type, preview: "Aa" },
-  { id: "powerup-xp-booster", name: "XP Booster", price: 1500, type: "powerup", value: "xp-booster", icon: TrendingUp, preview: "⚡", description: "Earn 1.5× XP on all scenarios" },
-  { id: "powerup-hint", name: "Hint Revealer", price: 1000, type: "powerup", value: "hint", icon: Eye, preview: "🔍", description: "See a hint before answering" },
-  { id: "powerup-second-chance", name: "Second Chance", price: 1200, type: "powerup", value: "second-chance", icon: RotateCcw, preview: "🔄", description: "Retry a wrong answer once" },
-  { id: "powerup-shop-discount", name: "Shop Discount", price: 2000, type: "powerup", value: "shop-discount", icon: Tag, preview: "🏷️", description: "25% off all future purchases" },
+  { id: "powerup-xp-booster", name: "XP Booster", price: 3000, type: "powerup", value: "xp-booster", icon: TrendingUp, preview: "⚡", description: "Earn 1.5× XP on all scenarios" },
+  { id: "powerup-hint", name: "Hint Revealer", price: 2500, type: "powerup", value: "hint", icon: Eye, preview: "🔍", description: "See a hint before answering" },
+  { id: "powerup-second-chance", name: "Second Chance", price: 2800, type: "powerup", value: "second-chance", icon: RotateCcw, preview: "🔄", description: "Retry a wrong answer once" },
+  { id: "powerup-shop-discount", name: "Shop Discount", price: 4000, type: "powerup", value: "shop-discount", icon: Tag, preview: "🏷️", description: "25% off all future purchases" },
 ];
 
 export default function Shop() {
