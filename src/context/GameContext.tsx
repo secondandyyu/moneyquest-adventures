@@ -51,7 +51,9 @@ const defaultState: GameState = {
   purchasedItems: [],
   activeTheme: "default",
   activeFont: "nunito",
-  activeCosmetics: [],
+  activePowerUps: [],
+  streak: 0,
+  bestStreak: 0,
 };
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
