@@ -11,7 +11,7 @@ interface ShopItem {
   id: string;
   name: string;
   price: number;
-  type: "theme" | "font" | "cosmetic";
+  type: "theme" | "font" | "powerup";
   value: string;
 }
 
@@ -21,13 +21,15 @@ interface GameState {
   purchasedItems: string[];
   activeTheme: string;
   activeFont: string;
-  activeCosmetics: string[];
+  activePowerUps: string[];
+  streak: number;
+  bestStreak: number;
 }
 
 interface GameContextType {
   state: GameState;
   addXP: (amount: number) => void;
-  completeScenario: (scenarioId: string, choiceIndex: number, xpEarned: number) => void;
+  completeScenario: (scenarioId: string, choiceIndex: number, xpEarned: number, quality: string) => void;
   isScenarioCompleted: (scenarioId: string) => boolean;
   getScenarioResult: (scenarioId: string) => ScenarioResult | undefined;
   isLevelUnlocked: (levelId: string) => boolean;
@@ -37,7 +39,8 @@ interface GameContextType {
   purchaseItem: (item: ShopItem) => boolean;
   isItemPurchased: (itemId: string) => boolean;
   equipItem: (item: ShopItem) => void;
-  toggleCosmetic: (value: string) => void;
+  togglePowerUp: (value: string) => void;
+  hasPowerUp: (value: string) => boolean;
   resetProgress: () => void;
   resetLevel: (levelId: string) => void;
 }
@@ -48,7 +51,9 @@ const defaultState: GameState = {
   purchasedItems: [],
   activeTheme: "default",
   activeFont: "nunito",
-  activeCosmetics: [],
+  activePowerUps: [],
+  streak: 0,
+  bestStreak: 0,
 };
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
@@ -79,15 +84,23 @@ export function GameProvider({ children }: { children: ReactNode }) {
     setState((s) => ({ ...s, xp: Math.max(0, s.xp + amount) }));
   };
 
-  const completeScenario = (scenarioId: string, choiceIndex: number, xpEarned: number) => {
+  const hasPowerUp = (value: string) => state.activePowerUps.includes(value);
+
+  const completeScenario = (scenarioId: string, choiceIndex: number, xpEarned: number, quality: string) => {
     setState((s) => {
       if (s.completedScenarios[scenarioId]) return s;
+      const xpMultiplier = s.activePowerUps.includes("xp-booster") ? 1.5 : 1;
+      const finalXP = Math.round(xpEarned * xpMultiplier);
+      const newStreak = quality === "best" ? s.streak + 1 : 0;
+      const newBestStreak = Math.max(s.bestStreak, newStreak);
       return {
         ...s,
-        xp: s.xp + xpEarned,
+        xp: s.xp + finalXP,
+        streak: newStreak,
+        bestStreak: newBestStreak,
         completedScenarios: {
           ...s.completedScenarios,
-          [scenarioId]: { scenarioId, choiceIndex, xpEarned },
+          [scenarioId]: { scenarioId, choiceIndex, xpEarned: finalXP },
         },
       };
     });
@@ -140,14 +153,17 @@ export function GameProvider({ children }: { children: ReactNode }) {
   };
 
   const purchaseItem = (item: ShopItem) => {
-    if (state.xp < item.price || state.purchasedItems.includes(item.id)) return false;
+    if (state.purchasedItems.includes(item.id)) return false;
+    const discount = state.activePowerUps.includes("shop-discount") ? 0.75 : 1;
+    const finalPrice = Math.round(item.price * discount);
+    if (state.xp < finalPrice) return false;
     setState((s) => ({
       ...s,
-      xp: Math.max(0, s.xp - item.price),
+      xp: Math.max(0, s.xp - finalPrice),
       purchasedItems: [...s.purchasedItems, item.id],
       ...(item.type === "theme" ? { activeTheme: item.value } : {}),
       ...(item.type === "font" ? { activeFont: item.value } : {}),
-      ...(item.type === "cosmetic" ? { activeCosmetics: [...s.activeCosmetics, item.value] } : {}),
+      ...(item.type === "powerup" ? { activePowerUps: [...s.activePowerUps, item.value] } : {}),
     }));
     return true;
   };
@@ -163,12 +179,12 @@ export function GameProvider({ children }: { children: ReactNode }) {
     }));
   };
 
-  const toggleCosmetic = (value: string) => {
+  const togglePowerUp = (value: string) => {
     setState((s) => ({
       ...s,
-      activeCosmetics: s.activeCosmetics.includes(value)
-        ? s.activeCosmetics.filter((c) => c !== value)
-        : [...s.activeCosmetics, value],
+      activePowerUps: s.activePowerUps.includes(value)
+        ? s.activePowerUps.filter((c) => c !== value)
+        : [...s.activePowerUps, value],
     }));
   };
 
@@ -211,7 +227,8 @@ export function GameProvider({ children }: { children: ReactNode }) {
         purchaseItem,
         isItemPurchased,
         equipItem,
-        toggleCosmetic,
+        togglePowerUp,
+        hasPowerUp,
         resetProgress,
         resetLevel,
       }}

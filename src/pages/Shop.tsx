@@ -1,16 +1,17 @@
 import { useGame } from "@/context/GameContext";
 import { motion } from "framer-motion";
-import { Star, Palette, Type, Sparkles, Check, Zap } from "lucide-react";
+import { Star, Palette, Type, Zap, Check, TrendingUp, Eye, RotateCcw, Tag } from "lucide-react";
 import { toast } from "sonner";
 
 interface ShopItem {
   id: string;
   name: string;
   price: number;
-  type: "theme" | "font" | "cosmetic";
+  type: "theme" | "font" | "powerup";
   value: string;
   icon: typeof Palette;
   preview?: string;
+  description?: string;
 }
 
 const shopItems: ShopItem[] = [
@@ -26,29 +27,31 @@ const shopItems: ShopItem[] = [
   { id: "font-cursive", name: "Cursive Font", price: 600, type: "font", value: "cursive", icon: Type, preview: "𝒜𝒶" },
   { id: "font-rounded", name: "Rounded Font", price: 600, type: "font", value: "rounded", icon: Type, preview: "Aa" },
   { id: "font-mono", name: "Mono Font", price: 500, type: "font", value: "mono", icon: Type, preview: "Aa" },
-  { id: "cosmetic-crown", name: "Golden Crown", price: 1500, type: "cosmetic", value: "crown", icon: Sparkles, preview: "👑" },
-  { id: "cosmetic-glasses", name: "Cool Glasses", price: 1000, type: "cosmetic", value: "glasses", icon: Sparkles, preview: "🕶️" },
-  { id: "cosmetic-cape", name: "Hero Cape", price: 1200, type: "cosmetic", value: "cape", icon: Sparkles, preview: "🦸" },
-  { id: "cosmetic-sparkle", name: "Sparkle Trail", price: 2000, type: "cosmetic", value: "sparkle", icon: Sparkles, preview: "✨" },
+  { id: "powerup-xp-booster", name: "XP Booster", price: 1500, type: "powerup", value: "xp-booster", icon: TrendingUp, preview: "⚡", description: "Earn 1.5× XP on all scenarios" },
+  { id: "powerup-hint", name: "Hint Revealer", price: 1000, type: "powerup", value: "hint", icon: Eye, preview: "🔍", description: "See a hint before answering" },
+  { id: "powerup-second-chance", name: "Second Chance", price: 1200, type: "powerup", value: "second-chance", icon: RotateCcw, preview: "🔄", description: "Retry a wrong answer once" },
+  { id: "powerup-shop-discount", name: "Shop Discount", price: 2000, type: "powerup", value: "shop-discount", icon: Tag, preview: "🏷️", description: "25% off all future purchases" },
 ];
 
 export default function Shop() {
-  const { state, purchaseItem, isItemPurchased, equipItem, toggleCosmetic } = useGame();
+  const { state, purchaseItem, isItemPurchased, equipItem, togglePowerUp, hasPowerUp } = useGame();
 
   const isEquipped = (item: ShopItem) => {
     if (item.type === "theme") return state.activeTheme === item.value;
     if (item.type === "font") return state.activeFont === item.value;
-    if (item.type === "cosmetic") return state.activeCosmetics.includes(item.value);
+    if (item.type === "powerup") return state.activePowerUps.includes(item.value);
     return false;
   };
+
+  const hasDiscount = hasPowerUp("shop-discount");
 
   const handleClick = (item: ShopItem) => {
     const owned = isItemPurchased(item.id);
     if (owned) {
-      if (item.type === "cosmetic") {
-        toggleCosmetic(item.value);
-        const equipped = state.activeCosmetics.includes(item.value);
-        toast.success(equipped ? `Unequipped ${item.name}` : `Equipped ${item.name}! ✨`);
+      if (item.type === "powerup") {
+        togglePowerUp(item.value);
+        const equipped = state.activePowerUps.includes(item.value);
+        toast.success(equipped ? `Deactivated ${item.name}` : `Activated ${item.name}! ⚡`);
         return;
       }
       if (isEquipped(item)) {
@@ -59,8 +62,10 @@ export default function Shop() {
       toast.success(`Equipped ${item.name}! ✨`);
       return;
     }
-    if (state.xp < item.price) {
-      toast.error(`Not enough XP! You need ${item.price - state.xp} more XP.`);
+    const discount = hasDiscount ? 0.75 : 1;
+    const finalPrice = Math.round(item.price * discount);
+    if (state.xp < finalPrice) {
+      toast.error(`Not enough XP! You need ${finalPrice - state.xp} more XP.`);
       return;
     }
     const success = purchaseItem(item);
@@ -72,21 +77,29 @@ export default function Shop() {
   const grouped = {
     theme: shopItems.filter((i) => i.type === "theme"),
     font: shopItems.filter((i) => i.type === "font"),
-    cosmetic: shopItems.filter((i) => i.type === "cosmetic"),
+    powerup: shopItems.filter((i) => i.type === "powerup"),
   };
 
   return (
     <div className="container py-8 px-4 max-w-3xl mx-auto">
       <h1 className="text-3xl font-black mb-2 text-center">Shop</h1>
-      <div className="flex items-center justify-center gap-2 mb-8">
+      <div className="flex items-center justify-center gap-2 mb-2">
         <Star className="text-xp fill-xp" size={20} />
         <span className="text-xl font-extrabold">{state.xp.toLocaleString()} XP available</span>
       </div>
+      {state.bestStreak > 0 && (
+        <p className="text-center text-sm font-bold text-muted-foreground mb-2">
+          🔥 Best streak: {state.bestStreak} | Current: {state.streak}
+        </p>
+      )}
+      {hasDiscount && (
+        <p className="text-center text-xs font-bold text-success mb-4">🏷️ 25% discount active on all purchases!</p>
+      )}
 
       {[
+        { key: "powerup" as const, title: "⚡ Power-Ups", items: grouped.powerup },
         { key: "theme" as const, title: "🎨 Color Themes", items: grouped.theme },
         { key: "font" as const, title: "✏️ Font Styles", items: grouped.font },
-        { key: "cosmetic" as const, title: "✨ Character Cosmetics", items: grouped.cosmetic },
       ].map(({ key, title, items }) => (
         <section key={key} className="mb-8">
           <h2 className="text-xl font-extrabold mb-4">{title}</h2>
@@ -94,7 +107,9 @@ export default function Shop() {
             {items.map((item, i) => {
               const owned = isItemPurchased(item.id);
               const equipped = isEquipped(item);
-              const canAfford = state.xp >= item.price;
+              const discount = hasDiscount ? 0.75 : 1;
+              const finalPrice = Math.round(item.price * discount);
+              const canAfford = state.xp >= finalPrice;
 
               return (
                 <motion.button
@@ -126,15 +141,25 @@ export default function Shop() {
                   )}
                   <div className="text-3xl mb-2">{item.preview}</div>
                   <p className="font-extrabold text-sm">{item.name}</p>
+                  {item.description && (
+                    <p className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.description}</p>
+                  )}
                   <div className="flex items-center gap-1 mt-1">
                     {owned ? (
                       <span className="text-xs font-bold text-success">
-                        {equipped ? (item.type === "cosmetic" ? "Tap to unequip" : "Equipped") : "Tap to equip"}
+                        {equipped ? (item.type === "powerup" ? "Tap to deactivate" : "Equipped") : item.type === "powerup" ? "Tap to activate" : "Tap to equip"}
                       </span>
                     ) : (
                       <>
                         <Star size={12} className="text-xp fill-xp" />
-                        <span className="text-xs font-bold">{item.price.toLocaleString()} XP</span>
+                        {hasDiscount && !owned ? (
+                          <span className="text-xs font-bold">
+                            <span className="line-through text-muted-foreground mr-1">{item.price.toLocaleString()}</span>
+                            {finalPrice.toLocaleString()} XP
+                          </span>
+                        ) : (
+                          <span className="text-xs font-bold">{item.price.toLocaleString()} XP</span>
+                        )}
                       </>
                     )}
                   </div>

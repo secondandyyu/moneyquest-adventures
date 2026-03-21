@@ -43,15 +43,22 @@ export default function Header() {
           })}
         </nav>
 
-        <motion.div
-          key={state.xp}
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 0.3 }}
-          className="flex items-center gap-1.5 bg-xp/20 text-xp-foreground px-4 py-2 rounded-full font-extrabold border-2 border-xp"
-        >
-          <Star className="text-xp fill-xp" size={18} />
-          {state.xp.toLocaleString()} XP
-        </motion.div>
+        <div className="flex items-center gap-3">
+          {state.streak > 0 && (
+            <div className="flex items-center gap-1 text-sm font-bold text-muted-foreground">
+              🔥 {state.streak}
+            </div>
+          )}
+          <motion.div
+            key={state.xp}
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 0.3 }}
+            className="flex items-center gap-1.5 bg-xp/20 text-xp-foreground px-4 py-2 rounded-full font-extrabold border-2 border-xp"
+          >
+            <Star className="text-xp fill-xp" size={18} />
+            {state.xp.toLocaleString()} XP
+          </motion.div>
+        </div>
       </div>
 
       {/* Mobile nav */}
