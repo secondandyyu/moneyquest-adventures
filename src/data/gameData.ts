@@ -91,7 +91,7 @@ export const categories: Category[] = [
         scenarios: [
           {
             id: "swan-l2-s1",
-            context: "You have a monthly salary and must cover rent, groceries, transport, tax, and social events/night outs, but also save a little.",
+            context: "At home, you review your monthly paycheck and list your costs for rent, groceries, transport, taxes, and social plans. You also want to keep saving.",
             choices: [
               { text: "Prioritize your needs only (rent, groceries, transport, tax), using a 70/15/15 allocation for needs, wants, and savings.", quality: "best", xp: 500 },
               { text: "Prioritize your needs, but also want to have some fun. Use a 60/30/10 allocation for needs, wants, and savings.", quality: "okay", xp: 300 },
@@ -101,7 +101,7 @@ export const categories: Category[] = [
           },
           {
             id: "swan-l2-s2",
-            context: "You want to buy a new bag because your current bag is old. You have options to purchase an expensive or cheap bag and how to pay for it.",
+            context: "Your old tote bag tears during your commute, and now you need to pick a replacement that balances price, quality, and long-term value.",
             choices: [
               { text: "Buy a cheap bag using your savings. The bag only lasts a couple months and you'll need another one later.", quality: "bad", xp: 100 },
               { text: "Save up for the next month to buy a more expensive bag that fits the current trends. It isn't super durable but is pretty.", quality: "okay", xp: 300 },
@@ -111,7 +111,7 @@ export const categories: Category[] = [
           },
           {
             id: "swan-l2-s3",
-            context: "You want to save for a computer and eventually a house. You need to decide how you can achieve these goals.",
+            context: "You realize you need a computer for work now, but you also want to buy a home in the future. You need a savings plan that handles both goals.",
             choices: [
               { text: "Save 15% of your income monthly and prioritize the computer first for work, then increase savings over time for the house.", quality: "best", xp: 500 },
               { text: "Save 15% of your income monthly and prioritize the house first, then the computer.", quality: "okay", xp: 300 },
@@ -129,7 +129,7 @@ export const categories: Category[] = [
         scenarios: [
           {
             id: "swan-l3-s1",
-            context: "You want to keep track of your expenses and income per month. You have different options to organize your money.",
+            context: "You sit at your desk with a notebook and sticky notes, trying to decide the best way to organize monthly income and expenses.",
             choices: [
               { text: "Write down all expected income and expenses for each month in a small notebook.", quality: "best", xp: 500 },
               { text: "Write down all expected income and expenses for each month on sticky notes in places across your home.", quality: "okay", xp: 300 },
@@ -139,7 +139,7 @@ export const categories: Category[] = [
           },
           {
             id: "swan-l3-s2",
-            context: "You realize that keeping a physical record of your money is not the most convenient. You want to use a different method to keep a record of your money.",
+            context: "Your desk is covered in receipts and messy notes, so you decide to switch to a cleaner digital method for tracking money.",
             choices: [
               { text: "Create an online spreadsheet with categories (rent, food, transport, savings, fun) and update it weekly.", quality: "best", xp: 500 },
               { text: "Use an online spreadsheet and update it monthly.", quality: "okay", xp: 300 },
@@ -149,7 +149,7 @@ export const categories: Category[] = [
           },
           {
             id: "swan-l3-s3",
-            context: "You heard your coworker using a mobile app called MoneyCare that keeps track of income and expenses, which also links to your bank account.",
+            context: "A coworker shows you the MoneyCare app and explains how it can link to your bank to track expenses automatically.",
             teaching: "Online apps are great because they give you a \"bank in your pocket\" to check your balance instantly and pay bills anytime without having to travel to a building.",
             choices: [
               { text: "Use MoneyCare to manually track your records. Don't connect the app to your bank account.", quality: "okay", xp: 300 },

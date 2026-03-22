@@ -44,7 +44,7 @@ export default function GamePlay() {
 
   // Show intro page for Level 1 of each category
   const isFirstLevel = result ? result.category.levels[0]?.id === result.level.id : false;
-  const [showIntro, setShowIntro] = useState(() => isFirstLevel && !isReplay);
+  const [showIntro, setShowIntro] = useState(() => isFirstLevel);
 
   if (!result) {
     return (
@@ -309,12 +309,7 @@ export default function GamePlay() {
                 className="bg-secondary/30 border border-secondary/50 rounded-xl p-3 mb-3"
               >
                 <p className="text-xs font-bold text-secondary-foreground">
-                  🔍 Hint: Look for the choice that shows the most responsible financial thinking.
-                  {(() => {
-                    const bestIdx = scenario.choices.findIndex(c => c.quality === "best");
-                    const badIdx = scenario.choices.findIndex(c => c.quality === "bad");
-                    return badIdx >= 0 ? ` Option ${String.fromCharCode(65 + badIdx)} might not be the best idea.` : "";
-                  })()}
+                  🔍 Hint: Think about long-term stability, low risk, and which option protects your future choices.
                 </p>
               </motion.div>
             )}
