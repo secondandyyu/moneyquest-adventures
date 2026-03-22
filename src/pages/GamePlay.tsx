@@ -39,7 +39,6 @@ export default function GamePlay() {
   const [selectedChoice, setSelectedChoice] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
-  const [usedSecondChance, setUsedSecondChance] = useState<Record<string, boolean>>({});
   const [showHint, setShowHint] = useState(false);
   const [sessionAnswers, setSessionAnswers] = useState<Record<string, { choiceIndex: number; xpEarned: number }>>({});
 
@@ -76,13 +75,6 @@ export default function GamePlay() {
     } else {
       completeScenario(scenario.id, index, choice.xp, choice.quality);
     }
-  };
-
-  const handleSecondChance = () => {
-    if (usedSecondChance[scenario.id]) return;
-    setUsedSecondChance((prev) => ({ ...prev, [scenario.id]: true }));
-    setSelectedChoice(null);
-    setShowResult(false);
   };
 
   const nextScenario = () => {
@@ -265,7 +257,7 @@ export default function GamePlay() {
                 <img
                   src={scenarioIllustrations[scenario.id]}
                   alt="Scenario illustration"
-                  className="w-full h-48 md:h-64 object-cover"
+                  className="w-full object-contain"
                   style={{ filter: "saturate(0.85) contrast(0.95) brightness(1.02)" }}
                 />
               </div>
@@ -370,17 +362,6 @@ export default function GamePlay() {
               })}
             </div>
 
-            {/* Second Chance button */}
-            {isRevealed && !isReplay && hasPowerUp("second-chance") && !usedSecondChance[scenario.id] && selectedChoice !== null && scenario.choices[selectedChoice]?.quality !== "best" && (
-              <motion.button
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                onClick={handleSecondChance}
-                className="w-full mb-3 px-4 py-3 rounded-xl border-2 border-secondary bg-secondary/20 text-sm font-bold hover:bg-secondary/40 transition-colors"
-              >
-                🔄 Use Second Chance — Try again!
-              </motion.button>
-            )}
 
             {/* Justification */}
             {isRevealed && (
