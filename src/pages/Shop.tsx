@@ -1,6 +1,6 @@
 import { useGame } from "@/context/GameContext";
 import { motion } from "framer-motion";
-import { Star, Palette, Type, Zap, Check, TrendingUp, Eye, RotateCcw, Tag } from "lucide-react";
+import { Star, Palette, Type, Zap, Check, TrendingUp, Eye, Tag } from "lucide-react";
 import { toast } from "sonner";
 
 interface ShopItem {

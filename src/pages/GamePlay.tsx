@@ -78,13 +78,6 @@ export default function GamePlay() {
     }
   };
 
-  const handleSecondChance = () => {
-    if (usedSecondChance[scenario.id]) return;
-    setUsedSecondChance((prev) => ({ ...prev, [scenario.id]: true }));
-    setSelectedChoice(null);
-    setShowResult(false);
-  };
-
   const nextScenario = () => {
     if (currentScenarioIdx < totalScenarios - 1) {
       setCurrentScenarioIdx((i) => i + 1);
