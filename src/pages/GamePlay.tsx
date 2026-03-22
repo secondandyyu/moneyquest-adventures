@@ -39,7 +39,7 @@ export default function GamePlay() {
   const [selectedChoice, setSelectedChoice] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
-  const [usedSecondChance, setUsedSecondChance] = useState<Record<string, boolean>>({});
+  const [showHint, setShowHint] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [sessionAnswers, setSessionAnswers] = useState<Record<string, { choiceIndex: number; xpEarned: number }>>({});
 
