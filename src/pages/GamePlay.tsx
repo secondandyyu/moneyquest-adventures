@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/context/GameContext";
 import { getLevelById } from "@/data/gameData";
 import type { Scenario, Choice, ChoiceQuality } from "@/data/gameData";
-import { scenarioIllustrations } from "@/data/scenarioIllustrations";
+import { scenarioIllustrations, introImages, introTexts } from "@/data/scenarioIllustrations";
 import GuideAvatar from "@/components/GuideAvatar";
 import swanImg from "@/assets/swan-guide.png";
 import beaverImg from "@/assets/beaver-guide.png";
@@ -42,6 +42,10 @@ export default function GamePlay() {
   const [usedSecondChance, setUsedSecondChance] = useState<Record<string, boolean>>({});
   const [showHint, setShowHint] = useState(false);
   const [sessionAnswers, setSessionAnswers] = useState<Record<string, { choiceIndex: number; xpEarned: number }>>({});
+
+  // Show intro page for Level 1 of each category
+  const isFirstLevel = result ? result.category.levels[0]?.id === result.level.id : false;
+  const [showIntro, setShowIntro] = useState(() => isFirstLevel && !isReplay);
 
   if (!result) {
     return (
@@ -152,6 +156,45 @@ export default function GamePlay() {
               Review Answers
             </Link>
           </div>
+        </motion.div>
+      </div>
+    );
+  }
+
+  // Intro page for Level 1
+  if (showIntro) {
+    const guide = category.guide;
+    const intro = introTexts[guide];
+    const introImg = introImages[guide];
+
+    return (
+      <div className="min-h-screen flex items-center justify-center px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-lg w-full text-center"
+        >
+          <div className="rounded-2xl overflow-hidden border-2 border-border mb-6 bg-card shadow-lg">
+            <img
+              src={introImg}
+              alt={`${guide} intro`}
+              className="w-full h-56 md:h-72 object-cover"
+            />
+          </div>
+
+          <h1 className="text-3xl font-black mb-3">{intro.title}</h1>
+          <p className="text-base text-muted-foreground leading-relaxed mb-8 px-2">
+            {intro.description}
+          </p>
+
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => setShowIntro(false)}
+            className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-extrabold text-lg hover:opacity-90 transition-opacity"
+          >
+            Let's Go! 🚀
+          </motion.button>
         </motion.div>
       </div>
     );

@@ -9,15 +9,15 @@ import swanL2S3 from "@/assets/scenarios/swan-l2-s3.jpg";
 // Swan Level 3 - Budgeting
 import swanL3S1 from "@/assets/scenarios/swan-l3-s1.jpg";
 import swanL3S2 from "@/assets/scenarios/swan-l3-s2.jpg";
-import swanL3S3 from "@/assets/scenarios/swan-l3-s3.jpg";
+import swanL3S3 from "@/assets/scenarios/swan-l3-s3.png";
 // Swan Level 4 - Investing
-import swanL4S1 from "@/assets/scenarios/swan-l4-s1.jpg";
-import swanL4S2 from "@/assets/scenarios/swan-l4-s2.jpg";
-import swanL4S3 from "@/assets/scenarios/swan-l4-s3.jpg";
+import swanL4S1 from "@/assets/scenarios/swan-l4-s1.png";
+import swanL4S2 from "@/assets/scenarios/swan-l4-s2.png";
+import swanL4S3 from "@/assets/scenarios/swan-l4-s3.png";
 // Swan Level 5 - Donations
-import swanL5S1 from "@/assets/scenarios/swan-l5-s1.jpg";
-import swanL5S2 from "@/assets/scenarios/swan-l5-s2.jpg";
-import swanL5S3 from "@/assets/scenarios/swan-l5-s3.jpg";
+import swanL5S1 from "@/assets/scenarios/swan-l5-s1.png";
+import swanL5S2 from "@/assets/scenarios/swan-l5-s2.png";
+import swanL5S3 from "@/assets/scenarios/swan-l5-s3.png";
 // Beaver Level 1 - Earning
 import beaverL1S1 from "@/assets/scenarios/beaver-l1-s1.jpg";
 import beaverL1S2 from "@/assets/scenarios/beaver-l1-s2.jpg";
@@ -49,6 +49,11 @@ import dogL4S2 from "@/assets/scenarios/dog-l4-s2.jpg";
 // Dog Level 5 - Donations
 import dogL5S1 from "@/assets/scenarios/dog-l5-s1.jpg";
 import dogL5S2 from "@/assets/scenarios/dog-l5-s2.jpg";
+
+// Intro images
+import swanIntro from "@/assets/scenarios/swan-intro.png";
+import beaverIntro from "@/assets/scenarios/beaver-intro.png";
+import dogIntro from "@/assets/scenarios/dog-intro.png";
 
 export const scenarioIllustrations: Record<string, string> = {
   "swan-l1-s1": swanL1S1,
@@ -88,4 +93,25 @@ export const scenarioIllustrations: Record<string, string> = {
   "dog-l4-s2": dogL4S2,
   "dog-l5-s1": dogL5S1,
   "dog-l5-s2": dogL5S2,
+};
+
+export const introImages: Record<string, string> = {
+  swan: swanIntro,
+  beaver: beaverIntro,
+  dog: dogIntro,
+};
+
+export const introTexts: Record<string, { title: string; description: string }> = {
+  swan: {
+    title: "Meet Swan!",
+    description: "Swan just landed a brand new corporate job at Swan Co.! Follow Swan as they navigate the world of money — from opening a bank account and saving their first paycheck, to budgeting wisely, investing for the future, and giving back to the community. Let's help Swan build a strong financial foundation!",
+  },
+  beaver: {
+    title: "Meet Beaver!",
+    description: "Beaver just graduated from high school and is ready to earn their own money! Join Beaver as they get their first job at a bakery, learn the difference between needs and wants, start saving smart on a smaller income, and understand how loans work. Let's help Beaver become financially independent!",
+  },
+  dog: {
+    title: "Meet Dog!",
+    description: "Dog is an ambitious entrepreneur starting a snack-making business! Follow Dog as they take out business loans, manage savings while paying off debt, budget with changing income, invest profits wisely, and give back to the community. Let's help Dog build a thriving business!",
+  },
 };
