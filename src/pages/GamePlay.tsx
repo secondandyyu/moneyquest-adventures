@@ -370,17 +370,6 @@ export default function GamePlay() {
               })}
             </div>
 
-            {/* Second Chance button */}
-            {isRevealed && !isReplay && hasPowerUp("second-chance") && !usedSecondChance[scenario.id] && selectedChoice !== null && scenario.choices[selectedChoice]?.quality !== "best" && (
-              <motion.button
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                onClick={handleSecondChance}
-                className="w-full mb-3 px-4 py-3 rounded-xl border-2 border-secondary bg-secondary/20 text-sm font-bold hover:bg-secondary/40 transition-colors"
-              >
-                🔄 Use Second Chance — Try again!
-              </motion.button>
-            )}
 
             {/* Justification */}
             {isRevealed && (
