@@ -40,7 +40,6 @@ export default function GamePlay() {
   const [showResult, setShowResult] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
   const [showHint, setShowHint] = useState(false);
-  const [showHint, setShowHint] = useState(false);
   const [sessionAnswers, setSessionAnswers] = useState<Record<string, { choiceIndex: number; xpEarned: number }>>({});
 
   // Show intro page for Level 1 of each category
