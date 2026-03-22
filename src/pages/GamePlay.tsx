@@ -43,6 +43,10 @@ export default function GamePlay() {
   const [showHint, setShowHint] = useState(false);
   const [sessionAnswers, setSessionAnswers] = useState<Record<string, { choiceIndex: number; xpEarned: number }>>({});
 
+  // Show intro page for Level 1 of each category
+  const isFirstLevel = result ? result.category.levels[0]?.id === result.level.id : false;
+  const [showIntro, setShowIntro] = useState(() => isFirstLevel && !isReplay);
+
   if (!result) {
     return (
       <div className="container py-12 text-center">
