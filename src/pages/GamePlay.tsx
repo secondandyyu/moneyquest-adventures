@@ -161,6 +161,45 @@ export default function GamePlay() {
     );
   }
 
+  // Intro page for Level 1
+  if (showIntro) {
+    const guide = category.guide;
+    const intro = introTexts[guide];
+    const introImg = introImages[guide];
+
+    return (
+      <div className="min-h-screen flex items-center justify-center px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-lg w-full text-center"
+        >
+          <div className="rounded-2xl overflow-hidden border-2 border-border mb-6 bg-card shadow-lg">
+            <img
+              src={introImg}
+              alt={`${guide} intro`}
+              className="w-full h-56 md:h-72 object-cover"
+            />
+          </div>
+
+          <h1 className="text-3xl font-black mb-3">{intro.title}</h1>
+          <p className="text-base text-muted-foreground leading-relaxed mb-8 px-2">
+            {intro.description}
+          </p>
+
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => setShowIntro(false)}
+            className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-extrabold text-lg hover:opacity-90 transition-opacity"
+          >
+            Let's Go! 🚀
+          </motion.button>
+        </motion.div>
+      </div>
+    );
+  }
+
   const activeChoice = currentScenarioAnswered
     ? (isReplay ? sessionAnswers[scenario.id]?.choiceIndex ?? null : getScenarioResult(scenario.id)?.choiceIndex ?? null)
     : selectedChoice;
