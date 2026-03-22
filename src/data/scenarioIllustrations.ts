@@ -3,12 +3,12 @@ import swanL1S1 from "@/assets/scenarios/swan-l1-s1.png";
 import swanL1S2 from "@/assets/scenarios/swan-l1-s2.png";
 import swanL1S3 from "@/assets/scenarios/swan-l1-s3.png";
 // Swan Level 2 - Savings
-import swanL2S1 from "@/assets/scenarios/swan-l2-s1.jpg";
+import swanL2S1 from "@/assets/scenarios/swan-l2-s1.png";
 import swanL2S2 from "@/assets/scenarios/swan-l2-s2.png";
-import swanL2S3 from "@/assets/scenarios/swan-l2-s3.jpg";
+import swanL2S3 from "@/assets/scenarios/swan-l2-s3.png";
 // Swan Level 3 - Budgeting
-import swanL3S1 from "@/assets/scenarios/swan-l3-s1.jpg";
-import swanL3S2 from "@/assets/scenarios/swan-l3-s2.jpg";
+import swanL3S1 from "@/assets/scenarios/swan-l3-s1.png";
+import swanL3S2 from "@/assets/scenarios/swan-l3-s2.png";
 import swanL3S3 from "@/assets/scenarios/swan-l3-s3.png";
 // Swan Level 4 - Investing
 import swanL4S1 from "@/assets/scenarios/swan-l4-s1.png";
@@ -104,11 +104,11 @@ export const introImages: Record<string, string> = {
 export const introTexts: Record<string, { title: string; description: string }> = {
   swan: {
     title: "Meet Swan!",
-    description: "Swan just landed a brand new corporate job at Swan Co.! Follow Swan as they navigate the world of money — from opening a bank account and saving their first paycheck, to budgeting wisely, investing for the future, and giving back to the community. Let's help Swan build a strong financial foundation!",
+    description: "Swan just got their first paycheck and is stepping into adult money life. Help Swan choose smart banking options, build savings goals, and organize spending with confidence.",
   },
   beaver: {
     title: "Meet Beaver!",
-    description: "Beaver just graduated from high school and is ready to earn their own money! Join Beaver as they get their first job at a bakery, learn the difference between needs and wants, start saving smart on a smaller income, and understand how loans work. Let's help Beaver become financially independent!",
+    description: "Beaver is starting a new chapter in the city and learning how to earn steady income. You'll guide Beaver through first-job choices, spending decisions, savings habits, and loan basics.",
   },
   dog: {
     title: "Meet Dog!",
