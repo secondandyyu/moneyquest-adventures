@@ -265,7 +265,7 @@ export default function GamePlay() {
                 <img
                   src={scenarioIllustrations[scenario.id]}
                   alt="Scenario illustration"
-                  className="w-full h-48 md:h-64 object-cover"
+                  className="w-full object-contain"
                   style={{ filter: "saturate(0.85) contrast(0.95) brightness(1.02)" }}
                 />
               </div>
