@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/context/GameContext";
 import { getLevelById } from "@/data/gameData";
 import type { Scenario, Choice, ChoiceQuality } from "@/data/gameData";
-import { scenarioIllustrations } from "@/data/scenarioIllustrations";
+import { scenarioIllustrations, introImages, introTexts } from "@/data/scenarioIllustrations";
 import GuideAvatar from "@/components/GuideAvatar";
 import swanImg from "@/assets/swan-guide.png";
 import beaverImg from "@/assets/beaver-guide.png";
