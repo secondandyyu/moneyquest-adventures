@@ -134,20 +134,43 @@ export default function GamePlay() {
             )}
           </div>
 
-          <div className="flex gap-3 justify-center">
-            <Link
-              to="/levels"
-              className="px-6 py-3 bg-muted text-foreground rounded-xl font-bold hover:bg-muted/80"
-            >
-              Back to Levels
-            </Link>
-            <Link
-              to="/review"
-              className="px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold hover:opacity-90"
-            >
-              Review Answers
-            </Link>
-          </div>
+          {(() => {
+            const next = getNextLevel(level.id);
+            return (
+              <div className="flex flex-col gap-3 items-center">
+                {next && (
+                  <Link
+                    to={`/play/${next.level.id}`}
+                    onClick={() => {
+                      setCurrentScenarioIdx(0);
+                      setSelectedChoice(null);
+                      setShowResult(false);
+                      setShowSummary(false);
+                      setShowHint(false);
+                      setSessionAnswers({});
+                    }}
+                    className="w-full max-w-xs px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold hover:opacity-90 text-center flex items-center justify-center gap-2"
+                  >
+                    Next Level <ArrowRight size={16} />
+                  </Link>
+                )}
+                <div className="flex gap-3">
+                  <Link
+                    to="/levels"
+                    className="px-6 py-3 bg-muted text-foreground rounded-xl font-bold hover:bg-muted/80"
+                  >
+                    Back to Levels
+                  </Link>
+                  <Link
+                    to="/review"
+                    className="px-6 py-3 bg-secondary text-secondary-foreground rounded-xl font-bold hover:opacity-90"
+                  >
+                    Review Answers
+                  </Link>
+                </div>
+              </div>
+            );
+          })()}
         </motion.div>
       </div>
     );
