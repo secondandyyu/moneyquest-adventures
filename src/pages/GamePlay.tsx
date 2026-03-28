@@ -109,6 +109,112 @@ export default function GamePlay() {
           return sum + (r?.xpEarned || 0);
         }, 0);
 
+    const next = getNextLevel(level.id);
+    const nextCat = !next ? getNextCategory(level.id) : undefined;
+    const isGameComplete = level.id === "dog-l5" && !isReplay && !next && !nextCat;
+
+    if (isGameComplete) {
+      return (
+        <div className="min-h-screen flex items-center justify-center px-4 py-12">
+          <motion.div
+            initial={{ scale: 0.3, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: "spring", duration: 0.8, bounce: 0.4 }}
+            className="max-w-lg w-full text-center"
+          >
+            {/* Celebration emojis */}
+            <motion.div
+              initial={{ y: -30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="text-6xl mb-4"
+            >
+              🎉🏆🎉
+            </motion.div>
+
+            <motion.h1
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="text-4xl md:text-5xl font-black mb-3 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
+            >
+              Congratulations!
+            </motion.h1>
+
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              className="text-lg font-bold text-muted-foreground mb-6"
+            >
+              You've completed every level with all three animal guides!
+            </motion.p>
+
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.9 }}
+              className="bg-card border-2 border-border rounded-2xl p-6 mb-6 space-y-4"
+            >
+              <div className="flex items-center justify-center gap-2">
+                <Star className="text-xp fill-xp" size={28} />
+                <span className="text-3xl font-black">{state.xp}</span>
+                <span className="font-bold text-muted-foreground">Total XP</span>
+              </div>
+
+              <div className="h-px bg-border/60" />
+
+              <div className="grid grid-cols-3 gap-3 text-center">
+                {[
+                  { emoji: "🦢", name: "Swan" },
+                  { emoji: "🦫", name: "Beaver" },
+                  { emoji: "🐕", name: "Dog" },
+                ].map((animal) => (
+                  <div key={animal.name} className="bg-primary/5 rounded-xl p-3">
+                    <span className="text-2xl">{animal.emoji}</span>
+                    <p className="text-xs font-extrabold text-primary mt-1">{animal.name}</p>
+                    <p className="text-xs text-success font-bold">✅ Complete</p>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                You've mastered banking, saving, budgeting, investing, and giving back. You're a true money expert! 💪
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1.1 }}
+              className="flex flex-col gap-3 items-center"
+            >
+              <Link
+                to="/review"
+                className="w-full max-w-xs px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold hover:opacity-90 text-center flex items-center justify-center gap-2"
+              >
+                📖 Review Your Journey
+              </Link>
+              <div className="flex gap-3">
+                <Link
+                  to="/levels"
+                  className="px-6 py-3 bg-muted text-foreground rounded-xl font-bold hover:bg-muted/80"
+                >
+                  Back to Levels
+                </Link>
+                <Link
+                  to="/shop"
+                  className="px-6 py-3 bg-secondary text-secondary-foreground rounded-xl font-bold hover:opacity-90"
+                >
+                  Visit Shop
+                </Link>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      );
+    }
+
     return (
       <div className="container py-12 px-4 max-w-lg mx-auto text-center">
         <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
@@ -136,8 +242,6 @@ export default function GamePlay() {
           </div>
 
           {(() => {
-            const next = getNextLevel(level.id);
-            const nextCat = !next ? getNextCategory(level.id) : undefined;
             const resetState = () => {
               setCurrentScenarioIdx(0);
               setSelectedChoice(null);
