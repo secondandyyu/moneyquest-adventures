@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/context/GameContext";
 import { getLevelById, getNextLevel, getNextCategory } from "@/data/gameData";
 import type { Scenario, Choice, ChoiceQuality } from "@/data/gameData";
+import QuizView from "@/components/QuizView";
 import { scenarioIllustrations, introImages, introTexts } from "@/data/scenarioIllustrations";
 import GuideAvatar from "@/components/GuideAvatar";
 import swanImg from "@/assets/swan-guide.png";
