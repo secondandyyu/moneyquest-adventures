@@ -37,8 +37,9 @@ export default function Review() {
   const totalPages = completedItems.length;
   const item = completedItems[currentPage];
   const { category, level, scenario, result } = item;
-  const chosenChoice = scenario.choices[result.choiceIndex];
-  const bestChoice = scenario.choices.find((c) => c.quality === "best");
+  const isQuiz = scenario.isQuiz && scenario.questions && scenario.questions.length > 0;
+  const chosenChoice = !isQuiz ? scenario.choices[result.choiceIndex] : null;
+  const bestChoice = !isQuiz ? scenario.choices.find((c) => c.quality === "best") : null;
 
   return (
     <div className="min-h-screen flex flex-col items-center py-8 px-4">
