@@ -37,8 +37,9 @@ export default function Review() {
   const totalPages = completedItems.length;
   const item = completedItems[currentPage];
   const { category, level, scenario, result } = item;
-  const chosenChoice = scenario.choices[result.choiceIndex];
-  const bestChoice = scenario.choices.find((c) => c.quality === "best");
+  const isQuiz = scenario.isQuiz && scenario.questions && scenario.questions.length > 0;
+  const chosenChoice = !isQuiz ? scenario.choices[result.choiceIndex] : null;
+  const bestChoice = !isQuiz ? scenario.choices.find((c) => c.quality === "best") : null;
 
   return (
     <div className="min-h-screen flex flex-col items-center py-8 px-4">
@@ -107,49 +108,87 @@ export default function Review() {
                   <div className="flex-1 h-px bg-border/60" />
                 </div>
 
-                {/* Your choice */}
-                <div>
-                  <p className="text-xs font-extrabold text-muted-foreground uppercase tracking-wide mb-2">
-                    Your Choice
-                  </p>
-                  <div
-                    className={`text-sm p-4 rounded-xl border-2 ${
-                      chosenChoice.quality === "best"
-                        ? "border-success bg-success/5"
-                        : chosenChoice.quality === "okay"
-                        ? "border-warning bg-warning/5"
-                        : "border-danger bg-danger/5"
-                    }`}
-                  >
-                    {chosenChoice.text}
-                    <span className="ml-2 inline-flex items-center gap-1 text-xs font-bold">
-                      <Star size={10} className="text-xp fill-xp" /> +{result.xpEarned} XP
-                    </span>
-                  </div>
-                </div>
+                {/* Regular scenario content */}
+                {!isQuiz && chosenChoice && (
+                  <>
+                    {/* Your choice */}
+                    <div>
+                      <p className="text-xs font-extrabold text-muted-foreground uppercase tracking-wide mb-2">
+                        Your Choice
+                      </p>
+                      <div
+                        className={`text-sm p-4 rounded-xl border-2 ${
+                          chosenChoice.quality === "best"
+                            ? "border-success bg-success/5"
+                            : chosenChoice.quality === "okay"
+                            ? "border-warning bg-warning/5"
+                            : "border-danger bg-danger/5"
+                        }`}
+                      >
+                        {chosenChoice.text}
+                        <span className="ml-2 inline-flex items-center gap-1 text-xs font-bold">
+                          <Star size={10} className="text-xp fill-xp" /> +{result.xpEarned} XP
+                        </span>
+                      </div>
+                    </div>
 
-                {/* Best choice (if different) */}
-                {bestChoice && chosenChoice.quality !== "best" && (
-                  <div>
-                    <p className="text-xs font-extrabold text-success mb-1">✅ Best Choice Was:</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{bestChoice.text}</p>
-                  </div>
+                    {/* Best choice (if different) */}
+                    {bestChoice && chosenChoice.quality !== "best" && (
+                      <div>
+                        <p className="text-xs font-extrabold text-success mb-1">✅ Best Choice Was:</p>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{bestChoice.text}</p>
+                      </div>
+                    )}
+
+                    {/* Explanation */}
+                    <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
+                      <div className="flex items-center gap-1.5 mb-2">
+                        <Lightbulb size={14} className="text-primary" />
+                        <span className="text-xs font-extrabold text-primary">Lesson Learned</span>
+                      </div>
+                      <p className="text-sm leading-relaxed text-muted-foreground">{scenario.justification}</p>
+                    </div>
+
+                    {/* Definition */}
+                    {scenario.definition && (
+                      <div className="bg-secondary/20 rounded-xl p-4 border border-secondary/30">
+                        <span className="text-xs font-extrabold text-secondary-foreground">📚 Definition: </span>
+                        <span className="text-xs text-muted-foreground">{scenario.definition}</span>
+                      </div>
+                    )}
+                  </>
                 )}
 
-                {/* Explanation */}
-                <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
-                  <div className="flex items-center gap-1.5 mb-2">
-                    <Lightbulb size={14} className="text-primary" />
-                    <span className="text-xs font-extrabold text-primary">Lesson Learned</span>
-                  </div>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{scenario.justification}</p>
-                </div>
-
-                {/* Definition */}
-                {scenario.definition && (
-                  <div className="bg-secondary/20 rounded-xl p-4 border border-secondary/30">
-                    <span className="text-xs font-extrabold text-secondary-foreground">📚 Definition: </span>
-                    <span className="text-xs text-muted-foreground">{scenario.definition}</span>
+                {/* Quiz scenario content */}
+                {isQuiz && scenario.questions && (
+                  <div className="space-y-4">
+                    <p className="text-xs font-extrabold text-primary uppercase tracking-wide">
+                      📝 Quiz Review — {scenario.questions.length} Questions
+                    </p>
+                    {scenario.questions.map((q, qIdx) => {
+                      const bestAnswer = q.choices.find((c) => c.quality === "best");
+                      return (
+                        <div key={qIdx} className="bg-card rounded-xl border-2 border-border p-4 space-y-3">
+                          <p className="text-sm font-bold">
+                            <span className="text-primary mr-1.5">Q{qIdx + 1}.</span>
+                            {q.text}
+                          </p>
+                          {bestAnswer && (
+                            <div className="text-sm p-3 rounded-lg border-2 border-success bg-success/5">
+                              <p className="text-xs font-extrabold text-success mb-1">✅ Best Answer:</p>
+                              <p>{bestAnswer.text}</p>
+                            </div>
+                          )}
+                          <div className="bg-primary/5 rounded-lg p-3 border border-primary/10">
+                            <div className="flex items-center gap-1.5 mb-1">
+                              <Lightbulb size={12} className="text-primary" />
+                              <span className="text-xs font-extrabold text-primary">Why?</span>
+                            </div>
+                            <p className="text-xs leading-relaxed text-muted-foreground">{q.justification}</p>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
               </div>
