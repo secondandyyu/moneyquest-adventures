@@ -151,7 +151,7 @@ export default function Shop() {
                       <Check size={16} className="text-success" />
                     </div>
                   )}
-                  <div className="text-3xl mb-2">{item.preview}</div>
+                  <div className={`text-3xl mb-2 ${item.type === "font" ? `font-${item.value}` : ""}`}>{item.preview}</div>
                   <p className="font-extrabold text-sm">{item.name}</p>
                   {item.description && (
                     <p className="text-[11px] text-muted-foreground mt-0.5 leading-tight">{item.description}</p>
