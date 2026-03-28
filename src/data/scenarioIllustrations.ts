@@ -49,6 +49,12 @@ import dogL4S2 from "@/assets/scenarios/dog-l4-s2.jpg";
 // Dog Level 5 - Donations
 import dogL5S1 from "@/assets/scenarios/dog-l5-s1.jpg";
 import dogL5S2 from "@/assets/scenarios/dog-l5-s2.jpg";
+// Dog Level Scenario 3s
+import dogL1S3 from "@/assets/scenarios/dog-l1-s3.jpg";
+import dogL2S3 from "@/assets/scenarios/dog-l2-s3.jpg";
+import dogL3S3 from "@/assets/scenarios/dog-l3-s3.jpg";
+import dogL4S3 from "@/assets/scenarios/dog-l4-s3.jpg";
+import dogL5S3 from "@/assets/scenarios/dog-l5-s3.jpg";
 
 // Intro images
 import swanIntro from "@/assets/scenarios/swan-intro.png";
@@ -93,6 +99,11 @@ export const scenarioIllustrations: Record<string, string> = {
   "dog-l4-s2": dogL4S2,
   "dog-l5-s1": dogL5S1,
   "dog-l5-s2": dogL5S2,
+  "dog-l1-s3": dogL1S3,
+  "dog-l2-s3": dogL2S3,
+  "dog-l3-s3": dogL3S3,
+  "dog-l4-s3": dogL4S3,
+  "dog-l5-s3": dogL5S3,
 };
 
 export const introImages: Record<string, string> = {
