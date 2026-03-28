@@ -162,7 +162,7 @@ export default function GamePlay() {
                     onClick={resetState}
                     className="w-full max-w-xs px-6 py-3 bg-accent text-accent-foreground rounded-xl font-bold hover:opacity-90 text-center flex items-center justify-center gap-2"
                   >
-                    Next Animal: {nextCat.category.title} 🎉 <ArrowRight size={16} />
+                    Next Animal: {nextCat.category.name} 🎉 <ArrowRight size={16} />
                   </Link>
                 )}
                 <div className="flex gap-3">
