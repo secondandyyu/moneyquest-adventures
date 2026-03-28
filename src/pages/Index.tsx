@@ -68,9 +68,9 @@ export default function Index() {
                   <motion.div
                     animate={unlocked ? { y: [0, -8, 0] } : {}}
                     transition={{ duration: 3, repeat: Infinity }}
-                    className="mx-auto mb-4"
+                    className="mx-auto mb-4 w-48 h-48"
                   >
-                    <GuideAvatar src={guideImages[cat.guide]} size="lg" />
+                    <img src={guideImages[cat.guide]} alt={cat.name} className="w-full h-full object-contain" />
                   </motion.div>
                   <h3 className="text-xl font-extrabold mb-1">{cat.name}</h3>
                   <p className="text-sm text-muted-foreground mb-3">{cat.description}</p>
