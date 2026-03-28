@@ -38,10 +38,10 @@ import beaverL4S3 from "@/assets/scenarios/beaver-l4-s3.jpg";
 import dogL1S1 from "@/assets/scenarios/dog-l1-s1.jpg";
 import dogL1S2 from "@/assets/scenarios/dog-l1-s2.jpg";
 // Dog Level 2 - Savings
-import dogL2S1 from "@/assets/scenarios/dog-l2-s1.jpg";
-import dogL2S2 from "@/assets/scenarios/dog-l2-s2.jpg";
+import dogL2S1 from "@/assets/scenarios/dog-l2-s1.png";
+import dogL2S2 from "@/assets/scenarios/dog-l2-s2.png";
 // Dog Level 3 - Budgeting
-import dogL3S1 from "@/assets/scenarios/dog-l3-s1.jpg";
+import dogL3S1 from "@/assets/scenarios/dog-l3-s1.png";
 import dogL3S2 from "@/assets/scenarios/dog-l3-s2.jpg";
 // Dog Level 4 - Investing
 import dogL4S1 from "@/assets/scenarios/dog-l4-s1.jpg";
