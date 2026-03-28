@@ -626,3 +626,13 @@ export function getLevelById(levelId: string): { category: Category; level: Leve
   }
   return undefined;
 }
+
+export function getNextLevel(levelId: string): { category: Category; level: Level } | undefined {
+  for (const cat of categories) {
+    const idx = cat.levels.findIndex((l) => l.id === levelId);
+    if (idx !== -1 && idx < cat.levels.length - 1) {
+      return { category: cat, level: cat.levels[idx + 1] };
+    }
+  }
+  return undefined;
+}
