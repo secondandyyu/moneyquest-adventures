@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/context/GameContext";
-import { getLevelById } from "@/data/gameData";
+import { getLevelById, getNextLevel } from "@/data/gameData";
 import type { Scenario, Choice, ChoiceQuality } from "@/data/gameData";
 import { scenarioIllustrations, introImages, introTexts } from "@/data/scenarioIllustrations";
 import GuideAvatar from "@/components/GuideAvatar";
