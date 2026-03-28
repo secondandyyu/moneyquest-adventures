@@ -286,6 +286,13 @@ export default function GamePlay() {
               </div>
             </div>
 
+            {/* Context story - show before image for quiz scenarios */}
+            {scenario.isQuiz && (
+              <div className="bg-card border-2 border-border rounded-2xl p-5 mb-4">
+                <p className="text-base leading-relaxed font-semibold">{scenario.context}</p>
+              </div>
+            )}
+
             {/* Scenario illustration */}
             {scenarioIllustrations[scenario.id] && (
             <div className="rounded-2xl overflow-hidden border-2 border-border mb-4 bg-card shadow-sm">
@@ -298,10 +305,12 @@ export default function GamePlay() {
               </div>
             )}
 
-            {/* Context story */}
-            <div className="bg-card border-2 border-border rounded-2xl p-5 mb-4">
-              <p className="text-base leading-relaxed font-semibold">{scenario.context}</p>
-            </div>
+            {/* Context story - show after image for non-quiz scenarios */}
+            {!scenario.isQuiz && (
+              <div className="bg-card border-2 border-border rounded-2xl p-5 mb-4">
+                <p className="text-base leading-relaxed font-semibold">{scenario.context}</p>
+              </div>
+            )}
 
             {/* Definition or Teaching */}
             {scenario.definition && (
