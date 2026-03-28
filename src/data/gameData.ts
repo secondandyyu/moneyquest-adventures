@@ -700,12 +700,29 @@ export const categories: Category[] = [
             id: "dog-l5-s3",
             context: "Let's check your understanding of charity and business!",
             isQuiz: true,
-            choices: [
-              { text: "It is a safe and planned way to help the community without hurting the business, and you may get tax benefits.", quality: "best", xp: 500 },
-              { text: "It gathers more consumers.", quality: "okay", xp: 300 },
-              { text: "It replaces the need to manage finances carefully.", quality: "bad", xp: 100 },
+            choices: [],
+            justification: "",
+            questions: [
+              {
+                text: "What makes giving snacks away a good decision for a small business?",
+                choices: [
+                  { text: "It is a safe and planned way to help the community without hurting the business, and you may get tax benefits.", quality: "best", xp: 500 },
+                  { text: "It gathers more consumers.", quality: "okay", xp: 300 },
+                  { text: "It replaces the need to manage finances carefully.", quality: "bad", xp: 100 },
+                ],
+                justification: "Giving back helps your neighbors and reduces waste, while potentially earning tax benefits that keep your business healthy.",
+              },
+              {
+                text: "What is the main purpose of a business?",
+                choices: [
+                  { text: "To make money to share with workers.", quality: "okay", xp: 300 },
+                  { text: "To provide goods or services people need while supporting employees and the community.", quality: "best", xp: 500 },
+                  { text: "To compete with other businesses.", quality: "bad", xp: 100 },
+                ],
+                justification: "A business should provide helpful goods or services while creating a positive circle of support for your employees, your customers, and your entire community.",
+              },
             ],
-            justification: "Correct! Giving back helps your neighbors and reduces waste, while potentially earning tax benefits that keep your business healthy. The main purpose of a business is to provide goods or services people need while supporting employees and the community. Responsible generosity strengthens a business's reputation while keeping it financially sustainable.",
+            teaching: "Giving back is important in business because it helps the community and builds trust with customers. Responsible generosity can strengthen a business's reputation while still keeping it financially sustainable.",
           },
         ],
       },
