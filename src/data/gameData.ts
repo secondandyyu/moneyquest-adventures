@@ -636,3 +636,15 @@ export function getNextLevel(levelId: string): { category: Category; level: Leve
   }
   return undefined;
 }
+
+export function getNextCategory(levelId: string): { category: Category; level: Level } | undefined {
+  for (let i = 0; i < categories.length; i++) {
+    const cat = categories[i];
+    const idx = cat.levels.findIndex((l) => l.id === levelId);
+    if (idx !== -1 && idx === cat.levels.length - 1 && i < categories.length - 1) {
+      const nextCat = categories[i + 1];
+      return { category: nextCat, level: nextCat.levels[0] };
+    }
+  }
+  return undefined;
+}
