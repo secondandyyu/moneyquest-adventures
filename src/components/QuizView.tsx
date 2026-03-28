@@ -35,8 +35,7 @@ export default function QuizView({ questions, onComplete, isReplay, hasPowerUp }
     setSelectedChoice(idx);
     setShowResult(true);
     if (!isReplay) {
-      const xpMultiplier = hasPowerUp ? 1.5 : 1;
-      setTotalXP((prev) => prev + Math.round(choice.xp * xpMultiplier));
+      setTotalXP((prev) => prev + choice.xp);
     }
   };
 
