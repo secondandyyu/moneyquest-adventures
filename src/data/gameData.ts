@@ -62,7 +62,7 @@ export const categories: Category[] = [
           {
             id: "swan-l1-s2",
             context: "You need to decide what accounts to set up with your bank. A checking account allows you to make day-to-day spending and a savings account helps you save for the future.",
-            teaching: "A checking account is for your \"everyday money\" used for frequent spending, while a savings account is for \"future money\" that earns interest over time.",
+            teaching: "Think of a checking account like your backpack — it holds the money you need every day for things like lunch, bus fare, or a new pencil. You can take money in and out whenever you want! A savings account is more like a piggy bank that's locked away safely. The cool part? The bank actually gives you a little extra money called \"interest\" just for keeping your money there. It's like the bank saying \"thank you for letting us hold your money\" by adding a few extra coins over time. The longer you leave your money in savings, the more bonus money you earn!",
             choices: [
               { text: "Open both a checking and a savings account, putting most money in checking for daily use.", quality: "okay", xp: 300 },
               { text: "Open both a checking and a savings account, splitting your money wisely between daily spending and saving for the future.", quality: "best", xp: 500 },
@@ -73,7 +73,7 @@ export const categories: Category[] = [
           {
             id: "swan-l1-s3",
             context: "You need to make withdrawals to pay rent, groceries, and new clothes.",
-            teaching: "You can take money out by using an ATM for physical cash, a wire transfer to \"teleport\" money digitally to someone else, or a paper cheque that tells the bank to pay a specific person.",
+            teaching: "There are different ways to get money out of your bank account, kind of like different ways to send a letter! An ATM is a machine (usually outside a bank or store) where you put in your card and it gives you real paper money and coins — perfect for when you need cash right away. A wire transfer is like sending money through the internet — it \"teleports\" your money from your account straight into someone else's account without anyone touching real cash. It's super safe because there's a digital record of everything! A paper cheque is an old-fashioned way where you write someone's name on a special piece of paper, and when they take it to the bank, the bank gives them the money from your account.",
             choices: [
               { text: "Use ATMs mostly for immediate transactions for quick or emergency purchases. Use mobile wire for online transfers and rent payment.", quality: "best", xp: 500 },
               { text: "Pay rent with a check, groceries and other payments via wiring.", quality: "okay", xp: 300 },
@@ -150,7 +150,7 @@ export const categories: Category[] = [
           {
             id: "swan-l3-s3",
             context: "A coworker shows you the MoneyCare app and explains how it can link to your bank to track expenses automatically.",
-            teaching: "Online apps are great because they give you a \"bank in your pocket\" to check your balance instantly and pay bills anytime without having to travel to a building.",
+            teaching: "Imagine if you could carry your entire bank inside your phone — that's basically what a banking or money-tracking app does! Instead of walking or driving all the way to a bank building, you can open an app on your phone and instantly see how much money you have, pay your bills, or send money to a friend. Some apps can even sort your spending into groups like \"Food,\" \"Fun,\" and \"Transportation\" automatically, so you can see exactly where your money goes each month. It's like having a super-smart helper who watches your money 24 hours a day, 7 days a week, and never takes a break!",
             choices: [
               { text: "Use MoneyCare to manually track your records. Don't connect the app to your bank account.", quality: "okay", xp: 300 },
               { text: "Use MoneyCare to categorize your income and expenses and record your savings goals with bank account connection.", quality: "best", xp: 500 },
@@ -169,7 +169,7 @@ export const categories: Category[] = [
           {
             id: "swan-l4-s1",
             context: "You go out to eat dinner with your friend on a weekend. Your friend explains that she has been multiplying her savings by investing in stocks. You're interested in investing too.",
-            teaching: "Stocks are tiny \"slices\" of ownership in a company that grow in value as the business becomes more successful, and you invest well by buying shares in many different companies to spread out your risk.",
+            teaching: "Imagine a company is like a giant pizza. When you buy a \"stock,\" you're buying one tiny slice of that pizza. If the pizza shop becomes super popular and everyone wants their pizza, your slice becomes worth more money! That's how stocks work — when a company does well, the value of your slice goes up, and you can sell it for more than you paid. But here's the tricky part: if the company does badly, your slice could be worth less. That's why smart investors don't just buy one slice of one pizza — they buy slices from lots of different pizza shops! This is called \"diversification,\" and it means that even if one shop closes, you still have slices from other shops that are doing great.",
             choices: [
               { text: "Invest in \"Stylist\" — a clothing company that makes trendy clothes. Sometimes popular, sometimes not. High growth in the past but stagnant recently.", quality: "bad", xp: 100 },
               { text: "Invest in \"TechKnowlegy\" — a tech company making computers and cars. Some people buy from them as an alternative to Apple or Tesla. Ups and downs in growth.", quality: "okay", xp: 300 },
@@ -180,7 +180,7 @@ export const categories: Category[] = [
           {
             id: "swan-l4-s2",
             context: "You consider what would happen if you tried short-term investing vs. long-term investing. Short-term investing is risky but can be rewarding. Long-term investing is safe but slow.",
-            teaching: "Short-term investing involves buying and selling quickly, often within days or months, to make a fast profit, while long-term investing means holding onto your assets for years to let them grow steadily over time.",
+            teaching: "Think of investing like growing plants. Short-term investing is like picking wildflowers — you grab them quickly, but they don't last very long and sometimes you don't find any at all. You buy something and try to sell it really fast (in days or weeks) hoping the price went up. It can work, but it's very risky because prices bounce around a lot in the short term! Long-term investing is like planting an apple tree. You put a seed in the ground and water it for years. At first, nothing happens. But after a long time, that tiny seed grows into a big tree that gives you apples every single year! Most of the richest and smartest investors in the world are long-term investors because they know that patience is a superpower when it comes to money.",
             choices: [
               { text: "Invest mostly short-term to increase immediate benefits.", quality: "bad", xp: 100 },
               { text: "Invest long-term in stable companies and let your money grow over years.", quality: "best", xp: 500 },
@@ -191,7 +191,7 @@ export const categories: Category[] = [
           {
             id: "swan-l4-s3",
             context: "You worked another month and had some extra money. You want to invest it so it can grow and decide how you can invest this money.",
-            teaching: "Mutual Funds are \"baskets\" of stocks managed by a professional expert who picks which companies to buy for you. Index Funds are automatic \"baskets\" that simply track a specific list of top companies, usually costing you much less in fees. Crypto is digital money (like Bitcoin) that isn't controlled by a bank and can change in value very quickly, making it much riskier.",
+            teaching: "There are different ways to invest your money, like choosing different rides at a theme park! A Mutual Fund is like hiring a really smart adult to pick the best companies for you. They put your money (along with other people's money) into a big basket of different stocks. You pay them a small fee for doing the hard work of choosing. An Index Fund is similar, but instead of a person choosing, a computer automatically buys stocks from a list of the biggest and most popular companies (like the top 500 companies in America!). Because no person is doing the picking, it costs you much less in fees — and studies show index funds often do just as well! Crypto (short for cryptocurrency) is like digital coins that exist only on computers — Bitcoin is the most famous one. No bank or government controls it. Crypto can go way up in value really fast, but it can also crash way down just as fast, kind of like a roller coaster with no brakes. That's why most experts say only put in a tiny amount you'd be okay losing.",
             choices: [
               { text: "Put money only in index funds.", quality: "okay", xp: 300 },
               { text: "Put 40% in mutual funds, 50% in index funds, and 10% in crypto.", quality: "best", xp: 500 },
@@ -277,7 +277,7 @@ export const categories: Category[] = [
           {
             id: "beaver-l1-s3",
             context: "For your first month of working at the bakery, you need to decide on what method to get paid.",
-            teaching: "Direct Deposit: Your pay is \"teleported\" electronically into your bank account on payday. Paper Check: A physical document you can exchange for cash at a bank. Cash: Physical bills and coins giving immediate access but requiring extra effort to track.",
+            teaching: "When you work at a job, there are different ways your boss can give you your money! Direct Deposit is the most modern way — your boss tells the bank to send your pay straight into your bank account on payday, like magic! You don't have to do anything; the money just appears. A Paper Check is a special piece of paper your boss gives you. You take it to your bank (or use a phone app to snap a picture of it), and the bank puts that money into your account. It works, but you have to remember to actually go deposit it! Getting paid in Cash means your boss hands you real paper money and coins. It feels great to hold it, but there's a big problem: if you lose it or someone takes it, it's gone forever. Plus, it's really hard to keep track of how much you spent when everything is cash. That's why most grown-ups prefer direct deposit — it's safe, automatic, and easy to track!",
             choices: [
               { text: "Your pay goes by direct deposit into your bank account.", quality: "best", xp: 500 },
               { text: "Get a paper check and deposit it using a bank app.", quality: "okay", xp: 300 },
@@ -334,7 +334,7 @@ export const categories: Category[] = [
           {
             id: "beaver-l3-s1",
             context: "You are looking at your monthly expenses along with your salary and need to adjust how you are going to prioritize needs, wants, and savings.",
-            teaching: "If you have a relatively low income, it's more important to focus on needs than wants or savings.",
+            teaching: "When you don't earn a lot of money, every dollar matters even more! Think of your money like a glass of water on a hot day — you wouldn't waste it by splashing it around, right? You'd drink what you need first to stay healthy. That's exactly how it works with money. \"Needs\" are things you absolutely must pay for to survive and stay safe, like rent (so you have a roof over your head), food (so you don't go hungry), and transportation (so you can get to work). \"Wants\" are fun things like video games, eating out, or new sneakers — they're nice to have but you won't be in danger without them. When your income is low, the smartest move is to cover all your needs first, save a little bit for emergencies, and only then spend whatever tiny amount is left on wants.",
             choices: [
               { text: "Prioritize needs and focus on savings with the rest of your money by using a 65/15/20 split.", quality: "best", xp: 500 },
               { text: "Prioritize needs but put wants and savings at an equal rate by using a 55/25/20 split.", quality: "okay", xp: 300 },
@@ -355,7 +355,7 @@ export const categories: Category[] = [
           {
             id: "beaver-l3-s3",
             context: "You want to save for a car that makes the transition from your home to the bakery faster and easier.",
-            teaching: "The \"Pay Yourself First\" rule means deciding to save a set percentage before spending on anything else.",
+            teaching: "Here's a money trick that rich and successful people use: the \"Pay Yourself First\" rule! It means that the very first thing you do when you get paid is move some money into your savings — before you buy anything, before you pay for fun stuff, before you even think about spending. Why? Because if you wait until the end of the month to save \"whatever is left,\" guess what usually happens? There's nothing left! It all got spent on little things here and there. But if you save first — say 15% of every paycheck — that money is already safe and growing before you can accidentally spend it. It's like hiding your Halloween candy in a secret spot before you're tempted to eat it all in one night!",
             choices: [
               { text: "Make a plan to consistently save 15% of income, even if it means cutting back on non-essential spending.", quality: "best", xp: 500 },
               { text: "Make a plan to consistently save 5% of income, and enjoy the small wants.", quality: "okay", xp: 300 },
@@ -421,7 +421,7 @@ export const categories: Category[] = [
           {
             id: "dog-l1-s1",
             context: "You want to start your snack-making business but need money to pay for ingredients, equipment, permits, workers, etc. You need to decide how to get the initial funds.",
-            teaching: "A loan provides the \"startup fuel\" you need to buy equipment and supplies before you have any customers, while interest is the extra fee you pay the bank for the privilege of using their money to grow your dream.",
+            teaching: "Starting a business costs money — you need to buy ingredients, equipment, and pay for permits before you've even sold your first item! But what if you don't have enough money saved up? That's where a loan comes in. A loan is when a bank (or sometimes a person) lets you borrow their money so you can get started right away. But here's the catch: you don't just pay back what you borrowed — you also pay a little extra called \"interest.\" Interest is like a thank-you fee for letting you use their money. For example, if you borrow $1,000 with 10% interest, you'd pay back $1,100 total — the original $1,000 plus $100 extra. The lower the interest rate, the less extra you have to pay, which means more money stays in your pocket!",
             choices: [
               { text: "Personal loan from a bank that has a higher interest rate than other options.", quality: "bad", xp: 100 },
               { text: "Business loan from a bank with a separate program for new business owners and a structured repayment plan.", quality: "best", xp: 500 },
@@ -432,7 +432,7 @@ export const categories: Category[] = [
           {
             id: "dog-l1-s2",
             context: "You want to expand your snack business and buy a bigger oven. You consider whether to take a loan or not.",
-            teaching: "Excessive loans can be burdensome. Sometimes using your own money is smarter!",
+            teaching: "Taking out too many loans is like carrying too many heavy backpacks at once — eventually, they weigh you down so much that you can barely move! Every loan you take means you owe money plus interest, and all those payments add up. Sometimes, the smartest thing to do is wait and use your own savings instead. When you use money you've already saved, you don't owe anyone anything — no interest, no monthly payments, no stress! It might take longer to save up, but the money you earn is 100% yours. Think of it this way: would you rather borrow a friend's toy and have to give it back plus one of your own toys, or just wait until you can buy your own toy and keep it forever?",
             choices: [
               { text: "Take a bank business loan with a structured repayment plan.", quality: "okay", xp: 300 },
               { text: "Don't take a loan, but grow using savings.", quality: "best", xp: 500 },
@@ -540,7 +540,7 @@ export const categories: Category[] = [
           {
             id: "dog-l4-s1",
             context: "Your snack business is getting busier and gaining more orders, but slow preparation is limiting how many customers you can serve.",
-            teaching: "Investing is not always about stocks — it can be anything that you use money to try to multiply money. It's simply any way you spend money today with the specific goal of making that money \"multiply\" and return even more profit later.",
+            teaching: "When most people hear \"investing,\" they think of stocks and the stock market. But investing is actually much bigger than that! Investing simply means spending money on something today that will help you make even more money in the future. For example, if you buy a better oven for your bakery, you can bake twice as many cookies in the same amount of time — that means more cookies to sell and more money earned! That oven was an investment. If you take a class to learn a new skill, that's also an investment — in yourself! Even buying a good pair of work shoes so your feet don't hurt and you can work longer is a kind of investment. The key question to ask yourself is: \"Will spending this money now help me earn more money later?\" If the answer is yes, it might be a smart investment!",
             choices: [
               { text: "Keep using your current setup and focus on working longer hours instead.", quality: "bad", xp: 100 },
               { text: "Repair your existing equipment to extend its life and save money for now.", quality: "okay", xp: 300 },
@@ -551,7 +551,7 @@ export const categories: Category[] = [
           {
             id: "dog-l4-s2",
             context: "Sales have been steady, and you have a small surplus after paying expenses and loan payments. You want to decide how to use this money to strengthen the company.",
-            teaching: "Short-term investing is like a \"sprint\" where you try to make a quick profit in a few months, while long-term investing is like \"planting a tree\" where you patiently let your money grow over many years.",
+            teaching: "In business, there are two ways to invest your extra money. Short-term investing is like a sprint — you spend money on something hoping it will pay off quickly, maybe in a few weeks or months. For example, running a special ad campaign for a holiday sale. It might bring in quick cash, but the results don't always last. Long-term investing is like planting a garden — you spend money on things that take a while to pay off but keep giving you rewards for years and years. For example, buying better equipment or training your workers to be more skilled. At first it feels like nothing is happening, but over time your business gets stronger, faster, and more profitable. Most successful business owners focus more on long-term investments because they build something that lasts!",
             choices: [
               { text: "Invest in basic marketing, like setting up social media ads or local promotions.", quality: "best", xp: 500 },
               { text: "Invest in improving supply efficiency, such as buying ingredients in bulk to lower costs per unit.", quality: "best", xp: 500 },
