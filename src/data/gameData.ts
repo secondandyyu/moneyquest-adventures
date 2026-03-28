@@ -451,12 +451,37 @@ export const categories: Category[] = [
             id: "dog-l1-s3",
             context: "Let's check your understanding of loans!",
             isQuiz: true,
-            choices: [
-              { text: "Money borrowed that must be repaid with extra cost (interest).", quality: "best", xp: 500 },
-              { text: "Money earned from running a business.", quality: "bad", xp: 100 },
-              { text: "Money borrowed that does not need to be repaid with extra cost.", quality: "bad", xp: 100 },
+            choices: [],
+            justification: "",
+            questions: [
+              {
+                text: "What are loans?",
+                choices: [
+                  { text: "Money earned from running a business.", quality: "bad", xp: 100 },
+                  { text: "Money borrowed that must be repaid with extra cost.", quality: "best", xp: 500 },
+                  { text: "Money borrowed that does not need to be repaid with extra cost.", quality: "bad", xp: 100 },
+                ],
+                justification: "That \"extra cost\" is the price of using someone else's money.",
+              },
+              {
+                text: "What is the interest rate for a loan?",
+                choices: [
+                  { text: "A cost you must pay the bank for holding your money.", quality: "bad", xp: 100 },
+                  { text: "A discount for paying early.", quality: "bad", xp: 100 },
+                  { text: "Extra money you pay for borrowing money.", quality: "best", xp: 500 },
+                ],
+                justification: "It's like a \"rental fee\" for the money you borrowed.",
+              },
+              {
+                text: "For a loan, is a high or low interest rate better?",
+                choices: [
+                  { text: "High interest is better.", quality: "bad", xp: 100 },
+                  { text: "Low interest is better.", quality: "best", xp: 500 },
+                  { text: "It doesn't matter.", quality: "bad", xp: 100 },
+                ],
+                justification: "You want to pay back as little \"extra\" as possible!",
+              },
             ],
-            justification: "Correct! That \"extra cost\" is the price of using someone else's money. A low interest rate is always better because you want to pay back as little \"extra\" as possible!",
           },
         ],
       },
@@ -490,12 +515,37 @@ export const categories: Category[] = [
             id: "dog-l2-s3",
             context: "Let's check your understanding of savings!",
             isQuiz: true,
-            choices: [
-              { text: "Savings is money you set aside for future needs or emergencies.", quality: "best", xp: 500 },
-              { text: "Savings is extra money you keep for needs and wants.", quality: "okay", xp: 300 },
-              { text: "Savings are for paying interest on loans.", quality: "bad", xp: 100 },
+            choices: [],
+            justification: "",
+            questions: [
+              {
+                text: "What are savings?",
+                choices: [
+                  { text: "Savings is money you set aside for future needs or emergencies.", quality: "best", xp: 500 },
+                  { text: "Savings is extra money you keep for needs and wants.", quality: "okay", xp: 300 },
+                  { text: "Savings are for paying interest on loans.", quality: "bad", xp: 100 },
+                ],
+                justification: "It's your \"Safety Shield\" for surprises you can't expect.",
+              },
+              {
+                text: "What should be prioritized most?",
+                choices: [
+                  { text: "Wants.", quality: "bad", xp: 100 },
+                  { text: "Savings.", quality: "okay", xp: 300 },
+                  { text: "Needs.", quality: "best", xp: 500 },
+                ],
+                justification: "You must pay for food and rent before anything else!",
+              },
+              {
+                text: "How do savings change when you have a loan to pay off?",
+                choices: [
+                  { text: "Savings should stop completely until the loan is fully paid off.", quality: "bad", xp: 100 },
+                  { text: "Savings usually decrease, but keeping some savings is still important to avoid future emergencies.", quality: "best", xp: 500 },
+                  { text: "Savings should increase because loans make saving unnecessary.", quality: "bad", xp: 100 },
+                ],
+                justification: "Keeping some savings while paying off a loan is essential because it serves as your \"emergency shield.\"",
+              },
             ],
-            justification: "Correct! Savings are your \"Safety Shield\" for surprises you can't expect. Needs should always be prioritized most — you must pay for food and rent before anything else! When you have a loan, savings usually decrease but keeping some is still essential as your \"emergency shield.\"",
           },
         ],
       },
@@ -529,12 +579,28 @@ export const categories: Category[] = [
             id: "dog-l3-s3",
             context: "Let's check your understanding of budgeting!",
             isQuiz: true,
-            choices: [
-              { text: "Budget based on your lowest-income months and save extra money during better months.", quality: "best", xp: 500 },
-              { text: "Budget based on your highest-income months so you can enjoy good months more.", quality: "bad", xp: 100 },
-              { text: "Avoid budgeting until income becomes stable.", quality: "bad", xp: 100 },
+            choices: [],
+            justification: "",
+            questions: [
+              {
+                text: "When your income changes from month to month, which budgeting approach is generally the safest?",
+                choices: [
+                  { text: "Budget based on your highest-income months so you can enjoy good months more.", quality: "bad", xp: 100 },
+                  { text: "Budget based on your lowest-income months and save extra money during better months.", quality: "best", xp: 500 },
+                  { text: "Avoid budgeting until income becomes stable.", quality: "bad", xp: 100 },
+                ],
+                justification: "Based on your lowest-income months, you can always cover your \"needs\" and loan payments even when income is slow.",
+              },
+              {
+                text: "You earn more than expected this month. What is the most responsible way to handle your budget?",
+                choices: [
+                  { text: "Keep spending habits the same and treat the extra money as free spending cash.", quality: "bad", xp: 100 },
+                  { text: "Ignore the budget for this month since it was already planned.", quality: "bad", xp: 100 },
+                  { text: "Update your budget to decide in advance how much goes to savings, loan payments, and wants.", quality: "best", xp: 500 },
+                ],
+                justification: "You can strategically use that extra cash for things like faster loan repayment or emergency savings before you're tempted to spend it all on \"wants.\"",
+              },
             ],
-            justification: "Correct! Based on your lowest-income months, you can always cover your \"needs\" and loan payments even when income is slow. When you earn extra, update your budget to decide in advance how much goes to savings, loan payments, and wants before you're tempted to spend it all!",
           },
         ],
       },
@@ -570,12 +636,37 @@ export const categories: Category[] = [
             id: "dog-l4-s3",
             context: "Let's check your understanding of investing!",
             isQuiz: true,
-            choices: [
-              { text: "Investing in things that reduce costs or increase efficiency over time.", quality: "best", xp: 500 },
-              { text: "Spending extra money quickly so it doesn't sit unused.", quality: "bad", xp: 100 },
-              { text: "Avoiding all investments to eliminate risk.", quality: "bad", xp: 100 },
+            choices: [],
+            justification: "",
+            questions: [
+              {
+                text: "Which investment is most likely to improve a company's long-term financial health?",
+                choices: [
+                  { text: "Investing in things that reduce costs or increase efficiency over time.", quality: "best", xp: 500 },
+                  { text: "Spending extra money quickly so it doesn't sit unused.", quality: "bad", xp: 100 },
+                  { text: "Avoiding all investments to eliminate risk.", quality: "bad", xp: 100 },
+                ],
+                justification: "This makes your business more profitable every single day by lowering your expenses and saving you time.",
+              },
+              {
+                text: "Which factor matters most when deciding whether an investment is worth making?",
+                choices: [
+                  { text: "Whether the investment looks impressive to others.", quality: "bad", xp: 100 },
+                  { text: "Whether the investment can help the business earn more or spend less in the future.", quality: "best", xp: 500 },
+                  { text: "Whether the investment uses all available cash.", quality: "bad", xp: 100 },
+                ],
+                justification: "This ensures your money is actually working to grow your business rather than just disappearing.",
+              },
+              {
+                text: "Is it better to invest in stocks or your own business (if you have one)?",
+                choices: [
+                  { text: "It is better to invest in stocks because it is more stable.", quality: "okay", xp: 300 },
+                  { text: "It is better to invest in your business because it is more flexible.", quality: "okay", xp: 300 },
+                  { text: "Investing in your business, mostly along with some stock investment, is a good balance.", quality: "best", xp: 500 },
+                ],
+                justification: "Balancing is always best to ensure growth while limiting risks.",
+              },
             ],
-            justification: "Correct! Investing in efficiency makes your business more profitable every single day. The factor that matters most is whether the investment can help the business earn more or spend less in the future. Balancing business investment with some stock investment is usually the best approach!",
           },
         ],
       },
