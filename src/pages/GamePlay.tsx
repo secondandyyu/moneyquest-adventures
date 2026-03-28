@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/context/GameContext";
-import { getLevelById, getNextLevel } from "@/data/gameData";
+import { getLevelById, getNextLevel, getNextCategory } from "@/data/gameData";
 import type { Scenario, Choice, ChoiceQuality } from "@/data/gameData";
 import { scenarioIllustrations, introImages, introTexts } from "@/data/scenarioIllustrations";
 import GuideAvatar from "@/components/GuideAvatar";
@@ -136,22 +136,33 @@ export default function GamePlay() {
 
           {(() => {
             const next = getNextLevel(level.id);
+            const nextCat = !next ? getNextCategory(level.id) : undefined;
+            const resetState = () => {
+              setCurrentScenarioIdx(0);
+              setSelectedChoice(null);
+              setShowResult(false);
+              setShowSummary(false);
+              setShowHint(false);
+              setSessionAnswers({});
+            };
             return (
               <div className="flex flex-col gap-3 items-center">
                 {next && (
                   <Link
                     to={`/play/${next.level.id}`}
-                    onClick={() => {
-                      setCurrentScenarioIdx(0);
-                      setSelectedChoice(null);
-                      setShowResult(false);
-                      setShowSummary(false);
-                      setShowHint(false);
-                      setSessionAnswers({});
-                    }}
+                    onClick={resetState}
                     className="w-full max-w-xs px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold hover:opacity-90 text-center flex items-center justify-center gap-2"
                   >
                     Next Level <ArrowRight size={16} />
+                  </Link>
+                )}
+                {!next && nextCat && (
+                  <Link
+                    to={`/play/${nextCat.level.id}`}
+                    onClick={resetState}
+                    className="w-full max-w-xs px-6 py-3 bg-accent text-accent-foreground rounded-xl font-bold hover:opacity-90 text-center flex items-center justify-center gap-2"
+                  >
+                    Next Animal: {nextCat.category.name} 🎉 <ArrowRight size={16} />
                   </Link>
                 )}
                 <div className="flex gap-3">
