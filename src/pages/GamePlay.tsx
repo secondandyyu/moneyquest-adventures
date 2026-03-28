@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/context/GameContext";
 import { getLevelById, getNextLevel, getNextCategory } from "@/data/gameData";
 import type { Scenario, Choice, ChoiceQuality } from "@/data/gameData";
+import QuizView from "@/components/QuizView";
 import { scenarioIllustrations, introImages, introTexts } from "@/data/scenarioIllustrations";
 import GuideAvatar from "@/components/GuideAvatar";
 import swanImg from "@/assets/swan-guide.png";
@@ -322,117 +323,166 @@ export default function GamePlay() {
               </div>
             )}
 
-            {/* Hint & Power-up buttons */}
-            {!isRevealed && (
-              <div className="flex gap-2 mb-3">
-                {hasPowerUp("hint") && !showHint && (
-                  <button
-                    onClick={() => setShowHint(true)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-secondary/50 border border-secondary text-secondary-foreground hover:bg-secondary/70 transition-colors"
-                  >
-                    🔍 Use Hint
-                  </button>
+            {/* Multi-question quiz */}
+            {scenario.isQuiz && scenario.questions && scenario.questions.length > 0 ? (
+              <>
+                <QuizView
+                  key={scenario.id}
+                  questions={scenario.questions}
+                  isReplay={isReplay}
+                  hasPowerUp={hasPowerUp("xp-booster")}
+                  onComplete={(totalXP) => {
+                    if (isReplay) {
+                      setSessionAnswers((prev) => ({ ...prev, [scenario.id]: { choiceIndex: 0, xpEarned: 0 } }));
+                    } else {
+                      // Complete scenario with accumulated XP
+                      completeScenario(scenario.id, 0, totalXP, "best");
+                      // Override the XP since QuizView already calculated it
+                    }
+                    setShowResult(true);
+                    setSelectedChoice(0);
+                  }}
+                />
+
+                {/* Navigation for quiz */}
+                {(currentScenarioAnswered || showResult) && (
+                  <div className="flex justify-between items-center mt-6">
+                    <button
+                      onClick={prevScenario}
+                      disabled={currentScenarioIdx === 0}
+                      className="flex items-center gap-1 px-4 py-2 rounded-xl font-bold text-sm bg-muted hover:bg-muted/80 disabled:opacity-30"
+                    >
+                      <ArrowLeft size={16} /> Previous
+                    </button>
+                    <motion.button
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      onClick={nextScenario}
+                      className="flex items-center gap-1 px-6 py-3 rounded-xl font-extrabold text-sm bg-primary text-primary-foreground hover:opacity-90"
+                    >
+                      {currentScenarioIdx < totalScenarios - 1 ? (
+                        <>Next Scenario <ArrowRight size={16} /></>
+                      ) : (
+                        <>Finish Level <Trophy size={16} /></>
+                      )}
+                    </motion.button>
+                  </div>
                 )}
-              </div>
-            )}
+              </>
+            ) : (
+              <>
+                {/* Hint & Power-up buttons */}
+                {!isRevealed && (
+                  <div className="flex gap-2 mb-3">
+                    {hasPowerUp("hint") && !showHint && (
+                      <button
+                        onClick={() => setShowHint(true)}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-secondary/50 border border-secondary text-secondary-foreground hover:bg-secondary/70 transition-colors"
+                      >
+                        🔍 Use Hint
+                      </button>
+                    )}
+                  </div>
+                )}
 
-            {showHint && !isRevealed && (
-              <motion.div
-                initial={{ opacity: 0, y: -5 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-secondary/30 border border-secondary/50 rounded-xl p-3 mb-3"
-              >
-                <p className="text-xs font-bold text-secondary-foreground">
-                  🔍 Hint: Think about long-term stability, low risk, and which option protects your future choices.
-                </p>
-              </motion.div>
-            )}
-
-            {/* Choices */}
-            <div className="space-y-3 mb-4">
-              <p className="font-extrabold text-sm text-muted-foreground">
-                {scenario.isQuiz ? "Pick the correct answer:" : "What would you do?"}
-              </p>
-              {scenario.choices.map((choice, idx) => {
-                const isSelected = activeChoice === idx;
-                const revealed = isRevealed;
-
-                return (
-                  <motion.button
-                    key={idx}
-                    whileHover={!revealed ? { scale: 1.01 } : {}}
-                    whileTap={!revealed ? { scale: 0.99 } : {}}
-                    onClick={() => handleChoice(idx, choice)}
-                    disabled={isRevealed}
-                    className={`w-full text-left p-4 rounded-xl border-2 font-semibold text-sm transition-all ${
-                      revealed
-                        ? `${qualityStyles[choice.quality]} ${isSelected ? "ring-2 ring-offset-2 ring-foreground/20" : ""}`
-                        : "border-border bg-card hover:border-primary/50"
-                    }`}
+                {showHint && !isRevealed && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-secondary/30 border border-secondary/50 rounded-xl p-3 mb-3"
                   >
-                    <div className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-muted flex items-center justify-center font-extrabold text-xs">
-                        {String.fromCharCode(65 + idx)}
-                      </span>
-                      <div className="flex-1">
-                        <p>{choice.text}</p>
-                        {revealed && (
-                          <div className="flex items-center gap-2 mt-2">
-                            <span className="text-xs font-extrabold">{qualityLabels[choice.quality]}</span>
-                            <span className="text-xs font-bold text-xp-foreground bg-xp/20 px-2 py-0.5 rounded-full">
-                              +{choice.xp} XP{hasPowerUp("xp-booster") && !isReplay ? " (1.5×)" : ""}
-                            </span>
+                    <p className="text-xs font-bold text-secondary-foreground">
+                      🔍 Hint: Think about long-term stability, low risk, and which option protects your future choices.
+                    </p>
+                  </motion.div>
+                )}
+
+                {/* Choices */}
+                <div className="space-y-3 mb-4">
+                  <p className="font-extrabold text-sm text-muted-foreground">
+                    {scenario.isQuiz ? "Pick the correct answer:" : "What would you do?"}
+                  </p>
+                  {scenario.choices.map((choice, idx) => {
+                    const isSelected = activeChoice === idx;
+                    const revealed = isRevealed;
+
+                    return (
+                      <motion.button
+                        key={idx}
+                        whileHover={!revealed ? { scale: 1.01 } : {}}
+                        whileTap={!revealed ? { scale: 0.99 } : {}}
+                        onClick={() => handleChoice(idx, choice)}
+                        disabled={isRevealed}
+                        className={`w-full text-left p-4 rounded-xl border-2 font-semibold text-sm transition-all ${
+                          revealed
+                            ? `${qualityStyles[choice.quality]} ${isSelected ? "ring-2 ring-offset-2 ring-foreground/20" : ""}`
+                            : "border-border bg-card hover:border-primary/50"
+                        }`}
+                      >
+                        <div className="flex items-start gap-3">
+                          <span className="flex-shrink-0 w-7 h-7 rounded-full bg-muted flex items-center justify-center font-extrabold text-xs">
+                            {String.fromCharCode(65 + idx)}
+                          </span>
+                          <div className="flex-1">
+                            <p>{choice.text}</p>
+                            {revealed && (
+                              <div className="flex items-center gap-2 mt-2">
+                                <span className="text-xs font-extrabold">{qualityLabels[choice.quality]}</span>
+                                <span className="text-xs font-bold text-xp-foreground bg-xp/20 px-2 py-0.5 rounded-full">
+                                  +{choice.xp} XP{hasPowerUp("xp-booster") && !isReplay ? " (1.5×)" : ""}
+                                </span>
+                              </div>
+                            )}
                           </div>
-                        )}
-                      </div>
-                    </div>
-                  </motion.button>
-                );
-              })}
-            </div>
+                        </div>
+                      </motion.button>
+                    );
+                  })}
+                </div>
 
+                {/* Justification */}
+                {isRevealed && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-primary/5 border-2 border-primary/20 rounded-2xl p-5 mb-6"
+                  >
+                    <p className="font-extrabold text-primary mb-2">💡 Explanation</p>
+                    <p className="text-sm leading-relaxed">{scenario.justification}</p>
+                  </motion.div>
+                )}
 
-            {/* Justification */}
-            {isRevealed && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-primary/5 border-2 border-primary/20 rounded-2xl p-5 mb-6"
-              >
-                <p className="font-extrabold text-primary mb-2">💡 Explanation</p>
-                <p className="text-sm leading-relaxed">{scenario.justification}</p>
-              </motion.div>
-            )}
+                {/* Navigation */}
+                <div className="flex justify-between items-center">
+                  <button
+                    onClick={prevScenario}
+                    disabled={currentScenarioIdx === 0}
+                    className="flex items-center gap-1 px-4 py-2 rounded-xl font-bold text-sm bg-muted hover:bg-muted/80 disabled:opacity-30"
+                  >
+                    <ArrowLeft size={16} /> Previous
+                  </button>
 
-            {/* Navigation */}
-            <div className="flex justify-between items-center">
-              <button
-                onClick={prevScenario}
-                disabled={currentScenarioIdx === 0}
-                className="flex items-center gap-1 px-4 py-2 rounded-xl font-bold text-sm bg-muted hover:bg-muted/80 disabled:opacity-30"
-              >
-                <ArrowLeft size={16} /> Previous
-              </button>
-
-              {isRevealed && (
-                <motion.button
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  onClick={nextScenario}
-                  className="flex items-center gap-1 px-6 py-3 rounded-xl font-extrabold text-sm bg-primary text-primary-foreground hover:opacity-90"
-                >
-                  {currentScenarioIdx < totalScenarios - 1 ? (
-                    <>
-                      Next Scenario <ArrowRight size={16} />
-                    </>
-                  ) : (
-                    <>
-                      Finish Level <Trophy size={16} />
-                    </>
+                  {isRevealed && (
+                    <motion.button
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      onClick={nextScenario}
+                      className="flex items-center gap-1 px-6 py-3 rounded-xl font-extrabold text-sm bg-primary text-primary-foreground hover:opacity-90"
+                    >
+                      {currentScenarioIdx < totalScenarios - 1 ? (
+                        <>
+                          Next Scenario <ArrowRight size={16} />
+                        </>
+                      ) : (
+                        <>
+                          Finish Level <Trophy size={16} />
+                        </>
+                      )}
+                    </motion.button>
                   )}
-                </motion.button>
-              )}
-            </div>
+                </div>
+              </>
+            )}
           </motion.div>
         </AnimatePresence>
       </div>
