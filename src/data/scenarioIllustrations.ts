@@ -47,7 +47,7 @@ import dogL3S2 from "@/assets/scenarios/dog-l3-s2.jpg";
 import dogL4S1 from "@/assets/scenarios/dog-l4-s1.jpg";
 import dogL4S2 from "@/assets/scenarios/dog-l4-s2.jpg";
 // Dog Level 5 - Donations
-import dogL5S1 from "@/assets/scenarios/dog-l5-s1.jpg";
+import dogL5S1 from "@/assets/scenarios/dog-l5-s1.png";
 import dogL5S2 from "@/assets/scenarios/dog-l5-s2.jpg";
 // Dog Level Scenario 3s
 import dogL1S3 from "@/assets/scenarios/dog-l1-s3.jpg";
