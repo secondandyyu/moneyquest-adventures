@@ -6,6 +6,12 @@ export interface Choice {
   xp: number;
 }
 
+export interface QuizQuestion {
+  text: string;
+  choices: Choice[];
+  justification: string;
+}
+
 export interface Scenario {
   id: string;
   context: string;
@@ -15,6 +21,7 @@ export interface Scenario {
   justification: string;
   isQuiz?: boolean;
   illustration?: string;
+  questions?: QuizQuestion[];
 }
 
 export interface Level {
