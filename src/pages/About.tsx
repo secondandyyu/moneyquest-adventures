@@ -67,7 +67,7 @@ export default function About() {
                 { img: dogImg, name: "Dog", desc: "Loyal business helper" },
               ].map((g) => (
                 <div key={g.name} className="text-center">
-                  <img src={g.img} alt={g.name} className="w-20 h-20 mx-auto object-contain mb-2" />
+                  <img src={g.img} alt={g.name} className="w-36 h-36 mx-auto object-contain mb-2" />
                   <p className="font-extrabold text-sm">{g.name}</p>
                   <p className="text-xs text-muted-foreground">{g.desc}</p>
                 </div>
