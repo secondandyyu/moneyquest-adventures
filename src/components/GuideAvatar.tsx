@@ -12,8 +12,8 @@ const sizeClasses = {
 
 export default function GuideAvatar({ src, alt = "Guide", size = "sm" }: GuideAvatarProps) {
   return (
-    <div className={`relative inline-flex items-center justify-center ${sizeClasses[size]}`}>
-      <img src={src} alt={alt} className="w-full h-full object-contain relative z-10" />
+    <div className={`relative inline-flex items-center justify-center ${sizeClasses[size]} rounded-full overflow-hidden bg-muted`}>
+      <img src={src} alt={alt} className="w-full h-full object-cover relative z-10" />
     </div>
   );
 }
