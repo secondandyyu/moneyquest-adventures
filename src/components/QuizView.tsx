@@ -30,14 +30,6 @@ export default function QuizView({ questions, onComplete, isReplay, hasPowerUp }
 
   const question = questions[currentQ];
 
-  const handleChoice = (idx: number, choice: Choice) => {
-    if (showResult) return;
-    setSelectedChoice(idx);
-    setShowResult(true);
-    if (!isReplay) {
-      setTotalXP((prev) => prev + choice.xp);
-    }
-  };
 
   const handleNext = () => {
     if (currentQ < questions.length - 1) {
