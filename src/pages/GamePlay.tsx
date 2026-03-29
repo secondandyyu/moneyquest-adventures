@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useGame } from "@/context/GameContext";
@@ -46,6 +46,26 @@ export default function GamePlay() {
   // Show intro page for Level 1 of each category
   const isFirstLevel = result ? result.category.levels[0]?.id === result.level.id : false;
   const [showIntro, setShowIntro] = useState(() => isFirstLevel);
+  const prevLevelIdRef = useRef(levelId);
+
+  useEffect(() => {
+    if (levelId !== prevLevelIdRef.current) {
+      prevLevelIdRef.current = levelId;
+      // Reset all state when navigating to a new level
+      setCurrentScenarioIdx(0);
+      setSelectedChoice(null);
+      setShowResult(false);
+      setShowSummary(false);
+      setShowHint(false);
+      setSessionAnswers({});
+      // Show intro if it's the first level of a category
+      const newResult = getLevelById(levelId || "");
+      if (newResult) {
+        const isFirst = newResult.category.levels[0]?.id === newResult.level.id;
+        setShowIntro(isFirst);
+      }
+    }
+  }, [levelId]);
 
   if (!result) {
     return (
