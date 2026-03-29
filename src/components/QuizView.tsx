@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { QuizQuestion, Choice, ChoiceQuality } from "@/data/gameData";
-import { Star } from "lucide-react";
+
 
 const qualityStyles: Record<ChoiceQuality, string> = {
   best: "border-success bg-success/10 hover:bg-success/20",
