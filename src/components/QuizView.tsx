@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { QuizQuestion, Choice, ChoiceQuality } from "@/data/gameData";
-import { Star } from "lucide-react";
+
 
 const qualityStyles: Record<ChoiceQuality, string> = {
   best: "border-success bg-success/10 hover:bg-success/20",
@@ -30,22 +30,28 @@ export default function QuizView({ questions, onComplete, isReplay, hasPowerUp }
 
   const question = questions[currentQ];
 
-  const handleChoice = (idx: number, choice: Choice) => {
-    if (showResult) return;
-    setSelectedChoice(idx);
-    setShowResult(true);
-    if (!isReplay) {
-      setTotalXP((prev) => prev + choice.xp);
-    }
-  };
 
   const handleNext = () => {
     if (currentQ < questions.length - 1) {
       setCurrentQ((i) => i + 1);
       setSelectedChoice(null);
       setShowResult(false);
-    } else {
-      onComplete(totalXP);
+    }
+  };
+
+  // Auto-complete when last question is answered
+  const handleChoice = (idx: number, choice: Choice) => {
+    if (showResult) return;
+    setSelectedChoice(idx);
+    setShowResult(true);
+    const newXP = isReplay ? totalXP : totalXP + choice.xp;
+    if (!isReplay) {
+      setTotalXP(newXP);
+    }
+    // If this is the last question, auto-trigger completion
+    if (currentQ === questions.length - 1) {
+      // Small delay so user can see the result before navigation appears
+      setTimeout(() => onComplete(newXP), 300);
     }
   };
 
@@ -129,21 +135,15 @@ export default function QuizView({ questions, onComplete, isReplay, hasPowerUp }
             </motion.div>
           )}
 
-          {/* Next button */}
-          {showResult && (
+          {/* Next button - only show between questions, not after last */}
+          {showResult && currentQ < questions.length - 1 && (
             <motion.button
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               onClick={handleNext}
               className="flex items-center gap-1 px-6 py-3 rounded-xl font-extrabold text-sm bg-primary text-primary-foreground hover:opacity-90 ml-auto"
             >
-              {currentQ < questions.length - 1 ? (
-                <>Next Question →</>
-              ) : (
-                <>
-                  Done <Star size={16} />
-                </>
-              )}
+              Next Question →
             </motion.button>
           )}
         </motion.div>
