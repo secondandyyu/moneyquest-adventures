@@ -50,7 +50,7 @@ export default function Levels() {
 
       {/* Category header */}
       <div className="flex items-center gap-4 mb-6">
-        <img src={guideImages[cat.guide]} alt={cat.name} className="w-16 h-16 object-contain" />
+        <img src={guideImages[cat.guide]} alt={cat.name} className="w-16 h-16 rounded-full object-cover" />
         <div>
           <h2 className="text-xl font-extrabold">{cat.name}</h2>
           <p className="text-sm text-muted-foreground">{cat.description}</p>
