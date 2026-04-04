@@ -7,7 +7,7 @@ import type { Scenario, Choice, ChoiceQuality } from "@/data/gameData";
 import QuizView from "@/components/QuizView";
 import { scenarioIllustrations, introImages, introTexts } from "@/data/scenarioIllustrations";
 import GuideAvatar from "@/components/GuideAvatar";
-import swanImg from "@/assets/scenarios/swan-intro.png";
+import swanImg from "@/assets/scenarios/swan-intro-v2.png";
 import beaverImg from "@/assets/scenarios/beaver-intro.png";
 import dogImg from "@/assets/scenarios/dog-intro.png";
 import { Star, ArrowLeft, ArrowRight, Trophy, BookOpen, Lightbulb } from "lucide-react";

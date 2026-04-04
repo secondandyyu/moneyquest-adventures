@@ -57,7 +57,7 @@ import dogL4S3 from "@/assets/scenarios/dog-l4-s3.jpg";
 import dogL5S3 from "@/assets/scenarios/dog-l5-s3.jpg";
 
 // Intro images
-import swanIntro from "@/assets/scenarios/swan-intro.png";
+import swanIntro from "@/assets/scenarios/swan-intro-v2.png";
 import beaverIntro from "@/assets/scenarios/beaver-intro.png";
 import dogIntro from "@/assets/scenarios/dog-intro.png";
 
