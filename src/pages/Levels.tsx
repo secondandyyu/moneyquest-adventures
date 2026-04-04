@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useGame } from "@/context/GameContext";
 import { categories } from "@/data/gameData";
 import GuideAvatar from "@/components/GuideAvatar";
-import swanImg from "@/assets/scenarios/swan-intro.png";
+import swanImg from "@/assets/scenarios/swan-intro-v2.png";
 import beaverImg from "@/assets/scenarios/beaver-intro.png";
 import dogImg from "@/assets/scenarios/dog-intro.png";
 import { Lock, CheckCircle2, Circle, ChevronRight } from "lucide-react";
