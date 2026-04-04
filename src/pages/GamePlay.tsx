@@ -401,7 +401,7 @@ export default function GamePlay() {
           >
             {/* Guide + Level info */}
             <div className="flex items-center gap-3 mb-4">
-              <GuideAvatar src={guideImages[category.guide]} size="sm" />
+              <img src={guideImages[category.guide]} alt={category.name} className="w-12 h-12 object-contain" />
               <div>
                 <p className="text-xs font-bold text-muted-foreground uppercase tracking-wide">
                   {level.title} — Scenario {currentScenarioIdx + 1}
