@@ -40,7 +40,7 @@ export default function Levels() {
                   : "border-border bg-muted/50 opacity-50 cursor-not-allowed"
               }`}
             >
-              <GuideAvatar src={guideImages[c.guide]} size="sm" />
+              <img src={guideImages[c.guide]} alt={c.name} className="w-10 h-10 object-contain" />
               {c.name.split("'")[0]}
               {!unlocked && <Lock size={12} />}
             </button>
@@ -50,7 +50,7 @@ export default function Levels() {
 
       {/* Category header */}
       <div className="flex items-center gap-4 mb-6">
-        <GuideAvatar src={guideImages[cat.guide]} size="md" />
+        <img src={guideImages[cat.guide]} alt={cat.name} className="w-16 h-16 object-contain" />
         <div>
           <h2 className="text-xl font-extrabold">{cat.name}</h2>
           <p className="text-sm text-muted-foreground">{cat.description}</p>
