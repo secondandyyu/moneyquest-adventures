@@ -283,7 +283,7 @@ export const categories: Category[] = [
           },
           {
             id: "beaver-l1-s3",
-            context: "For your first month of working at the bakery, you need to decide on what method to get paid.",
+            context: "After working a few months, you need to decide on what method to get paid.",
             teaching: "When you work at a job, there are different ways your boss can give you your money! Direct Deposit is the most modern way — your boss tells the bank to send your pay straight into your bank account on payday, like magic! You don't have to do anything; the money just appears. A Paper Check is a special piece of paper your boss gives you. You take it to your bank (or use a phone app to snap a picture of it), and the bank puts that money into your account. It works, but you have to remember to actually go deposit it! Getting paid in Cash means your boss hands you real paper money and coins. It feels great to hold it, but there's a big problem: if you lose it or someone takes it, it's gone forever. Plus, it's really hard to keep track of how much you spent when everything is cash. That's why most grown-ups prefer direct deposit — it's safe, automatic, and easy to track!",
             choices: [
               { text: "Your pay goes by direct deposit into your bank account.", quality: "best", xp: 500 },
