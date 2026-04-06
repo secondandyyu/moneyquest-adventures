@@ -279,7 +279,7 @@ export const categories: Category[] = [
               { text: "Start doing online tutoring only during free hours.", quality: "best", xp: 500 },
               { text: "Stick with one job for now and wait for a promotion.", quality: "okay", xp: 300 },
             ],
-            justification: "Online Tutoring is the smartest choice because it is flexible. Since you already work long hours at the bakery, taking another full-shift job at night would make you so tired you might get sick or make mistakes. Tutoring during \"free hours\" allows you to earn extra money for college without burning out!",
+            justification: "Online Tutoring is the smartest choice because it is flexible. Since you already work long hours at your first job, taking another full-shift job at night would make you so tired you might get sick or make mistakes. Tutoring during \"free hours\" allows you to earn extra money for college without burning out!",
           },
           {
             id: "beaver-l1-s3",
