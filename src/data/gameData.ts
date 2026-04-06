@@ -390,7 +390,7 @@ export const categories: Category[] = [
           },
           {
             id: "beaver-l4-s2",
-            context: "You need a car that will help you move from place to place, but you don't have enough money saved.",
+            context: "You remember the car you saw earlier, and think about buying it to help you move from place to place, but you don't have enough money saved.",
             choices: [
               { text: "Ask three friends to equally lend you some money. Pay them back in the next few months.", quality: "bad", xp: 100 },
               { text: "Use a store installment plan that allows you to pay back predictable amounts over the next few months without a loan.", quality: "best", xp: 500 },
