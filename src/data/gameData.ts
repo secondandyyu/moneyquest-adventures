@@ -322,7 +322,7 @@ export const categories: Category[] = [
           },
           {
             id: "beaver-l2-s3",
-            context: "Your old laptop, which you use to manage the bakery's inventory, has started freezing and shutting down randomly. At the same time, your phone's screen is cracked, making it hard to read texts, but it still works. You have enough saved for one upgrade.",
+            context: "Your old laptop, which you use to manage your work, has started freezing and shutting down randomly. At the same time, your phone's screen is cracked, making it hard to read texts, but it still works. You have enough saved for one upgrade.",
             choices: [
               { text: "Buy a high-end Gaming MacBook using a payment plan.", quality: "bad", xp: 100 },
               { text: "Buy the newest iPhone and a cheap laptop repair kit.", quality: "okay", xp: 300 },
