@@ -273,7 +273,7 @@ export const categories: Category[] = [
           },
           {
             id: "beaver-l1-s2",
-            context: "You decide to become a baker to pursue your passion for cooking food. But after working 3 months, you realize that you need more money to save up for college. So what should you do next?",
+            context: "After working 3 months, you realize that you need more money to save up for college. So what should you do next?",
             choices: [
               { text: "Work at another job as an online website manager at night after you finish work at the bakery.", quality: "bad", xp: 100 },
               { text: "Start doing online tutoring only during free hours.", quality: "best", xp: 500 },
