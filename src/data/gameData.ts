@@ -380,7 +380,7 @@ export const categories: Category[] = [
         scenarios: [
           {
             id: "beaver-l4-s1",
-            context: "You have a small emergency — your bicycle broke down and you need it to get to work at the bakery every day. Repairs cost more than you have right now.",
+            context: "You have a small emergency — your bicycle broke down and you need it to get to work every day. Repair costs are too expensive to pay right now.",
             choices: [
               { text: "Use your emergency savings to pay for the repair right away.", quality: "best", xp: 500 },
               { text: "Ask a friend to lend you the money and pay them back next month.", quality: "okay", xp: 300 },
