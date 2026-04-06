@@ -361,7 +361,7 @@ export const categories: Category[] = [
           },
           {
             id: "beaver-l3-s3",
-            context: "You want to save for a car that makes the transition from your home to the bakery faster and easier.",
+            context: "You want to save for a car that makes the transition from your home to work faster and easier.",
             teaching: "Here's a money trick that rich and successful people use: the \"Pay Yourself First\" rule! It means that the very first thing you do when you get paid is move some money into your savings — before you buy anything, before you pay for fun stuff, before you even think about spending. Why? Because if you wait until the end of the month to save \"whatever is left,\" guess what usually happens? There's nothing left! It all got spent on little things here and there. But if you save first — say 15% of every paycheck — that money is already safe and growing before you can accidentally spend it. It's like hiding your Halloween candy in a secret spot before you're tempted to eat it all in one night!",
             choices: [
               { text: "Make a plan to consistently save 15% of income, even if it means cutting back on non-essential spending.", quality: "best", xp: 500 },
