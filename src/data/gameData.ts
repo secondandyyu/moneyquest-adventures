@@ -328,7 +328,7 @@ export const categories: Category[] = [
               { text: "Buy the newest iPhone and a cheap laptop repair kit.", quality: "okay", xp: 300 },
               { text: "Buy a mid-range, reliable laptop to replace your old one.", quality: "best", xp: 500 },
             ],
-            justification: "The Mid-range Laptop is the smartest move. Since you use your laptop for work (inventory), a working computer is a \"Need.\" A phone with a cracked screen is annoying, but if it still works, it's a \"Want.\" Getting a reliable, affordable laptop ensures your job stays safe without wasting money on a Gaming MacBook that has fancy features you don't actually need for baking.",
+            justification: "The Mid-range Laptop is the smartest move. Since you use your laptop for work, a working computer is a \"Need.\" A phone with a cracked screen is annoying, but if it still works, it's a \"Want.\" Getting a reliable, affordable laptop ensures your job stays safe without wasting money on a Gaming MacBook that has fancy features you don't actually need for baking.",
           },
         ],
       },
