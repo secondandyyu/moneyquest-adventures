@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useGame } from "@/context/GameContext";
-import { Star, BookOpen, ShoppingBag, Info, Gamepad2, RotateCcw, Trash2 } from "lucide-react";
+import { Star, BookOpen, ShoppingBag, Info, Gamepad2, RotateCcw } from "lucide-react";
 import { motion } from "framer-motion";
 import logoImg from "@/assets/andy-logo.png";
 import {
