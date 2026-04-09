@@ -86,7 +86,6 @@ export default function Header() {
                 <RotateCcw size={16} />
                 <span className="hidden md:inline">Reset</span>
               </button>
-              </button>
             </AlertDialogTrigger>
             <AlertDialogContent>
               <AlertDialogHeader>
