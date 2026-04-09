@@ -1,8 +1,20 @@
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useGame } from "@/context/GameContext";
-import { Star, BookOpen, ShoppingBag, Info, Gamepad2, RotateCcw } from "lucide-react";
+import { Star, BookOpen, ShoppingBag, Info, Gamepad2, RotateCcw, Trash2 } from "lucide-react";
 import { motion } from "framer-motion";
 import logoImg from "@/assets/andy-logo.png";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const navItems = [
   { path: "/", label: "Home", icon: Gamepad2 },
@@ -13,8 +25,14 @@ const navItems = [
 ];
 
 export default function Header() {
-  const { state } = useGame();
+  const { state, resetProgress } = useGame();
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleReset = () => {
+    resetProgress();
+    navigate("/");
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-card/90 backdrop-blur-md">
@@ -58,6 +76,34 @@ export default function Header() {
             <Star className="text-xp fill-xp" size={18} />
             {state.xp.toLocaleString()} XP
           </motion.div>
+
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <button
+                className="p-2 rounded-lg text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
+                title="Reset Progress"
+              >
+                <Trash2 size={18} />
+              </button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Reset All Progress?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  This will erase all your XP, completed scenarios, purchased items, and achievements. This action cannot be undone.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction
+                  onClick={handleReset}
+                  className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                >
+                  Reset Everything
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
       </div>
 
