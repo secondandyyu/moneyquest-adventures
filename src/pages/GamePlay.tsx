@@ -414,7 +414,7 @@ export default function GamePlay() {
             <div className="flex flex-col md:flex-row gap-6">
               {/* Left column - Image */}
               {scenarioIllustrations[scenario.id] && (
-                <div className="md:w-2/5 flex-shrink-0">
+                <div className="md:w-1/2 flex-shrink-0">
                   <div className="rounded-2xl overflow-hidden border-2 border-border bg-card shadow-sm flex items-center justify-center sticky top-24">
                     <img
                       src={scenarioIllustrations[scenario.id]}
