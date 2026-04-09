@@ -80,10 +80,12 @@ export default function Header() {
           <AlertDialog>
             <AlertDialogTrigger asChild>
               <button
-                className="p-2 rounded-lg text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-bold text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
                 title="Reset Progress"
               >
-                <Trash2 size={18} />
+                <RotateCcw size={16} />
+                <span className="hidden md:inline">Reset</span>
+              </button>
               </button>
             </AlertDialogTrigger>
             <AlertDialogContent>
