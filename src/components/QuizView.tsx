@@ -112,7 +112,7 @@ export default function QuizView({ questions, onComplete, isReplay, hasPowerUp }
                         <div className="flex items-center gap-2 mt-2">
                           <span className="text-xs font-extrabold">{qualityLabels[choice.quality]}</span>
                           <span className="text-xs font-bold text-xp-foreground bg-xp/20 px-2 py-0.5 rounded-full">
-                            +{choice.xp} XP{hasPowerUp && !isReplay ? " (1.5×)" : ""}
+                            +{hasPowerUp && !isReplay ? Math.round(choice.xp * 1.5) : choice.xp} XP
                           </span>
                         </div>
                       )}
