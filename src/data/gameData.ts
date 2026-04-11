@@ -239,7 +239,7 @@ export const categories: Category[] = [
             context: "You heard about a new charity organization that needs donations to help build a children's hospital in the neighborhood.",
             choices: [
               { text: "Give $600 all at once and volunteer monthly with the organization.", quality: "best", xp: 500 },
-              { text: "Think many people would be donating anyways, so save money for other organizations.", quality: "bad", xp: 100 },
+              { text: "Other people are already donating enough money to the organization, so you save your money thinking you don't have to.", quality: "bad", xp: 100 },
               { text: "Set up a small monthly donation of $50 from your savings and volunteer monthly.", quality: "okay", xp: 300 },
             ],
             justification: "Giving $600 all at once is like a \"Fast-Forward Button.\" For a big project like building a hospital, they often need a huge pile of cash right at the start to buy expensive things like X-ray machines or bricks. Adding monthly volunteering on top of that makes you a \"Most Valuable Provider\" because you gave them a giant head start and your ongoing help. The monthly $50 option is also great — it's the \"Steady Shield\" move that the hospital can rely on forever!",
