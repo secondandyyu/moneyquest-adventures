@@ -26,9 +26,14 @@ const navItems = [
 ];
 
 export default function Header() {
-  const { state, resetProgress } = useGame();
+  const { state, resetProgress, isLevelCompleted } = useGame();
   const location = useLocation();
   const navigate = useNavigate();
+
+  const completedLevels = categories.reduce(
+    (sum, cat) => sum + cat.levels.filter((l) => isLevelCompleted(l.id)).length,
+    0
+  );
 
   const handleReset = () => {
     resetProgress();
