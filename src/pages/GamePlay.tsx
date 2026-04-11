@@ -541,7 +541,7 @@ export default function GamePlay() {
                     {/* Choices */}
                     <div className="space-y-3 mb-4">
                       <p className="font-extrabold text-sm text-muted-foreground">
-                        {scenario.isQuiz ? "Pick the correct answer:" : "What would you do?"}
+                        {scenario.isQuiz ? "Pick the correct answer:" : "Where would you go?"}
                       </p>
                       {scenario.choices.map((choice, idx) => {
                         const isSelected = activeChoice === idx;

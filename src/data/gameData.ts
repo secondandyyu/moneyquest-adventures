@@ -57,11 +57,11 @@ export const categories: Category[] = [
         scenarios: [
           {
             id: "swan-l1-s1",
-            context: "You have started your job, and you got your first pay cheque. But, you do not have a bank account. What bank should you choose?",
+            context: "You have started your job, and you got your first pay check. But, you do not have a bank account. What bank should you choose?",
             definition: "A bank is a secure place that keeps your money safe while providing tools like cards and apps to help you manage, spend, and grow your funds.",
             choices: [
-              { text: "Bank 1: A bank where you have to go in person to make transactions, no online app, and discount offers for certain shops.", quality: "bad", xp: 100 },
-              { text: "Bank 2: A bank where accounts can be modified online with a mobile app, with travel reward points debit/credit cards.", quality: "best", xp: 500 },
+              { text: "Bank 1: A bank where you have to go in person to make transactions. No online app and no discount offers.", quality: "bad", xp: 100 },
+              { text: "Bank 2: A bank where accounts can be modified online with a mobile app and debit/credit cards can earn travel reward points.", quality: "best", xp: 500 },
               { text: "Bank 3: A bank where accounts can be modified online with a mobile app, but there is a fee of 2,000 Won per month to keep your money.", quality: "okay", xp: 300 },
             ],
             justification: "The best choice is Bank 2 because it gives you the \"superpower\" of convenience and rewards. Having a mobile app is like having a bank in your pocket. You don't have to waste time traveling to a building just to see your money. Plus, earning travel points for things you were going to buy anyway is like getting a free gift just for being responsible. Avoiding the monthly fee in Bank 3 is also smart because 2,000 Won might seem small, but over many years, that's money you could have used for something fun!",
