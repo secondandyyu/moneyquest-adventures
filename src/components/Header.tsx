@@ -63,7 +63,7 @@ export default function Header() {
           <img src={logoImg} alt="MoneyQuest" className="h-14" />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
           {navItems.map((item) => {
             const active = location.pathname === item.path;
             return (
