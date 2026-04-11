@@ -424,7 +424,7 @@ export default function GamePlay() {
               {/* Left column - Image */}
               {scenarioIllustrations[scenario.id] && (
                 <div className="md:w-1/2 flex-shrink-0">
-                  <div className="rounded-2xl overflow-hidden border-2 border-border bg-card shadow-sm flex items-center justify-center sticky top-24">
+                  <div className="rounded-2xl overflow-hidden border-2 border-border bg-card shadow-sm sticky top-24 max-h-[70vh] overflow-y-auto">
                     <img
                       src={scenarioIllustrations[scenario.id]}
                       alt="Scenario illustration"
