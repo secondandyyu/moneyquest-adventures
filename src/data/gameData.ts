@@ -236,7 +236,7 @@ export const categories: Category[] = [
           },
           {
             id: "swan-l5-s3",
-            context: "You heard about a new charity organization that needs donations to help build a children's hospital in the neighborhood.",
+            context: "You heard about a new charity organization that needs quick donations to help build a children's hospital to help fight off a disease going on in your neighborhood.",
             choices: [
               { text: "Give $600 all at once and volunteer monthly with the organization.", quality: "best", xp: 500 },
               { text: "Other people are already donating enough money to the organization, so you save your money thinking you don't have to.", quality: "bad", xp: 100 },
