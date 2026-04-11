@@ -92,7 +92,7 @@ export default function Header() {
                     <img
                       src={guideImages[cp.guide]}
                       alt={cp.guide}
-                      className="w-6 h-6 rounded-full object-cover"
+                      className="w-8 h-8 object-contain"
                     />
                     <div className="flex items-center gap-0.5 text-xs font-bold text-muted-foreground">
                       <Trophy size={12} className="text-primary" />
