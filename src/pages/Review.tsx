@@ -3,10 +3,10 @@ import { useGame } from "@/context/GameContext";
 import { categories } from "@/data/gameData";
 import { scenarioIllustrations } from "@/data/scenarioIllustrations";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, Star, CheckCircle2, Lightbulb, ChevronLeft, ChevronRight } from "lucide-react";
+import { BookOpen, Star, CheckCircle2, Lightbulb, ChevronLeft, ChevronRight, Trophy, Flame } from "lucide-react";
 
 export default function Review() {
-  const { isScenarioCompleted, getScenarioResult } = useGame();
+  const { isScenarioCompleted, getScenarioResult, isLevelCompleted } = useGame();
   const [currentPage, setCurrentPage] = useState(0);
 
   const completedItems = categories.flatMap((cat) =>
