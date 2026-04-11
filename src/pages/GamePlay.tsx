@@ -285,7 +285,7 @@ export default function GamePlay() {
                   <Link
                     to={`/play/${nextCat.level.id}`}
                     onClick={resetState}
-                    className="w-full max-w-xs px-6 py-3 bg-accent text-accent-foreground rounded-xl font-bold hover:opacity-90 text-center flex items-center justify-center gap-2"
+                    className="w-full max-w-xs px-6 py-3 bg-primary text-primary-foreground rounded-xl font-bold hover:opacity-90 text-center flex items-center justify-center gap-2"
                   >
                     Next Animal: {nextCat.category.name} 🎉 <ArrowRight size={16} />
                   </Link>
