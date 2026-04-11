@@ -5,9 +5,9 @@ import { categories } from "@/data/gameData";
 import { Star, BookOpen, ShoppingBag, Info, Gamepad2, RotateCcw, Trophy } from "lucide-react";
 import { motion } from "framer-motion";
 import logoImg from "@/assets/andy-logo.png";
-import swanImg from "@/assets/swan-guide.png";
-import beaverImg from "@/assets/beaver-guide.png";
-import dogImg from "@/assets/dog-guide.png";
+import swanImg from "@/assets/scenarios/swan-intro-v2.png";
+import beaverImg from "@/assets/scenarios/beaver-intro.png";
+import dogImg from "@/assets/scenarios/dog-intro.png";
 import {
   AlertDialog,
   AlertDialogAction,
