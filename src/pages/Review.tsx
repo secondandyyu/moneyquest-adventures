@@ -3,10 +3,10 @@ import { useGame } from "@/context/GameContext";
 import { categories } from "@/data/gameData";
 import { scenarioIllustrations } from "@/data/scenarioIllustrations";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, Star, CheckCircle2, Lightbulb, ChevronLeft, ChevronRight } from "lucide-react";
+import { BookOpen, Star, CheckCircle2, Lightbulb, ChevronLeft, ChevronRight, Trophy, Flame } from "lucide-react";
 
 export default function Review() {
-  const { isScenarioCompleted, getScenarioResult } = useGame();
+  const { isScenarioCompleted, getScenarioResult, isLevelCompleted } = useGame();
   const [currentPage, setCurrentPage] = useState(0);
 
   const completedItems = categories.flatMap((cat) =>
@@ -47,6 +47,47 @@ export default function Review() {
       <p className="text-sm text-muted-foreground font-bold mb-6">
         {totalPages} page{totalPages !== 1 ? "s" : ""} of adventure
       </p>
+
+      {/* Category progress banners */}
+      <div className="w-full max-w-2xl mb-6 space-y-2">
+        {categories.map((cat) => {
+          const completed = cat.levels.filter((l) => isLevelCompleted(l.id)).length;
+          const total = cat.levels.length;
+          const allDone = completed === total;
+          const name = cat.name.split("'")[0].trim();
+
+          return (
+            <motion.div
+              key={cat.id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl border-2 font-bold text-sm ${
+                allDone
+                  ? "border-success bg-success/10 text-success"
+                  : "border-border bg-card text-muted-foreground"
+              }`}
+            >
+              {allDone ? (
+                <Trophy size={18} className="text-success flex-shrink-0" />
+              ) : (
+                <Flame size={18} className="text-primary flex-shrink-0" />
+              )}
+              <span className="flex-1">
+                {allDone
+                  ? `You finished ${name}'s Journey! 🎉`
+                  : `${completed}/${total} ${name} Levels Complete. Keep going!`}
+              </span>
+              {/* Mini progress bar */}
+              <div className="w-20 h-2 rounded-full bg-muted overflow-hidden flex-shrink-0">
+                <div
+                  className={`h-full rounded-full transition-all ${allDone ? "bg-success" : "bg-primary"}`}
+                  style={{ width: `${(completed / total) * 100}%` }}
+                />
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
 
       {/* Book container */}
       <div className="w-full max-w-2xl">
