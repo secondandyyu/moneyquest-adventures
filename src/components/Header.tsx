@@ -5,9 +5,6 @@ import { categories } from "@/data/gameData";
 import { Star, BookOpen, ShoppingBag, Info, Gamepad2, RotateCcw, Trophy } from "lucide-react";
 import { motion } from "framer-motion";
 import logoImg from "@/assets/andy-logo.png";
-import swanImg from "@/assets/scenarios/swan-intro-v2.png";
-import beaverImg from "@/assets/scenarios/beaver-intro.png";
-import dogImg from "@/assets/scenarios/dog-intro.png";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -33,23 +30,17 @@ const navItems = [
   { path: "/about", label: "About", icon: Info },
 ];
 
-const guideImages: Record<string, string> = {
-  swan: swanImg,
-  beaver: beaverImg,
-  dog: dogImg,
-};
 
 export default function Header() {
   const { state, resetProgress, isLevelCompleted } = useGame();
   const location = useLocation();
   const navigate = useNavigate();
 
-  const categoryProgress = categories.map((cat) => ({
-    id: cat.id,
-    guide: cat.guide,
-    completed: cat.levels.filter((l) => isLevelCompleted(l.id)).length,
-    total: cat.levels.length,
-  }));
+  const totalLevels = categories.reduce((sum, cat) => sum + cat.levels.length, 0);
+  const completedLevels = categories.reduce(
+    (sum, cat) => sum + cat.levels.filter((l) => isLevelCompleted(l.id)).length,
+    0
+  );
 
   const handleReset = () => {
     resetProgress();
@@ -86,20 +77,9 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Tooltip>
             <TooltipTrigger asChild>
-              <div className="flex items-center gap-2">
-                {categoryProgress.map((cp) => (
-                  <div key={cp.id} className="flex items-center gap-1">
-                    <img
-                      src={guideImages[cp.guide]}
-                      alt={cp.guide}
-                      className="w-8 h-8 object-contain"
-                    />
-                    <div className="flex items-center gap-0.5 text-xs font-bold text-muted-foreground">
-                      <Trophy size={12} className="text-primary" />
-                      {cp.completed}/{cp.total}
-                    </div>
-                  </div>
-                ))}
+              <div className="flex items-center gap-1.5 text-sm font-bold text-muted-foreground">
+                <Trophy size={16} className="text-primary" />
+                {completedLevels}/{totalLevels}
               </div>
             </TooltipTrigger>
             <TooltipContent>
