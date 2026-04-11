@@ -68,7 +68,7 @@ export const categories: Category[] = [
           },
           {
             id: "swan-l1-s2",
-            context: "You need to decide what accounts to set up with your bank. A checking account allows you to make day-to-day spending and a savings account helps you save for the future.",
+            context: "You need to decide which accounts to set up with your bank. A checking account allows you to make day-to-day spending and a savings account helps you save for the future.",
             teaching: "Think of a checking account like your backpack — it holds the money you need every day for things like lunch, bus fare, or a new pencil. You can take money in and out whenever you want! A savings account is more like a piggy bank that's locked away safely. The cool part? The bank actually gives you a little extra money called \"interest\" just for keeping your money there. It's like the bank saying \"thank you for letting us hold your money\" by adding a few extra coins over time. The longer you leave your money in savings, the more bonus money you earn!",
             choices: [
               { text: "Open both a checking and a savings account, putting most money in checking for daily use.", quality: "okay", xp: 300 },
