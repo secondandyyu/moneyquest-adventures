@@ -384,7 +384,16 @@ export default function GamePlay() {
 
           <div className="flex items-center gap-1.5 text-sm font-extrabold">
             <Star className="text-xp fill-xp" size={16} />
-            {state.xp.toLocaleString()}
+            {(() => {
+              const levelScenarios = result!.level.scenarios;
+              const earned = levelScenarios.reduce((sum, s) => {
+                const r = getScenarioResult(s.id);
+                const session = sessionAnswers[s.id];
+                return sum + (r ? r.xpEarned : session ? session.xpEarned : 0);
+              }, 0);
+              const maxXp = levelScenarios.length * 500;
+              return `${earned.toLocaleString()}/${maxXp.toLocaleString()} XP`;
+            })()}
           </div>
         </div>
       </div>
