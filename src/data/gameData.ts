@@ -232,7 +232,7 @@ export const categories: Category[] = [
               { text: "Volunteer a full day at a local group, but don't donate.", quality: "bad", xp: 100 },
               { text: "Give $25 to the food pantry and the youth center and volunteer at the local animal shelter monthly.", quality: "best", xp: 500 },
             ],
-            justification: "Combining donations with volunteering is the best approach! Money donations let organizations buy exactly what they need most, whether it's medical supplies for a puppy or books for a student. And volunteering gives them your time and energy, which is just as valuable!",
+            justification: "Combining donations with volunteering is the best approach! Money donations let organizations buy exactly what they need most, whether it's medical supplies for a puppy or books for a student. And volunteering gives them your time and energy, which is often more valuable than just money! It's very important to interact with those that you are donating to!",
           },
           {
             id: "swan-l5-s3",
