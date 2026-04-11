@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useGame } from "@/context/GameContext";
-import { Star, BookOpen, ShoppingBag, Info, Gamepad2, RotateCcw } from "lucide-react";
+import { categories } from "@/data/gameData";
+import { Star, BookOpen, ShoppingBag, Info, Gamepad2, RotateCcw, Trophy } from "lucide-react";
 import { motion } from "framer-motion";
 import logoImg from "@/assets/andy-logo.png";
 import {
@@ -25,9 +26,14 @@ const navItems = [
 ];
 
 export default function Header() {
-  const { state, resetProgress } = useGame();
+  const { state, resetProgress, isLevelCompleted } = useGame();
   const location = useLocation();
   const navigate = useNavigate();
+
+  const completedLevels = categories.reduce(
+    (sum, cat) => sum + cat.levels.filter((l) => isLevelCompleted(l.id)).length,
+    0
+  );
 
   const handleReset = () => {
     resetProgress();
@@ -62,11 +68,10 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          {state.streak > 0 && (
-            <div className="flex items-center gap-1 text-sm font-bold text-muted-foreground">
-              🔥 {state.streak}
-            </div>
-          )}
+          <div className="flex items-center gap-1.5 text-sm font-bold text-muted-foreground">
+            <Trophy size={16} className="text-primary" />
+            {completedLevels}
+          </div>
           <motion.div
             key={state.xp}
             animate={{ scale: [1, 1.2, 1] }}
