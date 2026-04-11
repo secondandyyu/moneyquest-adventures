@@ -226,7 +226,7 @@ export const categories: Category[] = [
           },
           {
             id: "swan-l5-s2",
-            context: "You see different ways to help in your neighborhood. There is a food pantry, a local animal shelter, and a small youth center.",
+            context: "You see different ways to help in your neighborhood. There is a food pantry, a local animal shelter, and a small youth center. These are established groups but can use some extra help from you.",
             choices: [
               { text: "Give $100 equally to all three groups every month.", quality: "okay", xp: 300 },
               { text: "Volunteer a full day at a local group, but don't donate.", quality: "bad", xp: 100 },
