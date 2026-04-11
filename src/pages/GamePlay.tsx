@@ -428,11 +428,7 @@ export default function GamePlay() {
                     <img
                       src={scenarioIllustrations[scenario.id]}
                       alt="Scenario illustration"
-                      className={`w-full ${
-                        scenario.id === 'dog-l1-s1'
-                          ? 'object-cover aspect-[21/9] md:aspect-auto'
-                          : 'object-contain'
-                      }`}
+                      className="w-full object-contain"
                       style={{ filter: "saturate(0.85) contrast(0.95) brightness(1.02)" }}
                     />
                   </div>
