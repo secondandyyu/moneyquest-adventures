@@ -5,6 +5,9 @@ import { categories } from "@/data/gameData";
 import { Star, BookOpen, ShoppingBag, Info, Gamepad2, RotateCcw, Trophy } from "lucide-react";
 import { motion } from "framer-motion";
 import logoImg from "@/assets/andy-logo.png";
+import swanImg from "@/assets/swan-guide.png";
+import beaverImg from "@/assets/beaver-guide.png";
+import dogImg from "@/assets/dog-guide.png";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -16,6 +19,11 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const navItems = [
   { path: "/", label: "Home", icon: Gamepad2 },
@@ -25,15 +33,23 @@ const navItems = [
   { path: "/about", label: "About", icon: Info },
 ];
 
+const guideImages: Record<string, string> = {
+  swan: swanImg,
+  beaver: beaverImg,
+  dog: dogImg,
+};
+
 export default function Header() {
   const { state, resetProgress, isLevelCompleted } = useGame();
   const location = useLocation();
   const navigate = useNavigate();
 
-  const completedLevels = categories.reduce(
-    (sum, cat) => sum + cat.levels.filter((l) => isLevelCompleted(l.id)).length,
-    0
-  );
+  const categoryProgress = categories.map((cat) => ({
+    id: cat.id,
+    guide: cat.guide,
+    completed: cat.levels.filter((l) => isLevelCompleted(l.id)).length,
+    total: cat.levels.length,
+  }));
 
   const handleReset = () => {
     resetProgress();
@@ -68,19 +84,40 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1.5 text-sm font-bold text-muted-foreground">
-            <Trophy size={16} className="text-primary" />
-            {completedLevels}
-          </div>
-          <motion.div
-            key={state.xp}
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 0.3 }}
-            className="flex items-center gap-1.5 bg-xp/20 text-xp-foreground px-4 py-2 rounded-full font-extrabold border-2 border-xp"
-          >
-            <Star className="text-xp fill-xp" size={18} />
-            {state.xp.toLocaleString()} XP
-          </motion.div>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div className="flex items-center gap-2">
+                {categoryProgress.map((cp) => (
+                  <div key={cp.id} className="flex items-center gap-1">
+                    <img
+                      src={guideImages[cp.guide]}
+                      alt={cp.guide}
+                      className="w-6 h-6 rounded-full object-cover"
+                    />
+                    <div className="flex items-center gap-0.5 text-xs font-bold text-muted-foreground">
+                      <Trophy size={12} className="text-primary" />
+                      {cp.completed}/{cp.total}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p className="font-bold">Levels Completed</p>
+            </TooltipContent>
+          </Tooltip>
+
+          <Link to="/shop">
+            <motion.div
+              key={state.xp}
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 0.3 }}
+              className="flex items-center gap-1.5 bg-xp/20 text-xp-foreground px-4 py-2 rounded-full font-extrabold border-2 border-xp cursor-pointer hover:bg-xp/30 transition-colors"
+            >
+              <Star className="text-xp fill-xp" size={18} />
+              {state.xp.toLocaleString()} XP
+            </motion.div>
+          </Link>
 
           <AlertDialog>
             <AlertDialogTrigger asChild>
