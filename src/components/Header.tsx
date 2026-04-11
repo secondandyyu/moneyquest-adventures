@@ -68,11 +68,10 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          {state.streak > 0 && (
-            <div className="flex items-center gap-1 text-sm font-bold text-muted-foreground">
-              🔥 {state.streak}
-            </div>
-          )}
+          <div className="flex items-center gap-1.5 text-sm font-bold text-muted-foreground">
+            <Trophy size={16} className="text-primary" />
+            {completedLevels}
+          </div>
           <motion.div
             key={state.xp}
             animate={{ scale: [1, 1.2, 1] }}
