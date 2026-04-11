@@ -85,20 +85,9 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Tooltip>
             <TooltipTrigger asChild>
-              <div className="flex items-center gap-2">
-                {categoryProgress.map((cp) => (
-                  <div key={cp.id} className="flex items-center gap-1">
-                    <img
-                      src={guideImages[cp.guide]}
-                      alt={cp.guide}
-                      className="w-8 h-8 object-contain"
-                    />
-                    <div className="flex items-center gap-0.5 text-xs font-bold text-muted-foreground">
-                      <Trophy size={12} className="text-primary" />
-                      {cp.completed}/{cp.total}
-                    </div>
-                  </div>
-                ))}
+              <div className="flex items-center gap-1.5 text-sm font-bold text-muted-foreground">
+                <Trophy size={16} className="text-primary" />
+                {completedLevels}/{totalLevels}
               </div>
             </TooltipTrigger>
             <TooltipContent>
