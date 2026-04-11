@@ -44,12 +44,11 @@ export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const categoryProgress = categories.map((cat) => ({
-    id: cat.id,
-    guide: cat.guide,
-    completed: cat.levels.filter((l) => isLevelCompleted(l.id)).length,
-    total: cat.levels.length,
-  }));
+  const totalLevels = categories.reduce((sum, cat) => sum + cat.levels.length, 0);
+  const completedLevels = categories.reduce(
+    (sum, cat) => sum + cat.levels.filter((l) => isLevelCompleted(l.id)).length,
+    0
+  );
 
   const handleReset = () => {
     resetProgress();
