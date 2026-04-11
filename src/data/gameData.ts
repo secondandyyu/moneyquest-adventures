@@ -229,7 +229,7 @@ export const categories: Category[] = [
             context: "You see different ways to help in your neighborhood. There is a food pantry, a local animal shelter, and a small youth center.",
             choices: [
               { text: "Give $100 equally to all three groups every month.", quality: "okay", xp: 300 },
-              { text: "Volunteer a full day at a local group but don't donate.", quality: "bad", xp: 100 },
+              { text: "Volunteer a full day at a local group, but don't donate.", quality: "bad", xp: 100 },
               { text: "Give $25 to the food pantry and the youth center and volunteer at the local animal shelter monthly.", quality: "best", xp: 500 },
             ],
             justification: "Combining donations with volunteering is the best approach! Money donations let organizations buy exactly what they need most, whether it's medical supplies for a puppy or books for a student. And volunteering gives them your time and energy, which is just as valuable!",
