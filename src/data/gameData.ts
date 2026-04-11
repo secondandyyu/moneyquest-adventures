@@ -79,7 +79,7 @@ export const categories: Category[] = [
           },
           {
             id: "swan-l1-s3",
-            context: "You need to make withdrawals to pay rent, groceries, and new clothes.",
+            context: "You need to make withdrawals to pay for rent, groceries, and new clothes.",
             teaching: "There are different ways to get money out of your bank account, kind of like different ways to send a letter! An ATM is a machine (usually outside a bank or store) where you put in your card and it gives you real paper money and coins — perfect for when you need cash right away. A wire transfer is like sending money through the internet — it \"teleports\" your money from your account straight into someone else's account without anyone touching real cash. It's super safe because there's a digital record of everything! A paper cheque is an old-fashioned way where you write someone's name on a special piece of paper, and when they take it to the bank, the bank gives them the money from your account.",
             choices: [
               { text: "Use ATMs mostly for immediate transactions for quick or emergency purchases. Use mobile wire for online transfers and rent payment.", quality: "best", xp: 500 },
