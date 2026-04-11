@@ -5,9 +5,9 @@ import { categories } from "@/data/gameData";
 import { Star, BookOpen, ShoppingBag, Info, Gamepad2, RotateCcw, Trophy } from "lucide-react";
 import { motion } from "framer-motion";
 import logoImg from "@/assets/andy-logo.png";
-import swanImg from "@/assets/swan-guide.png";
-import beaverImg from "@/assets/beaver-guide.png";
-import dogImg from "@/assets/dog-guide.png";
+import swanImg from "@/assets/scenarios/swan-intro-v2.png";
+import beaverImg from "@/assets/scenarios/beaver-intro.png";
+import dogImg from "@/assets/scenarios/dog-intro.png";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -58,12 +58,12 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-card/90 backdrop-blur-md">
-      <div className="container flex items-center justify-between py-3">
+      <div className="container relative flex items-center justify-between py-3">
         <Link to="/" className="flex items-center gap-2">
           <img src={logoImg} alt="MoneyQuest" className="h-14" />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
           {navItems.map((item) => {
             const active = location.pathname === item.path;
             return (
@@ -92,7 +92,7 @@ export default function Header() {
                     <img
                       src={guideImages[cp.guide]}
                       alt={cp.guide}
-                      className="w-6 h-6 rounded-full object-cover"
+                      className="w-8 h-8 object-contain"
                     />
                     <div className="flex items-center gap-0.5 text-xs font-bold text-muted-foreground">
                       <Trophy size={12} className="text-primary" />
