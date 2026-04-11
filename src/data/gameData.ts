@@ -189,7 +189,7 @@ export const categories: Category[] = [
             context: "You consider what would happen if you tried short-term investing vs. long-term investing. Short-term investing is risky but can be rewarding. Long-term investing is safe but slow.",
             teaching: "Think of investing like growing plants. Short-term investing is like picking wildflowers — you grab them quickly, but they don't last very long and sometimes you don't find any at all. You buy something and try to sell it really fast (in days or weeks) hoping the price went up. It can work, but it's very risky because prices bounce around a lot in the short term! Long-term investing is like planting an apple tree. You put a seed in the ground and water it for years. At first, nothing happens. But after a long time, that tiny seed grows into a big tree that gives you apples every single year! Most of the richest and smartest investors in the world are long-term investors because they know that patience is a superpower when it comes to money.",
             choices: [
-              { text: "Invest mostly short-term to increase immediate benefits.", quality: "bad", xp: 100 },
+              { text: "Invest mostly short-term to increase immediate benefits, no matter the riskiness.", quality: "bad", xp: 100 },
               { text: "Invest long-term in stable companies and let your money grow over years.", quality: "best", xp: 500 },
               { text: "Mix short-term and long-term, but lean toward short-term for more excitement.", quality: "okay", xp: 300 },
             ],
