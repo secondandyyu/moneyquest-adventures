@@ -30,11 +30,6 @@ const navItems = [
   { path: "/about", label: "About", icon: Info },
 ];
 
-const guideImages: Record<string, string> = {
-  swan: swanImg,
-  beaver: beaverImg,
-  dog: dogImg,
-};
 
 export default function Header() {
   const { state, resetProgress, isLevelCompleted } = useGame();
