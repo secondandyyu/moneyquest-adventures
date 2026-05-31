@@ -48,8 +48,6 @@ const App = () => (
       </GameProvider>
     </TooltipProvider>
   </QueryClientProvider>
-
-  <Analytics />
 );
 
 export default App;
