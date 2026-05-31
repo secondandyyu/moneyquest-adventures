@@ -1,3 +1,5 @@
+npm i @vercel/analytics
+import { Analytics } from "@vercel/analytics/next"
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -47,6 +49,8 @@ const App = () => (
       </GameProvider>
     </TooltipProvider>
   </QueryClientProvider>
+
+  <Analytics /> </>
 );
 
 export default App;
