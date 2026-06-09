@@ -69,13 +69,13 @@ export const categories: Category[] = [
           {
             id: "swan-l1-s2",
             context: "You need to decide which accounts to set up with your bank. A checking account allows you to make day-to-day spending and a savings account helps you save for the future.",
-            teaching: "Simply, a checking account is a credit card! It holds the money you need every day for things like lunch, water, clothes, or a new phone case. You can easily take money in an out whenever you want! However, a savings account like a piggy bank that's locked safely. Even better, the bank actually gives you a little extra money called \"interest\" just for keeping your money with them. It's like the bank saying \"thank you\" for letting them hold your money by giving you extra. The banks are using your money for other investments, and give you some of the extra money they earned from that.",
+            teaching: "A checking account is for daily use, such as buying food or clothes. It is connected to a credit/debit card that you can use at stores to easily transfer money from your account to the store's. On the other hand, a savings account is for long-term use (to \"save\" money for the future). A savings account grows through \"interest,\" which is extra money banks give you for storing your money with them. Banks invest your money while you don't use it, and give you extra money as a \"thank you for letting us use your money!\"",
             choices: [
               { text: "Open both a checking and a savings account, putting most money in checking for daily use.", quality: "okay", xp: 300 },
               { text: "Open both a checking and a savings account, splitting your money wisely between daily spending and saving for the future.", quality: "best", xp: 500 },
               { text: "Open only a checking account since you need money available all the time.", quality: "bad", xp: 100 },
             ],
-            justification: "Having both accounts is the smartest move! Your checking account handles daily spending like groceries and transport, while your savings account grows your money over time with interest. Only having a checking account means you miss out on growing your savings.",
+            justification: "Opening both a checking and savings account is the wisest move! It's important to give yourself money for daily spending, but also save for the future. Only having a checking account means you can't get interest (the extra money banks give you)! Also, if you split your money too unevenly, you're gonna run out of usable money at some point!",
           },
           {
             id: "swan-l1-s3",
