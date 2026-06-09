@@ -64,7 +64,7 @@ export const categories: Category[] = [
               { text: "Bank 2: A bank where accounts can be modified online with a mobile app and debit/credit cards can earn travel reward points.", quality: "best", xp: 500 },
               { text: "Bank 3: A bank where accounts can be modified online with a mobile app, but there is a fee of 2,000 Won per month to keep your money.", quality: "okay", xp: 300 },
             ],
-            justification: "The best choice is Bank 2 because it is both convenient and rewarding. Having a mobile banking app makes sending and receiving money much easier because you don't have to physically travel to a bank to make transactions. Also, earning travel points for using your credit/debit card is like hitting two birds with one stone! It's also wise to avoid the monthly fee at Bank 3, as small fees can add up to be burdening over years.",
+            justification: "The best choice is Bank 2 because it is both convenient and rewarding! Having a mobile banking app makes sending and receiving money much easier because you don't have to physically travel to a bank to make transactions. Also, earning travel points for using your credit/debit card is like hitting two birds with one stone! It's also wise to avoid the monthly fee at Bank 3, as small fees can add up to be burdening over years.",
           },
           {
             id: "swan-l1-s2",
