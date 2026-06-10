@@ -86,7 +86,7 @@ export const categories: Category[] = [
               { text: "Pay rent with a check, groceries and other payments via wiring.", quality: "okay", xp: 300 },
               { text: "Pay rent with cash through an ATM and keep a large amount of cash in your wallet.", quality: "bad", xp: 100 },
             ],
-            justification: "Using the right tool for the right job is the smartest approach. Using an ATM for quick cash is perfect for small things, but using a mobile wire transfer for rent is like sending a \"digital teleport\" of money that is safe, fast, and leaves a receipt. Carrying too much cash is like carrying a treasure chest with no lock because if it's gone, it's gone forever. Using the right digital tools keeps your money behind a strong \"password shield.\"",
+            justification: "It's crucial to use different methods for different purposes! Using an ATM for immediate cash is great for small things, and using a mobile wire transfer for quick, online transfers is convenient. Carrying too much cash is dangerous because if you lose your wallet, you also lose all that money. Using the right digital tools keeps your money safe and easily manageable.",
           },
         ],
       },
