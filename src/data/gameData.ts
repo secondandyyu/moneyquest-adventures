@@ -108,7 +108,7 @@ export const categories: Category[] = [
           },
           {
             id: "swan-l2-s2",
-            context: "Your old tote bag tears during your commute, and now you need to pick a replacement that balances price, quality, and long-term value.",
+            context: "One day, your old tote bag tears as you travel to work, and now you need to pick a new bag that balances price, quality, and long-term value.",
             choices: [
               { text: "Buy a cheap bag using your savings. The bag only lasts a couple months and you'll need another one later.", quality: "bad", xp: 100 },
               { text: "Save up for the next month to buy a more expensive bag that fits the current trends. It isn't super durable but is pretty.", quality: "okay", xp: 300 },
