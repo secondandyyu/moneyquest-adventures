@@ -124,7 +124,7 @@ export const categories: Category[] = [
               { text: "Save 15% of your income monthly and prioritize the house first, then the computer.", quality: "okay", xp: 300 },
               { text: "Save 10% of your income monthly for each goal at the same time.", quality: "bad", xp: 100 },
             ],
-            justification: "Using \"stepping stones\" is the winner strategy. A computer is a tool that can help you learn, work, and eventually earn even more money. By getting the computer first, you empower yourself to reach the much bigger goal of a house faster. Trying to save for both at once makes progress feel so slow that you might get frustrated and quit. Finishing one small goal gives you the \"Level Up\" energy to tackle the big house goal next!",
+            justification: "Saving for the computer first, then the house is the best strategy! Always prioritize smaller goals first, and save what's left for a bigger goal, like buying a house. By getting the computer first, you also get work done faster, and allow yourself to reach your bigger goal faster. Trying to save for both goals at once makes progress feel so slow that you might get frustrated and quit. Finishing one small goal first gives you the momentum to continue!",
           },
         ],
       },
