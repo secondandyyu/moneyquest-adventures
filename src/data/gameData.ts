@@ -193,7 +193,7 @@ export const categories: Category[] = [
               { text: "Invest long-term in stable companies and let your money grow over years.", quality: "best", xp: 500 },
               { text: "Mix short-term and long-term, but lean toward short-term for more excitement.", quality: "okay", xp: 300 },
             ],
-            justification: "Long-term investing is the winner for most people. It's like planting a garden — you might not see flowers right away, but over time, your garden becomes beautiful. Short-term trading is stressful and risky, especially for beginners. Patience is the real superpower of investing!",
+            justification: "Long-term investing is the winner for most people. For beginners like us, short-term investing can only be risky and stressful because it requires precise predictions and adapting to market trends. Purchasing stock of a company that you think will perform well this month may backfire due to factors you cannot predict, while purchasing stock of a company that you think will grow over ten years gives the company time to grow and compound wealth. While no investment is a guarantee, long-term investing generally offers a higher chance of steady wealth creation.",
           },
           {
             id: "swan-l4-s3",
