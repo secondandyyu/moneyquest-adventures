@@ -114,7 +114,7 @@ export const categories: Category[] = [
               { text: "Save up for the next month to buy a more expensive bag that fits the current trends. It isn't super durable but is pretty.", quality: "okay", xp: 300 },
               { text: "Save up for the next month to buy an expensive but high quality bag that will last long. It isn't the prettiest but gets its job done best.", quality: "best", xp: 500 },
             ],
-            justification: "Choosing the high-quality bag is the best move. Even though it isn't the \"trendiest,\" a sturdy bag is a better investment because you only have to buy it once. If you buy a cheap bag that breaks in two months, you actually end up spending more money over time because you keep buying replacements. It's better to save up for one \"Iron Man\" bag than to buy five \"Cardboard\" bags!",
+            justification: "Choosing the expensive but high quality bag is the best move because you only have to buy it once, and it will last much longer than other bags. If you constantly buy cheap bags as one tears after another, you end up spending more money over time! It's better to save up for one high-quality bag than buy five low-quality bags!",
           },
           {
             id: "swan-l2-s3",
