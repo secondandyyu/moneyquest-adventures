@@ -3,7 +3,7 @@ import swanL1S1 from "@/assets/scenarios/swan-l1-s1.png";
 import swanL1S2 from "@/assets/scenarios/swan-l1-s2.png";
 import swanL1S3 from "@/assets/scenarios/swan-l1-s3.png";
 // Swan Level 2 - Savings
-import swanL2S1 from "@/assets/scenarios/swan-l2-s1.png";
+import swanL2S1 from "@/assets/scenarios/swan-l2-s1.png.asset.json";
 import swanL2S2 from "@/assets/scenarios/swan-l2-s2.png";
 import swanL2S3 from "@/assets/scenarios/swan-l2-s3.png";
 // Swan Level 3 - Budgeting
