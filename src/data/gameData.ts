@@ -152,7 +152,7 @@ export const categories: Category[] = [
               { text: "Use an online spreadsheet and update it monthly.", quality: "okay", xp: 300 },
               { text: "Continue to write down your income and expenses on your physical notebook weekly, as you already have a comfortable setup.", quality: "bad", xp: 100 },
             ],
-            justification: "An online spreadsheet is like having a robot assistant who is great at math. By updating it weekly, the information stays fresh in your brain so you don't forget that candy bar you bought on Tuesday. If you wait until the end of the month, it's like trying to remember what you ate for breakfast three weeks ago—nearly impossible! Weekly updates keep your budget accurate and easy to manage.",
+            justification: "Using an online spreadsheet is like having a robot assistant who calculates everything for you! Updating it weekly, not monthly, helps you stay up to date with your income and expenses, and not fall behind. Also, by using an online spreadsheet, you never have to worry about losing papers or information because everything is securely stored in one place!",
           },
           {
             id: "swan-l3-s3",
