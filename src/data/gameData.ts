@@ -204,7 +204,7 @@ export const categories: Category[] = [
               { text: "Put 40% in mutual funds, 50% in index funds, and 10% in crypto.", quality: "best", xp: 500 },
               { text: "Put 70% in crypto and 30% in index funds.", quality: "bad", xp: 100 },
             ],
-            justification: "This is the \"Champion's Portfolio\" because it uses diversification. By putting money into Index Funds (very safe), Mutual Funds (managed by pros), and a tiny bit of Crypto (exciting but risky), you aren't putting all your eggs in one basket. If Crypto crashes like a falling star, you only lose a tiny portion. Balance is the key to smart investing!",
+            justification: "Splitting in the 40/50/10 ratio is the best choice because it uses diversification. By putting most money in mutual funds and index funds, it's low risk, but you also save 10% for Crypto for some upside. This way, you aren't putting all your eggs in one basket. If Crypto crashes, you only lose a tiny portion. Balance is the key to smart investing!",
           },
         ],
       },
