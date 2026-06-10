@@ -222,7 +222,7 @@ export const categories: Category[] = [
               { text: "Give money consistently each month starting now.", quality: "okay", xp: 300 },
               { text: "Give money in small portions until the cost of supplies are covered.", quality: "bad", xp: 100 },
             ],
-            justification: "Giving a one-time amount solves the immediate emergency without creating a \"dependency.\" By helping your cousin buy the supplies they need right now, you are being a great family member. However, by not giving money every single month, you are also helping them learn how to manage their own money. It's the perfect mix of being kind and being a good teacher.",
+            justification: "Giving a one-time amount solves the emergency without creating too much dependancy. By helping your cousin buy supplies, you are being a helpful family member. However, by not giving money every single month, you are also helping him learn how to manage their own money. If you gave him money every month, he may not learn to make money himself because he's used to relying on your funds. Giving him once is the perfect mix of being kind and setting him for future independence.",
           },
           {
             id: "swan-l5-s2",
