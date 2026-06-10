@@ -142,7 +142,7 @@ export const categories: Category[] = [
               { text: "Write down all expected income and expenses for each month on sticky notes in places across your home.", quality: "okay", xp: 300 },
               { text: "Write down only major expenses such as rent, and ignore small daily spending in your notebook.", quality: "bad", xp: 100 },
             ],
-            justification: "Your notebook acts like a \"Money Diary.\" When you write everything in one safe place, you can look back and see exactly where your money went. Using sticky notes is a recipe for disaster because they can lose their \"sticky\" and fly away, taking your important information with them! Keeping a notebook ensures you never lose track of your financial story.",
+            justification: "When managing money, it's important to keep everything all in one place, so that you don't confuse yourself and lose track of things. Noting expected monthly income and expenses in one notebook helps you make a plan on how you are going to spend or save money for the month. Keeping sticky notes all over your home gets messy, and ignoring small daily spending can ultimately add up to affect your financial status.",
           },
           {
             id: "swan-l3-s2",
