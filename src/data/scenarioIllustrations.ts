@@ -65,7 +65,7 @@ export const scenarioIllustrations: Record<string, string> = {
   "swan-l1-s1": swanL1S1,
   "swan-l1-s2": swanL1S2,
   "swan-l1-s3": swanL1S3,
-  "swan-l2-s1": swanL2S1,
+  "swan-l2-s1": swanL2S1.url,
   "swan-l2-s2": swanL2S2,
   "swan-l2-s3": swanL2S3,
   "swan-l3-s1": swanL3S1,
