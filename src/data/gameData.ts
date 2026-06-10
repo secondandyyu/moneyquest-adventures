@@ -182,7 +182,7 @@ export const categories: Category[] = [
               { text: "Invest in \"TechKnowlegy\" — a tech company making computers and cars. Some people buy from them as an alternative to other tech giants. Ups and downs in growth.", quality: "okay", xp: 300 },
               { text: "Invest in \"Sunny Snacks Co.\" — a food company most people use for groceries and snacks. They deliver items for convenience. Steady growth for the past three years.", quality: "best", xp: 500 },
             ],
-            justification: "Sunny Snacks Co. is the safest and smartest play for a beginner. While tech companies are cool, they can be like a roller coaster—up one day and down the next. However, people always need to eat, no matter what is happening in the world. Investing in a food company that is growing steadily is like planting an oak tree; it might grow slowly, but it is strong, stable, and much less likely to fall over than a trendy fashion company.",
+            justification: "Sunny Snacks Co. is the safest and smartest choice. While tech companies are cool, they can be like a roller coaster: up one day and down the next. However, people always need to eat, no matter what is happening in the world. Investing in a food company that is growing steadily is much safer than investing in companies that have volatile performances. To be safe, you always want to invest in a company that has steady growth rather than a company that performs without much pattern.",
           },
           {
             id: "swan-l4-s2",
