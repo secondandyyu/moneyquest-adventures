@@ -157,13 +157,13 @@ export const categories: Category[] = [
           {
             id: "swan-l3-s3",
             context: "A coworker shows you the MoneyCare app and explains how it can link to your bank to track expenses automatically.",
-            teaching: "Imagine if an app could manage all your money without having you to worry about it — that's basically what a budgeting app like MoneyCare does! While the bank app only shows your earnings and spendings, budgeting apps like MoneyCare help you make smart money decisions. Some apps can even sort your spending into groups like \"Food,\" \"Fun,\" and \"Transportation\" automatically, so you can see exactly where your money goes each month. It's like having a super-smart helper who watches your money 24 hours a day, 7 days a week, and never takes a break!",
+            teaching: "Wouldn't it be easy if an app could take care of all your money without you having to worry about it? That's basically what a budgeting app like MoneyCare does! Budgeting apps help you make smart money choices by sorting your spending into groups like \"Food,\" \"Fun,\" and \"Transportation\" automatically, so you know exactly where your money goes each month, and if you need to spend less in certain things.",
             choices: [
               { text: "Use MoneyCare to manually track your records. Don't connect the app to your bank account.", quality: "okay", xp: 300 },
               { text: "Use MoneyCare to categorize all of your planned income and expenses. The app will also will track all spending and saving with the bank account connection.", quality: "best", xp: 500 },
               { text: "Use MoneyCare to track your card expenses and keep other things (income, savings, etc.) in your physical notebook.", quality: "bad", xp: 100 },
             ],
-            justification: "Using technology to do the \"boring\" work for you is the ultimate choice. When the app connects to your bank, it automatically sorts your spending into categories like \"Food\" or \"Games.\" This prevents human error and saves you a ton of time. It's like having a self-cleaning room—instead of picking up every toy yourself, the app puts everything where it belongs automatically.",
+            justification: "Using MoneyCare to categorize your income and expenses is the best choice. When the app connects to your bank account, it can automatically sort your income and spending, preventing human error and time. You can easily track your financial status and make changes to your spending habits as necessary!",
           },
         ],
       },
