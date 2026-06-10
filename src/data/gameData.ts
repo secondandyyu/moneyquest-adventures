@@ -204,7 +204,7 @@ export const categories: Category[] = [
               { text: "Put 40% in mutual funds, 50% in index funds, and 10% in crypto.", quality: "best", xp: 500 },
               { text: "Put 70% in crypto and 30% in index funds.", quality: "bad", xp: 100 },
             ],
-            justification: "Splitting in the 40/50/10 ratio is the best choice because it uses diversification. By putting most money in mutual funds and index funds, it's low risk, but you also save 10% for Crypto for some upside. This way, you aren't putting all your eggs in one basket. If Crypto crashes, you only lose a tiny portion. Balance is the key to smart investing!",
+            justification: "Splitting in the 40/50/10 ratio is the best choice because it uses diversification. By putting most money in mutual funds and index funds, it's low risk, but you also save 10% for Crypto for some upside. This way, you aren't putting all your eggs in one basket. If the value of Crypto drops, you only lose a small portion. Balance is the key to smart investing!",
           },
         ],
       },
