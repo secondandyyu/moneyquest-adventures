@@ -104,7 +104,7 @@ export const categories: Category[] = [
               { text: "Prioritize your needs, but also for some fun. Allocate 60% of your paycheck for needs, 30% for wants, and 10% for savings.", quality: "okay", xp: 300 },
               { text: "Prioritize saving for the future rather than focusing on current needs. Allocate 50% of your paycheck for needs, 20% for wants, and 30% for savings.", quality: "bad", xp: 100 },
             ],
-            justification: "The 70/15/15 rule is the best because it follows a \"Needs First\" mission. By covering your rent, food, and taxes first, you make sure you have a roof over your head and a full stomach. Setting aside 15% for fun means you still get to enjoy life, and 15% for savings means you're building a mountain of money for later.",
+            justification: "Following the basic 70/15/15 rule is safe because you allocate enough money to fill your daily needs like rent, groceries, transportation, and taxes. 15% for \"wants\" gives yourself room to have some fun, or eat out with friends. The last 15% gives you just enough money to save for your future. It's important to prioritize your needs first, and save a small amount for things you want but don't need, and for your future expenses.",
           },
           {
             id: "swan-l2-s2",
