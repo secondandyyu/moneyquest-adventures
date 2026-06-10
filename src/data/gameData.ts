@@ -242,7 +242,7 @@ export const categories: Category[] = [
               { text: "Other people are already donating enough money to the organization, so you save your money thinking you don't have to.", quality: "bad", xp: 100 },
               { text: "Set up a small monthly donation of $50 from your savings and volunteer monthly.", quality: "okay", xp: 300 },
             ],
-            justification: "Giving $600 all at once allows big projects like building a hospital to gain momentum and get things done. Buying things like X-ray machines or beds requires large payments, and your donation helps a lot here! Adding monthly volunteering on top of that makes you even more helpful because you gave them a giant head start and you continue to help afterwards. The monthly $50 option is also great because it's the \"Steady Shield\" move that the hospital can rely on forever!",
+            justification: "Giving $600 all at once allows big projects like building a hospital to gain momentum and get things done. Buying things like X-ray machines or beds requires large payments, and your donation helps a lot here! Adding monthly volunteering on top of that makes you even more helpful because you gave them a giant head start and you continue to help afterwards. The monthly $50 option is also great because it's the \"Steady Shield\" move that the hospital can rely on for a long time!",
           },
         ],
       },
