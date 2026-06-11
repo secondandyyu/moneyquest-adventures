@@ -275,7 +275,7 @@ export const categories: Category[] = [
             id: "beaver-l1-s2",
             context: "After working 3 months, you realize that you need more money to save up for college. So what should you do next?",
             choices: [
-              { text: "Work at another job as an online website manager at night after you finish work at the bakery.", quality: "bad", xp: 100 },
+              { text: "Work another job as an online website manager at night after you finish work at the bakery.", quality: "bad", xp: 100 },
               { text: "Start doing online tutoring only during free hours.", quality: "best", xp: 500 },
               { text: "Stick with one job for now and wait for a promotion.", quality: "okay", xp: 300 },
             ],
