@@ -269,7 +269,7 @@ export const categories: Category[] = [
               { text: "Work at a bakery that has a fixed weekly schedule and steady pay.", quality: "best", xp: 500 },
               { text: "Work as a physical advertiser for a restaurant. Fixed schedule, but earnings shift based on performance.", quality: "bad", xp: 100 },
             ],
-            justification: "The Bakery is the best because it offers steady pay and a fixed schedule. For someone just starting out, having a predictable schedule is like having a sturdy foundation for a house; it helps you plan when you can study, rest, or see friends. The \"roller coaster\" of changing pay makes it very hard to know if you'll have enough money for rent next month.",
+            justification: "The Bakery is the best because it offers steady pay and a fixed schedule. For someone just starting out, having a predictable schedule is wise because it helps you live a healthy and consistent life. For other jobs, the \"roller coaster\" of changing pay or working hours makes it very hard to know if you'll have enough money for the next month.",
           },
           {
             id: "beaver-l1-s2",
