@@ -290,7 +290,7 @@ export const categories: Category[] = [
               { text: "Get a paper check and deposit it using a bank app.", quality: "okay", xp: 300 },
               { text: "Get paid in cash.", quality: "bad", xp: 100 },
             ],
-            justification: "Direct Deposit is the gold standard because it is safe and automatic. The money goes straight into your bank account like a digital teleport, so you don't have to worry about losing a paper check or having cash stolen from your wallet. Plus, the money is ready to use immediately for bills, which helps you stay organized.",
+            justification: "Direct Deposit is the smartest because it is safe and automatic. The only thing your boss needs is your bank account information, and you don't need to do anything more than provide that information! Your boss transfers the money, and it goes straight into your bank account, so you don't have to worry about losing a paper check or losing cash.",
           },
         ],
       },
