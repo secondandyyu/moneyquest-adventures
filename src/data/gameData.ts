@@ -573,7 +573,7 @@ export const categories: Category[] = [
               { text: "Use your emergency savings and adjust your budget for the next month to rebuild it.", quality: "okay", xp: 300 },
               { text: "Pay for the repair and go with your original budget for the next month.", quality: "bad", xp: 100 },
             ],
-            justification: "Both reducing wants and using emergency savings are winners! Sacrificing \"wants\" to pay the bill keeps your savings safe for an even bigger emergency later. Using your \"Emergency Shield\" is also perfect — that's exactly what it was built for! Just remember to refill those savings next month.",
+            justification: "Both reducing wants and using emergency savings are winners! Sacrificing \"wants\" to pay the bill keeps your savings safe for an even bigger emergency later. Using your emergency savings is also great! Just remember to refill those savings next month.",
           },
           {
             id: "dog-l3-s3",
