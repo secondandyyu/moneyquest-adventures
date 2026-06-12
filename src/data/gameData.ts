@@ -318,7 +318,7 @@ export const categories: Category[] = [
               { text: "Buy flowers for your mom as Mother's Day is coming up.", quality: "best", xp: 500 },
               { text: "Buy a PS5, but pay more than the budget, so you have to adjust next week's needs and wants.", quality: "bad", xp: 100 },
             ],
-            justification: "Flowers for Mom is the winner because it is a meaningful \"want.\" While movies are fun, using your extra money to show love to your family builds strong relationships, which are more valuable than a two-hour film. Buying a PS5 you can't afford creates a \"money emergency\" for your food and rent next week.",
+            justification: "Flowers for Mom is the winner because it is a meaningful \"want.\" It's important to understand that not all \"wants\" have the same value. While movies are fun, using your extra money to show love to your family builds strong relationships, which can be more valuable than a movie. Buying a PS5 you can't afford creates a deficit for your food and rent next week, and is not the best financial decision.",
           },
           {
             id: "beaver-l2-s3",
