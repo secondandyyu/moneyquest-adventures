@@ -499,7 +499,7 @@ export const categories: Category[] = [
               { text: "Prioritize needs, then savings, and keep loan repayment for future months.", quality: "bad", xp: 100 },
               { text: "Pay for basic needs first, set aside savings for emergencies, and make only the minimum required loan payment.", quality: "okay", xp: 300 },
             ],
-            justification: "Paying more than the minimum on your loan is an excellent strategy because it focuses on freeing debt. By paying more, you are \"killing\" the interest before it has a chance to grow. It's like running a race and sprinting at the beginning so you can finish sooner. Once that loan is gone, all the money you earn belongs to you!",
+            justification: "Paying more than the minimum on your loan is an excellent strategy because it focuses on freeing debt. By paying more, you are \"killing\" the interest before it has a chance to grow. Paying the loan first is most important because interest keeps building on. If you leave it to be, you're paying more unnecessary interest! Once that loan is gone, all the money you earn belongs to you.",
           },
           {
             id: "dog-l2-s2",
