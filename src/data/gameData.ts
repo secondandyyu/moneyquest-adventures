@@ -439,7 +439,7 @@ export const categories: Category[] = [
           {
             id: "dog-l1-s2",
             context: "You want to expand your snack business and buy a bigger oven. You consider whether to take a loan or not.",
-            teaching: "Taking out too many loans is like carrying too many heavy backpacks at once — eventually, they weigh you down so much that you can barely move! Every loan you take means you owe money plus interest, and all those payments add up. Sometimes, the smartest thing to do is wait and use your own savings instead. When you use money you've already saved, you don't owe anyone anything — no interest, no monthly payments, no stress! It might take longer to save up, but the money you earn is 100% yours. Think of it this way: would you rather borrow a friend's toy and have to give it back plus one of your own toys, or just wait until you can buy your own toy and keep it forever?",
+            teaching: "Taking out too many loans is like carrying too many heavy backpacks at once. Every loan you take means you owe money plus interest, and all those payments add up. Sometimes, the smartest thing to do is wait and use your own savings instead. When you use money you've already saved, you don't owe anyone anything (no interest)! It might take longer to save up, but the money you earn is 100% yours.",
             choices: [
               { text: "Take a bank business loan with a structured repayment plan.", quality: "okay", xp: 300 },
               { text: "Don't take a loan, but grow using savings.", quality: "best", xp: 500 },
