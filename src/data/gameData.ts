@@ -694,7 +694,7 @@ export const categories: Category[] = [
               { text: "Provide the snacks for a lower price as requested and decide to donate monthly snacks to the school.", quality: "bad", xp: 100 },
               { text: "Offer a discounted price for this one event only, making sure the cost still fits within your budget.", quality: "best", xp: 500 },
             ],
-            justification: "The \"Perfect Balance\" — you want to be generous to the school, but you also have to make sure your business doesn't lose money. By offering a discount for just this one event, you help the community while keeping your own \"Money Ship\" floating safely. It proves you are both kind and a very smart business owner!",
+            justification: "Offering a discounted price for this one event, but making sure the cost still fits within your budget is the perfect balance. You want to be generous to the school, but you also have to make sure your business doesn't lose money. By offering a discount for just this one event, you help the community while keeping your own business alive and safe. It proves you are both kind and a very smart business owner!",
           },
           {
             id: "dog-l5-s3",
