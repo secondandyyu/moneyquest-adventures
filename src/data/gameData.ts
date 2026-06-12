@@ -406,7 +406,7 @@ export const categories: Category[] = [
               { text: "Ask close family and friends to cover the costs for now.", quality: "okay", xp: 300 },
               { text: "Use multiple credit cards and small loans to piece together the funds.", quality: "bad", xp: 100 },
             ],
-            justification: "A Bank Emergency Loan is the winner here. A house fire is a huge emergency, and you need a \"Structured Plan.\" A bank loan gives you a clear map of exactly how much to pay each month for several years. Trying to use multiple credit cards is like trying to juggle fire—the high interest rates will grow so fast that you might never be able to pay it all back.",
+            justification: "A Bank Emergency Loan is the winner here. A house fire is a huge emergency, and you need a structured plan. A bank loan gives you a clear map of exactly how much you must pay each month for several years. Trying to use multiple credit cards is dangerous because the high interest rates will grow so fast that you might never be able to pay it all back.",
           },
         ],
       },
