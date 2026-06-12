@@ -347,7 +347,7 @@ export const categories: Category[] = [
               { text: "Prioritize needs but put wants and savings at an equal rate by using a 55/25/20 split (55% on needs, 25% on wants, 20% on savings).", quality: "bad", xp: 100 },
               { text: "Prioritize needs but spend more on fun than savings by using a 65/20/15 split (65% on needs, 20% on wants, 15% on savings).", quality: "okay", xp: 300 },
             ],
-            justification: "The 65/15/20 split is the \"Champion's Split.\" By putting 20% into savings, you're building a \"Safety Net\" faster. When you have a lower income, having that extra cushion is super important because one small emergency could be a big problem. This plan makes sure your needs are met first, but your future is also very well-protected.",
+            justification: "The 65/15/20 split is the wisest choice! When your income is isn't very high, it's important to prioritize your needs first, and then split what's left into your wants and savings. Having that extra cushion for your needs is super important because one small emergency could be a big problem. This plan makes sure your needs are met first, but your future is also very well-protected. Also, know that this split can be modified based on your monthly income and circumstances. There isn't one correct split that fits for everyone!",
           },
           {
             id: "beaver-l3-s2",
