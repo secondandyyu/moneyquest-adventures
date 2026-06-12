@@ -308,7 +308,7 @@ export const categories: Category[] = [
               { text: "Pay for most of your needs, but buy used clothes instead of new ones to save money to meet your friend for dinner.", quality: "okay", xp: 300 },
               { text: "Meet your friend at the fancy restaurant and focus on your needs more in your next paycheck.", quality: "bad", xp: 100 },
             ],
-            justification: "Both the first and second options are great! Paying every bill first and being honest with your friend is the \"Super Responsible\" move — protecting your life from any \"game over\" moments. The second option is the \"Creative Balance\" move — choosing used clothes unlocks extra money for dinner, showing you can be smart with shopping without missing out on fun.",
+            justification: "Both the first and second options are great! Paying your bills first and being honest with your friend is the most reasonable move. The second option also gives you extra money for dinner, showing you can be smart with shopping without missing out on fun. Lastly, choosing to prioritize fun over your needs can end up being painful when it comes time for you to pay bills, tuition fees, or other daily needs.",
           },
           {
             id: "beaver-l2-s2",
