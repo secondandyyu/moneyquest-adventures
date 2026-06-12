@@ -393,7 +393,7 @@ export const categories: Category[] = [
             context: "You remember the car you saw earlier, and think about buying it to help you move from place to place, but you don't have enough money saved.",
             choices: [
               { text: "Ask three friends to equally lend you some money. Pay them back in the next few months.", quality: "bad", xp: 100 },
-              { text: "Use a store installment plan that allows you to pay back predictable amounts over the next few months without a loan.", quality: "best", xp: 500 },
+              { text: "Use a store installment plan that splits the car's cost into predictable amounts over the next few months without a loan.", quality: "best", xp: 500 },
               { text: "Get a loan from the bank that has interest but is safe and protected.", quality: "okay", xp: 300 },
             ],
             justification: "A store installment plan is the \"Predictable Path.\" It usually doesn't involve a scary bank. You know exactly how much you owe every month, and it feels like a small step-by-step ladder to owning a car. A bank loan is also a solid choice — it's the \"Shield of Protection\" because banks have clear rules and contracts that protect you, and it helps you build a \"credit score\" like gaining XP for your financial life!",
