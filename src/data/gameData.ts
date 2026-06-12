@@ -344,8 +344,8 @@ export const categories: Category[] = [
             teaching: "When you don't earn a lot of money, every dollar matters even more!  It's very important to know what you need to prioritize in terms of spending, so that you're not spending money on the wrong things. \"Needs\" are things you absolutely must pay for to survive and stay safe, like rent (so you have a roof over your head), food (so you don't starve), and transportation (so you can get to work). \"Wants\" are fun things like video games, eating out, or new sneakers. They're nice to have but you don't technically \"need\" them. When your income is low, the smartest move is to cover all your needs first, save a little bit for emergencies, and only then spend whatever amount is left on wants.",
             choices: [
               { text: "Prioritize needs and focus on savings with the rest of your money by using a 65/15/20 split (65% on needs, 15% on wants, 20% on savings).", quality: "best", xp: 500 },
-              { text: "Prioritize needs but put wants and savings at an equal rate by using a 55/25/20 split (55% on needs, 25% on wants, 20% on savings).", quality: "okay", xp: 300 },
-              { text: "Prioritize needs but spend more on fun than savings by using a 65/20/15 split (65% on needs, 20% on wants, 15% on savings).", quality: "bad", xp: 100 },
+              { text: "Prioritize needs but put wants and savings at an equal rate by using a 55/25/20 split (55% on needs, 25% on wants, 20% on savings).", quality: "bad", xp: 100 },
+              { text: "Prioritize needs but spend more on fun than savings by using a 65/20/15 split (65% on needs, 20% on wants, 15% on savings).", quality: "okay", xp: 300 },
             ],
             justification: "The 65/15/20 split is the \"Champion's Split.\" By putting 20% into savings, you're building a \"Safety Net\" faster. When you have a lower income, having that extra cushion is super important because one small emergency could be a big problem. This plan makes sure your needs are met first, but your future is also very well-protected.",
           },
