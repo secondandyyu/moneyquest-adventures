@@ -302,7 +302,7 @@ export const categories: Category[] = [
         scenarios: [
           {
             id: "beaver-l2-s1",
-            context: "You get your first paycheck and need to pay for your rent, food, taxes, clothes, etc. But your high school friend is asking to eat dinner at a fancy restaurant after months of not seeing each other.",
+            context: "You get your first paycheck and need to pay for your rent, food, taxes, clothes, and other daily items, but your high school friend is asking to eat dinner at a fancy restaurant after months of not seeing each other.",
             choices: [
               { text: "Pay all your basic bills first. Realize you have no money left. Ask your friend to hang out at a cheaper restaurant.", quality: "best", xp: 500 },
               { text: "Pay for most of your needs, but buy used clothes instead of new ones to save money to meet your friend for dinner.", quality: "okay", xp: 300 },
