@@ -368,7 +368,7 @@ export const categories: Category[] = [
               { text: "Make a plan to consistently save 5% of income, and enjoy the small wants.", quality: "okay", xp: 300 },
               { text: "Decide to save how much is left after every month's expenses are made.", quality: "bad", xp: 100 },
             ],
-            justification: "Save 15% consistently is the winner because it uses the \"Pay Yourself First\" rule. By deciding to save 15% before spending on fun, you guarantee that your car fund will grow every single month. If you only save \"whatever is left,\" you might find that there is $0 left because small treats added up too fast!",
+            justification: "Save 15% consistently is the winner because it uses the \"pay yourself first\" rule. By deciding to save 15% before spending on fun, you guarantee that your car fund will grow every single month. If you only save whatever is left, you might find yourself with no extra cash because small payments add up fast!",
           },
         ],
       },
