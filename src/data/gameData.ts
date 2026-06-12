@@ -445,7 +445,7 @@ export const categories: Category[] = [
               { text: "Don't take a loan, but grow using savings.", quality: "best", xp: 500 },
               { text: "Take a small, informal loan from a friend.", quality: "bad", xp: 100 },
             ],
-            justification: "Using Savings is a very smart move if you can afford it. When you use your own savings, you don't have to pay interest (that extra money you pay back to the bank). Every penny you earn stays in your pocket! A bank business loan is also a good choice if your savings are too small, because it helps you grow faster using a safe, professional plan.",
+            justification: "Using savings is a very smart move if you can afford it. When you use your own savings, you don't have to pay interest (that extra money you pay back to the bank). Every penny you earn stays in your pocket! A bank business loan is also a good choice if your savings are too small, because it helps you grow faster using a safe, professional plan.",
           },
           {
             id: "dog-l1-s3",
