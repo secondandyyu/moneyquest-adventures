@@ -386,7 +386,7 @@ export const categories: Category[] = [
               { text: "Ask a friend to lend you the money and pay them back next month.", quality: "okay", xp: 300 },
               { text: "Put the repair on a credit card and pay the minimum each month.", quality: "bad", xp: 100 },
             ],
-            justification: "Using your emergency savings is exactly what it was built for! This is why we build a \"Safety Net\" — so when small emergencies pop up, you can handle them without going into debt. Credit card minimum payments pile up interest quickly, which can turn a small problem into a big one.",
+            justification: "Using your emergency savings is exactly what it was built for! This is why we build a safety net — so when small emergencies pop up, you can handle them without going into debt. Credit card minimum payments pile up interest quickly, which can turn a small problem into a big one.",
           },
           {
             id: "beaver-l4-s2",
