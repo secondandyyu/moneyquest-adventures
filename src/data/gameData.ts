@@ -684,7 +684,7 @@ export const categories: Category[] = [
               { text: "Take money out of the profits of the company and donate it to a local children's center.", quality: "okay", xp: 300 },
               { text: "Give them to your workers to eat at home.", quality: "bad", xp: 100 },
             ],
-            justification: "Both donating snacks and donating money are great because they show \"Generosity\" in two different ways! Donating snacks makes sure delicious food doesn't go to waste and puts smiles on children's faces. Donating profits gives the children's center \"buying power\" to pay for things they need most, like new beds or medical care. Both choices build a strong bond between your business and the community!",
+            justification: "Both donating snacks and donating money are great because they show generosity in two different ways! Donating snacks makes sure delicious food doesn't go to waste and puts smiles on children's faces. Donating profits gives the children's center the ability to pay for things they need most, like new beds or medical care. Both choices build a strong bond between your business and the community!",
           },
           {
             id: "dog-l5-s2",
