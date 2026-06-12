@@ -396,7 +396,7 @@ export const categories: Category[] = [
               { text: "Use a store installment plan that splits the car's cost into predictable amounts over the next few months without a loan.", quality: "best", xp: 500 },
               { text: "Get a loan from the bank that has interest but is safe and protected.", quality: "okay", xp: 300 },
             ],
-            justification: "A store installment plan is the \"Predictable Path.\" It usually doesn't involve a scary bank. You know exactly how much you owe every month, and it feels like a small step-by-step ladder to owning a car. A bank loan is also a solid choice — it's the \"Shield of Protection\" because banks have clear rules and contracts that protect you, and it helps you build a \"credit score\" like gaining XP for your financial life!",
+            justification: "A store installment plan is the safest path. It usually doesn't involve a scary bank, and you know exactly how much you owe every month. It's like a small step-by-step path to owning a car. You're essentially paying for the car over months, not all at once. A bank loan is also a solid choice because banks have clear rules and contracts that protect you, and it helps you build a \"credit score\" like gaining XP for your financial life!",
           },
           {
             id: "beaver-l4-s3",
