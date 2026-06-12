@@ -357,7 +357,7 @@ export const categories: Category[] = [
               { text: "Buy a cheaper jacket for this winter that is still warm and convenient.", quality: "bad", xp: 100 },
               { text: "Use a bit of savings to buy a jacket that will likely last two winters.", quality: "best", xp: 500 },
             ],
-            justification: "This balances quality and cost. Buying a jacket that lasts two winters means you are spending a little more than the cheapest one, but you won't have to buy another one next year. It's a \"Smart Save\" because it keeps you warm now and protects your wallet for the next two years!",
+            justification: "This choice balances quality and cost. Buying a jacket that lasts two winters means you are spending a little more than the cheapest one, but you won't have to buy another jacket next year. It's a \"Smart Save\" because it keeps you warm now and protects your wallet for the next two years!",
           },
           {
             id: "beaver-l3-s3",
