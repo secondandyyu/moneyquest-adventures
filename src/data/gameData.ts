@@ -630,7 +630,7 @@ export const categories: Category[] = [
               { text: "Invest in improving supply efficiency, such as buying ingredients in bulk to lower costs per unit.", quality: "best", xp: 500 },
               { text: "Keep the money as cash to maintain flexibility in case of future expenses for the business.", quality: "okay", xp: 300 },
             ],
-            justification: "Both marketing and bulk buying are the best because they represent \"growth\" versus \"efficiency.\" Marketing plants seeds to bring in more customers and grow your total sales. Buying in bulk lowers your costs, meaning you make more profit on every single snack. Whether you choose to bring in more people or make your process cheaper, both choices help your business \"Level Up\"!",
+            justification: "Both marketing and big purchases are the best because they represent \"growth\" versus \"efficiency.\" Marketing plants seeds to bring in more customers and grow your total sales. Buying in bulk lowers your costs, meaning you make more profit on every single snack. Whether you choose to bring in more people or make your process cheaper, both choices help your business \"Level Up\"!",
           },
           {
             id: "dog-l4-s3",
