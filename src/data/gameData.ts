@@ -563,7 +563,7 @@ export const categories: Category[] = [
               { text: "Don't set a fixed budget but make careful spending decisions each month based on business performance.", quality: "bad", xp: 100 },
               { text: "Base your budget on your lowest-income months, covering needs and loan payments first, and save extra during higher-income months.", quality: "best", xp: 500 },
             ],
-            justification: "Budgeting based on your lowest-income months is the safest approach. This way, you can always cover your needs and loan payments even when income is low. During good months, you get to save the extra money as a bonus!",
+            justification: "Budgeting based on your lowest-income months is the safest approach. This way, you can always cover your needs and loan payments even when income is low. During good months, you get to save the extra money as a bonus! This strategy works best if you have a monthly income that changes every month.",
           },
           {
             id: "dog-l3-s2",
