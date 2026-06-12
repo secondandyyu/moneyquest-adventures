@@ -434,7 +434,7 @@ export const categories: Category[] = [
               { text: "Business loan from a bank with a separate program for new business owners and a structured repayment plan.", quality: "best", xp: 500 },
               { text: "Informal loan from a rich family member who seems flexible about interest.", quality: "okay", xp: 300 },
             ],
-            justification: "A Business Loan is the gold standard. Unlike a personal loan, which can have scary high interest, business loans are designed specifically for people like you. They give you a \"structured repayment plan,\" which is like a map that tells you exactly how much to pay back each month. This helps you stay organized so you don't get lost in debt!",
+            justification: "A Business Loan is the gold standard. Unlike a personal loan, which can have high interest, business loans are designed specifically for people like you, who want to start a business on their own. They give you a structured repayment plan, which is like a map that tells you exactly how much to pay back each month. This helps you stay organized so you don't get lost in debt in the future!",
           },
           {
             id: "dog-l1-s2",
